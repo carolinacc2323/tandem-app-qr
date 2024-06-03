@@ -33,7 +33,7 @@ return (
             <StaticImage src="../images/logo.png" width={145} height={85}/>
         </div>
         <div className={`nav_items ${isOpen ? "open" : ""}`}> 
-            <a href="#">APP QR</a>
+            <a href="./pages/404.js">APP QR</a>
             <a href="#">SOPORTE</a>
             <a href="#">INFORMACIÓN INSTITUCIONAL</a>
         </div>
