@@ -1,0 +1,11 @@
+/* .imagencentral img{
+    align-items: center;
+    width: 100px;
+    height: auto;
+} */
+.accordion-header {
+    background-color: #FF0000; 
+}
+.accordion {
+    background-color: #F0F0F0;
+}

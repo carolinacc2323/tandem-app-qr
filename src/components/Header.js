@@ -1,5 +1,4 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import BurguerNavbar from "./BurguerNavbar"
 const Header = ()=>{
     return(
