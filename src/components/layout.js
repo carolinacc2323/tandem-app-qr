@@ -1,14 +1,14 @@
 import * as React from "react"
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './layout.css'
-import BurguerNavbar from "./BurguerNavbar"
 import Footer from "./Footer"
+import NavbarTandem from "../pages/NavbarTandem"
 
 
 const Layout = ({ children }) => {
   return (
     <>
-      <BurguerNavbar/>
+      <NavbarTandem/>
       <main>
         {children}
         </main>

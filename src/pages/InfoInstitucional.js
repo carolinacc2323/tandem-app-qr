@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { StaticImage } from 'gatsby-plugin-image'
 import * as infoStyle from '../pages/infoInstitucional.module.css'
 import Layout from '../components/layout';
+// import Icon from '../components/Icon';
 
 
 function InfoInstitucional(props) {
@@ -26,10 +27,9 @@ function InfoInstitucional(props) {
     <>
     <Layout>
     <div className='container'>
-        <div className='imagenprincipal'>
+        {/* <div className='imagenprincipal'>
             <StaticImage  src='../images/palacio.jpg' className={infoStyle.imagenprincipal}/>
-        </div>
-        <br></br>
+        </div> */}
       <Accordion flush open={open} toggle={toggle}>
         <AccordionItem>
           <AccordionHeader targetId="1">Bienvenida de la Presidenta</AccordionHeader>

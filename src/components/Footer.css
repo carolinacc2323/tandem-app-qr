@@ -1,0 +1,106 @@
+/* Móvil */
+.footer{
+  background-color: #333;
+}
+.footeri{
+  display: grid;
+  grid-template-areas: 
+    "s1 s2 s3"
+    "s4 s4 s4"; 
+  column-gap: 5px;
+  row-gap: 15px;
+  padding: 0.5em;
+}
+ .footerleft{
+  grid-area: s1;
+  align-self: center;
+  width: 100%;
+ }
+
+.logoblanco{
+  grid-area: s2;
+}
+.logoblanco img{
+  width: 100%;
+}
+.logotipos{
+  grid-area: s3;
+  align-self: center;
+}
+.logotipos img{
+  height: 30px;
+  width: 30px;
+}
+.enlaces{
+  grid-area: s4;
+
+  align-self: center;
+  justify-self: center;
+
+}
+.enlaces a{
+  color: rgb(233, 233, 233);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight:normal;
+
+}
+
+
+
+
+@media (min-width: 728px){
+/* Móvil */
+.footer{
+  background-color: #333;
+}
+.footeri{
+  
+  display: grid;
+  grid-template-areas: 
+    "s1 s2 s3 s4"; 
+  column-gap: 5px;
+  row-gap: 5px;
+  padding: 0.5em;
+  justify-content: center;
+}
+ .footerleft{
+  grid-area: s1;
+  align-self: center;
+  justify-self: center;
+ } 
+ .footerleft img{
+  width: 200px;
+ } 
+.logoblanco{
+  grid-area: s2;
+  margin-right: 0.5em;
+}
+.logoblanco img{
+  width: 200px;
+}
+.logotipos{
+  grid-area: s3;
+  align-self: center;
+  margin-right: 2em;
+}
+.logotipos img{
+  height: 30px;
+  width: 30px;
+}
+.enlaces{
+  grid-area: s4;
+  margin: 0.5em;
+
+}
+.enlaces a{
+  color: rgb(233, 233, 233);
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight:normal;
+
+}
+
+}

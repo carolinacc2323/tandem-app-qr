@@ -18,6 +18,7 @@ h1{
 }
 .no-border {
     border: none;
+    border-bottom: 20px;
 }
 .imagen1{
     margin-left: 8em;

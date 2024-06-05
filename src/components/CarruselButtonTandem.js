@@ -11,7 +11,7 @@ import qr2 from '../images/qr2.jpg'
 import qr3 from '../images/qr3.jpg'
 import qr4 from '../images/qr4.jpg'
 import qr5 from '../images/qr5.jpg'
-
+import './CarruselButtonTandem.css'
 const items = [
   {
     src: qr1,
@@ -75,7 +75,7 @@ function CarruselButtonTandem(args) {
       >
         <img src={item.src} alt={item.altText} />
         <CarouselCaption
-        className="text-danger bg-light"
+        className="text-light bg-dark rounded-4 caption"
           captionHeader={item.caption}
         />
       </CarouselItem>
