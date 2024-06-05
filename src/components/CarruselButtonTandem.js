@@ -6,11 +6,11 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import qr1 from './images/qr1.jpg'
-import qr2 from './images/qr2.jpg'
-// import qr3 from './images/qr3.jpg'
-import qr4 from './images/qr4.jpg'
-// import qr5 from './images/ruta.jpg'
+import qr1 from '../images/qr1.jpg'
+import qr2 from '../images/qr2.jpg'
+import qr3 from '../images/qr3.jpg'
+import qr4 from '../images/qr4.jpg'
+import qr5 from '../images/qr5.jpg'
 
 const items = [
   {

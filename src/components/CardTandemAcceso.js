@@ -22,7 +22,7 @@ return (
       Solo para empleados registrados
     </CardSubtitle>
     <Button color="danger"
-    outline size="lg">
+    outline size="lg" href='./AppQr'>
     ACCESO
     </Button>
   </CardBody>

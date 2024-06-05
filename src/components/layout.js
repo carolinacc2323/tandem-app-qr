@@ -9,15 +9,12 @@ const Layout = ({ children }) => {
   return (
     <>
       <BurguerNavbar/>
-      <div className="container">
-      
       <main>
         {children}
         </main>
       <footer>
         <Footer/>
       </footer>
-    </div>
     </>
   )
 }
