@@ -18,9 +18,9 @@
 //     )
 // }
 // export default BurguerNavbar
-import React, { useState } from "react";
-import "./BurguerNavbar.css"; // Import the CSS file
-import { StaticImage } from "gatsby-plugin-image";
+import React, { useState } from "react"
+import "./BurguerNavbar.css"
+import { StaticImage } from "gatsby-plugin-image"
 
 const BurguerNavbar = () => {
 const [isOpen, setIsOpen] = useState(false);

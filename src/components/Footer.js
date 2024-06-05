@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import * as footerStyle from './Footer.module.css'
+
 const Footer = () =>{
     return(
         <footer>

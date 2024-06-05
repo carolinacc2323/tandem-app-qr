@@ -1,0 +1,51 @@
+.card{
+    justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.textlogin{
+  font-size: 10px;
+}
+.eslogan{
+  text-align: center;
+  width: 100%;
+}
+.eslogan h3{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  
+}
+.eslogan2{
+  background-color: white;
+  padding: 0.5em;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+.eslogan2 h2{
+  font-weight:bold;  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.acceso{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+
+}
+.userlogin{
+
+  text-align: center;
+}
+.buttonacces{
+  width: 100px;
+  height: 50px;
+  background-color:  rgba(185, 20, 0, 1);
+  border: white(185, 20, 0, 1) 0.2em solid;
+  color:white ;
+  font-size: 20px;
+  border-radius: 10px;
+
+}

@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   Accordion,
   AccordionBody,
   AccordionHeader,
   AccordionItem,
 } from 'reactstrap';
-import BurguerNavbar from '../components/BurguerNavbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { StaticImage } from 'gatsby-plugin-image'
 import * as infoStyle from '../pages/infoInstitucional.module.css'
+import Layout from '../components/layout';
 
 
 function InfoInstitucional(props) {
@@ -23,7 +24,7 @@ function InfoInstitucional(props) {
 
   return (
     <>
-    <BurguerNavbar/>
+    <Layout>
     <div className='container'>
         <div className='imagenprincipal'>
             <StaticImage  src='../images/palacio.jpg' className={infoStyle.imagenprincipal}/>
@@ -142,6 +143,7 @@ function InfoInstitucional(props) {
         </AccordionItem>
       </Accordion>
     </div>
+    </Layout>
     </>
   );
 }
