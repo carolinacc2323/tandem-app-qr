@@ -9,12 +9,9 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-
 function NavbarTandem(props) {
   const [collapsed, setCollapsed] = useState(true);
-
   const toggleNavbar = () => setCollapsed(!collapsed);
-
   return (
     <div>
       <Navbar color="dark" dark className='my-2'>
@@ -38,5 +35,4 @@ function NavbarTandem(props) {
     </div>
   );
 }
-
 export default NavbarTandem;

@@ -1,0 +1,14 @@
+/* .contenidoqr{
+    background-color: cornflowerblue;
+    border: 5px;
+    border-color: black;
+} */
+
+.contenido1{
+    background-color: #F0F0F0; 
+    border-radius: 10px;
+    border-color: #B91400;
+    padding: 50px;
+    align-items: center;
+    margin-left: 1.2em;
+}

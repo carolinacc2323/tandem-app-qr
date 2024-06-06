@@ -62,7 +62,7 @@
     "s1 s2 s3 s4"; 
   column-gap: 5px;
   row-gap: 5px;
-  padding: 0.5em;
+  padding: 0.em;
   justify-content: center;
 }
  .footerleft{

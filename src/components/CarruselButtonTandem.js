@@ -11,7 +11,9 @@ import qr2 from '../images/qr2.jpg'
 import qr3 from '../images/qr3.jpg'
 import qr4 from '../images/qr4.jpg'
 import qr5 from '../images/qr5.jpg'
-import './CarruselButtonTandem.css'
+import "./CarruselButton.css"
+
+
 const items = [
   {
     src: qr1,
@@ -88,6 +90,7 @@ function CarruselButtonTandem(args) {
       next={next}
       previous={previous}
       {...args}
+      
     >
       <CarouselIndicators
         items={items}

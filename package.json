@@ -8,9 +8,13 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource/merriweather": "^5.0.8",
+    "@mui/material": "^5.15.19",
     "bootstrap": "^5.3.3",
+    "downloadjs": "^1.4.7",
     "gatsby": "^5.13.5",
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
@@ -22,6 +26,7 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "html-to-image": "^1.11.11",
     "prismjs": "^1.29.0",
     "qrcode.react": "^3.1.0",
     "react": "^18.3.1",

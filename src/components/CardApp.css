@@ -18,15 +18,19 @@ h1{
 }
 .no-border {
     border: none;
-    border-bottom: 20px;
 }
 .imagen1{
     margin-left: 8em;
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 270px;
+    height: auto;
+    border-bottom: 5em;
 }
 .imagen2{
     margin-left: 7em;
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: auto;
 }

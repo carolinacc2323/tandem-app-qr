@@ -1,8 +1,7 @@
 import * as React from "react"
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import './layout.css'
 import Footer from "./Footer"
-import NavbarTandem from "../pages/NavbarTandem"
+import NavbarTandem from "./NavbarTandem"
 
 
 const Layout = ({ children }) => {

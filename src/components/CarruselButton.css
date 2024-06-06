@@ -1,0 +1,11 @@
+.caption{
+    background-color: rgba(0, 0, 0, 0.743)!important;
+  }
+  .itemcarrusel{
+    background-color: #ef776a !important;
+    text-align: center;
+  }
+.carruseltext p{
+      font-size: 30px;
+      color: white;
+  }
