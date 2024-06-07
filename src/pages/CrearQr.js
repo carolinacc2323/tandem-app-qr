@@ -1,96 +1,96 @@
-import React from "react"
-import Layout from "../components/layout"
-import { useState, useRef } from "react"
-
-// import {QRCodeCanvas, QRCodeSVG} from 'qrcode.react'
-import QrComponent from "../components/QrComponent"
-import QRCode from "qrcode.react"
-import download from "downloadjs"
-import { toPng, toJpeg, toSvg } from "html-to-image"
-import TabsQr from "../components/TabsQr"
-
-import './CrearQr.css'
+import React, { useState, useRef } from 'react';
+import Layout from '../components/layout';
+import QRCode from 'qrcode.react';
+import TabsQr from '../components/TabsQr';
+import QrComponent from '../components/QrComponent';
+import ModalExport from '../components/ModalExport';
+import './CrearQr.css';
+import CompaQr from '../components/CompaQr';
 
 function CrearQr() {
-    const [inputValue, setInputValue] = useState('');
-    const [qrColor, setQrColor] = useState('black');
-    const [qrSize, setQrSize] = useState(100);
-    const qrRef = useRef(null);
-    const handleInputChange = (event) => {
+  const [inputValue, setInputValue] = useState('');
+  const [qrColor, setQrColor] = useState('black');
+  const [qrSize, setQrSize] = useState(100);
+  const [tabValue, setTabValue] = useState('one');
+  const qrRef = useRef(null);
+
+  const handleInputChange = (event) => {
     setInputValue(event.target.value);
-    };
-    const handleColorChange = (color) => {
+  };
+  const handleColorChange = (color) => {
     setQrColor(color);
-    };
-    const handleSizeChange = (size) => {
-      setQrSize(parseInt(size, 10));
-    };
-    const handleDownload = async () => {
-      if (qrRef.current) {
-        const dataUrl = await toPng(qrRef.current);
-        download(dataUrl, 'qr-code.png');
-      }
-    };
-  
-    const handleDownload2 = async () => {
-      if (qrRef.current) {
-        const dataUrl = await toJpeg(qrRef.current);
-        download(dataUrl, 'qr-code.jpeg');
-      }
-    };
-  
-    const handleDownload3 = async () => {
-      if (qrRef.current) {
-        const dataUrl = await toSvg(qrRef.current);
-        download(dataUrl, 'qr-code.svg');
-      }
-    };
-    const containerStyle = {
-    //   backgroundColor: "beige",
-      border: "2px solid black",
-      padding: "20px",
-      borderRadius: "10px",
-    //   textAlign: "center",
-    };
-    const colorOptions = ['black', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'pink', 'magenta']; // Colores ampliados
-    return (
-      <Layout>
-        <div style={containerStyle}>
-            <div>
-                <h1>GENERADOR DE QR</h1>
-            </div>
-            <div className="contenidoqr">
-                <TabsQr/>
-                <br />
-                {/* <p>Introduce el contenido deseado</p> */}
-                <input className="
-                contenido1" type="text" placeholder="Introduce el contenido" value={inputValue} onChange={handleInputChange} />
-            </div>
+  };
+  const handleSizeChange = (size) => {
+    setQrSize(parseInt(size, 10));
+  };
+  const handleTabChange = (newValue) => {
+    setTabValue(newValue);
+  };
+
+  const getPlaceholder = () => {
+    switch (tabValue) {
+      case 'one':
+        return 'Introduce la URL';
+      case 'two':
+        return 'Introduce la coordenada';
+      case 'three':
+        return 'Introduce el texto';
+      default:
+        return 'Introduce el contenido';
+    }
+  };
+
+  const containerStyle = {
+    padding: '20px',
+  };
+  const colorOptions = ['black', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'pink', 'magenta'];
+
+  return (
+    <Layout>
+      <div className="titulo">
+        <h1>GENERADOR DE QR</h1>
+      </div>
+      <div className="container1" style={containerStyle}>
+        <div className="contenidoqr">
+          <p className="grupo1">Contenido de tu QR</p>
+          <TabsQr onTabChange={handleTabChange} />
+          <br />
+          <div className="url">
+            <input
+              className="contenido1"
+              type="text"
+              placeholder={getPlaceholder()}
+              value={inputValue}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="personalizarqr">
+          <p className="grupo2">Personaliza tu QR</p>
           <QrComponent
             onColorChange={handleColorChange}
             onSizeChange={handleSizeChange}
             colorOptions={colorOptions}
           />
-          <br /> 
-          <div className="qr-contenido">
-          <div ref={qrRef}>
+        </div>
+        <div className="qrcontenido">
+          <p className="grupo3">QR creado</p>
+          <div className="qrdescarga" ref={qrRef}>
             <QRCode value={inputValue} size={qrSize} fgColor={qrColor} />
           </div>
-          <br />
-         <br />
-           {/* <TandemButton enlace="#">Generar QR</TandemButton> */}
-          <p>Contenido del QR</p>
-          <p>{inputValue}</p>
-          <p>{qrColor}</p>
-          <p>{qrSize}</p>
+          <div className="qrcreado">
+            <p>Contenido: {inputValue}</p>
+            <p>Color: {qrColor}</p>
+            <p>Tamaño: {qrSize}</p>
+            <br />
+            <p>Descargar QR</p>
+            <ModalExport qrRef={qrRef} />
+            <CompaQr/>
           </div>
-          <br />
-          <p>Descargar QR</p>
-          <button onClick={handleDownload} className="button22">Png</button>
-          <button onClick={handleDownload2} className="button22">Jpeg</button>
-          <button onClick={handleDownload3} className="button22">Svg</button>
         </div>
-      </Layout>
-    );
+      </div>
+    </Layout>
+  );
 }
-export default CrearQr
+
+export default CrearQr;

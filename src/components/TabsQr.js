@@ -3,11 +3,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
-export default function TabsQr() {
+export default function TabsQr({ onTabChange }) {
   const [value, setValue] = React.useState('one');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    onTabChange(newValue); // Notifica el cambio de tab
   };
 
   return (

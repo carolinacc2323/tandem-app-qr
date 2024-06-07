@@ -29,7 +29,7 @@ const CardApp = () => {
                                 <CardText className="texto">
                                     Crea códigos QR personalizados para compartir información.
                                 </CardText>
-                                <Button>
+                                <Button href='../CrearQr'>
                                     CREAR QR
                                 </Button>
                             </CardBody>

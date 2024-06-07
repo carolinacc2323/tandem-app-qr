@@ -22,11 +22,14 @@ function NavbarTandem(props) {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink href="/components/">Inicio</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
+              <NavLink href="/AppQr">App QR</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/InfoInstitucional">
+                Info Institucional
               </NavLink>
             </NavItem>
           </Nav>

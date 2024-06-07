@@ -15,11 +15,12 @@ function QRComponent({ onColorChange, onSizeChange }) {
     };
 
     return (
-        <div>
-            <label>Elige color</label>
+        <div className='container'>
+            <p>Selecciona el color de tu QR</p>
             <div>
-                <label>
-                    <input
+                <div className='form-check'>
+                <label className='form-check-label'>
+                    <input className='form-check-input'
                         type="radio"
                         value="black"
                         checked={selectedColor === 'black'}
@@ -27,8 +28,9 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     />
                     Negro
                 </label>
-                <label>
-                    <input
+                </div>
+                <label className='form-check-label'>
+                    <input className='form-check-input'
                         type="radio"
                         value="blue"
                         checked={selectedColor === 'blue'}
@@ -36,8 +38,8 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     />
                     Azul
                 </label>
-                <label>
-                    <input
+                <label className='form-check-label'>
+                    <input className='form-check-input'
                         type="radio"
                         value="red"
                         checked={selectedColor === 'red'}
@@ -46,10 +48,10 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     Rojo
                 </label>
             </div>
-            <label>Elige tamaño</label>
+            <p>Selecciona el tamaño de tu QR</p>
             <div>
-                <label>
-                    <input
+                <label className='form-check-label'>
+                    <input className='form-check-input'
                         type="radio"
                         value="100"
                         checked={selectedSize === '100'}
@@ -57,8 +59,8 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     />
                     Pequeño
                 </label>
-                <label>
-                    <input
+                <label className='form-check-label'>
+                    <input className='form-check-input'
                         type="radio"
                         value="200"
                         checked={selectedSize === '200'}
@@ -66,8 +68,8 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     />
                     Mediano
                 </label>
-                <label>
-                    <input
+                <label className='form-check-label'>
+                    <input className='form-check-input'
                         type="radio"
                         value="300"
                         checked={selectedSize === '300'}
