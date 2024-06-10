@@ -14,7 +14,7 @@ return (
   </div>
   <CardBody className="card">
     <CardTitle tag="h5" className='eslogan '>
-    <h3><strong>Vive una experiencia única</strong> visita Aranjuez</h3>
+    <h3>Comparte <strong>experiencias únicas</strong>, con nuestra app</h3>
     
     </CardTitle>
     <CardSubtitle

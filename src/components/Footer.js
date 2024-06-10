@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import './Footer.css'
 const Footer = () =>{
     return(
-        <footer className='footer'>
+        <footer className='footer '>
           <div className='footeri'>
             
             <div className='footerleft'>

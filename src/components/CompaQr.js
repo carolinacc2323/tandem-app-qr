@@ -1,17 +1,44 @@
 import React from 'react';
-import './CompaQr.css'
-import { StaticImage } from 'gatsby-plugin-image';
+import './CompaQr.css';
+import { FacebookShareButton, TwitterShareButton, EmailShareButton } from "react-share";
+import { FacebookIcon, TwitterIcon, EmailIcon } from "react-share";
+
 function CompaQr() {
   return (
+    
     <div className="compartir-container">
       <div className="compartir-header">
         <p>COMPARTIR</p>
       </div>
       <div className="compartir-icons">
-        <StaticImage src='../images/email.png'/>
-        <StaticImage src='../images/inst.png'/>
-        <StaticImage src='../images/whatsApp.png'/>
-        <StaticImage src='../images/facebook.png'/>
+      <FacebookShareButton
+        url={"https://www.pinterest.es/"}
+        quote={"no sé que es quote"}
+        hashtag={"#generadorqrpatrimonio"}
+        description={'dataUrl'}
+        className="Demo__some-network__share-button"
+      >
+        <FacebookIcon size={32} round />
+      </FacebookShareButton>
+      <br />
+      <TwitterShareButton
+        title={"Generar códigos QR"}
+        url={"https://www.pinterest.es/"}
+        hashtags={["qrpatrimonio", "hashtag2"]}
+      >
+        <TwitterIcon size={32} round />
+        
+      </TwitterShareButton>
+      <EmailShareButton
+        subject='Generador códigos QR'
+        body='carolinacc.tandem@gmail.com'
+        separator='--'
+      >
+        <EmailIcon size={32} round/>
+      </EmailShareButton>
+
+
+        
       </div>
     </div>
   );

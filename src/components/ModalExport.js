@@ -25,13 +25,15 @@ function ModalExport({ className, qrRef }) {
       let dataUrl;
       if (selectedFormat === 'png') {
         dataUrl = await toPng(qrRef.current); 
-        // console.log('se ha descargado')
+        
         setDescargado(true)
         
       } else if (selectedFormat === 'jpeg') {
         dataUrl = await toJpeg(qrRef.current);
+        setDescargado(true)
       } else if (selectedFormat === 'svg') {
         dataUrl = await toSvg(qrRef.current);
+        setDescargado(true)
       }
       download(dataUrl, `qr-code.${selectedFormat}`);
     }

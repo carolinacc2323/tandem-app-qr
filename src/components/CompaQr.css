@@ -1,36 +1,40 @@
 .compartir-container {
-    border: 2px solid #B91400;
-    border-radius: 10px;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .compartir-header {
-    background-color: white;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .compartir-header p {
-    margin: 0;
-    color: #B91400;
-    font-size: 24px;
-  }
-  
-  .compartir-icons {
-    display: flex;
-    justify-content: space-around;
-    border: 2px solid black;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .compartir-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
+  border: 2px solid #B91400;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.compartir-header {
+  background-color: white;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.compartir-header p {
+  margin: 0;
+  color: #B91400;
+  font-size: 24px;
+}
+
+.compartir-icons {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.icon {
+  width: 50px; /* Ajusta el tamaño según sea necesario */
+  height: 50px; /* Ajusta el tamaño según sea necesario */
+  object-fit: contain; /* Asegura que las imágenes mantengan su proporción */
+}
+.iconf{
+  width: 45px;
+  height: 45px;
+}

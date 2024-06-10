@@ -1,11 +1,14 @@
-import React, { useState, useRef } from 'react';
-import Layout from '../components/layout';
-import QRCode from 'qrcode.react';
-import TabsQr from '../components/TabsQr';
-import QrComponent from '../components/QrComponent';
-import ModalExport from '../components/ModalExport';
+import React from "react";
+import Layout from "../components/layout";
+import { useState, useRef } from "react";
+import QRCode from "qrcode.react";
+
+import QrComponent from "../components/QrComponent";
+import ModalExport from "../components/ModalExport";
+
 import './CrearQr.css';
-import CompaQr from '../components/CompaQr';
+import TabsQr from "../components/TabsQr";
+import ModalCompartir from "../components/ModalCompartir";
 
 function CrearQr() {
   const [inputValue, setInputValue] = useState('');
@@ -13,7 +16,6 @@ function CrearQr() {
   const [qrSize, setQrSize] = useState(100);
   const [tabValue, setTabValue] = useState('one');
   const qrRef = useRef(null);
-
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -41,56 +43,77 @@ function CrearQr() {
   };
 
   const containerStyle = {
-    padding: '20px',
+    padding: "5px",
   };
-  const colorOptions = ['black', 'blue', 'red', 'green', 'yellow', 'purple', 'orange', 'pink', 'magenta'];
+  const colorOptions = ['black', 'blue', 'red'];
 
   return (
     <Layout>
+
       <div className="titulo">
-        <h1>GENERADOR DE QR</h1>
+          <h1>GENERADOR DE QR</h1>
       </div>
-      <div className="container1" style={containerStyle}>
-        <div className="contenidoqr">
-          <p className="grupo1">Contenido de tu QR</p>
+      <div className="pagina" style={containerStyle}>
+
+        <div className="url">
+          <h4 className="grupo1" >Contenido del QR</h4>
           <TabsQr onTabChange={handleTabChange} />
-          <br />
-          <div className="url">
-            <input
-              className="contenido1"
-              type="text"
-              placeholder={getPlaceholder()}
-              value={inputValue}
-              onChange={handleInputChange}
-            />
-          </div>
+
+        <div className="input-container">
+         
+        <input
+            
+            type="text"
+            placeholder=""
+            value={inputValue}
+            onChange={handleInputChange}
+            id="inputField"
+            name="inputField"
+          />
+          <label htmlFor="inputField">{getPlaceholder()}</label>
         </div>
-        <div className="personalizarqr">
-          <p className="grupo2">Personaliza tu QR</p>
-          <QrComponent
+          
+        </div>
+
+        <div className="qrcomponent">
+          <h4 className="grupo2" >Personalizar QR</h4>
+          <div className="colorytamaño">
+            <QrComponent
             onColorChange={handleColorChange}
             onSizeChange={handleSizeChange}
             colorOptions={colorOptions}
           />
+
+          </div>
+
         </div>
+
         <div className="qrcontenido">
-          <p className="grupo3">QR creado</p>
-          <div className="qrdescarga" ref={qrRef}>
+          <h4 className="grupo3">QR creado</h4>
+          <div className="qrcontenidoint" style={{
+            display:'grid',
+            gridTemplateColumns: '3fr 1fr'
+          }}>
+            <div className="qrdescarga" ref={qrRef}>
             <QRCode value={inputValue} size={qrSize} fgColor={qrColor} />
+            </div>
+
+            <div className="qrcreado">
+              <h5>Contenido: {inputValue}</h5>
+              <p>Color: {qrColor}</p>
+              <p>Tamaño: {qrSize}</p>
+
+              <ModalExport qrRef={qrRef} />
+
+              <ModalCompartir/>
+            </div>
           </div>
-          <div className="qrcreado">
-            <p>Contenido: {inputValue}</p>
-            <p>Color: {qrColor}</p>
-            <p>Tamaño: {qrSize}</p>
-            <br />
-            <p>Descargar QR</p>
-            <ModalExport qrRef={qrRef} />
-            <CompaQr/>
-          </div>
+
         </div>
       </div>
+
     </Layout>
   );
 }
 
-export default CrearQr;
+export default CrearQr

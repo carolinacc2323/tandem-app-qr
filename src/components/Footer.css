@@ -1,27 +1,29 @@
-/* Móvil */
 .footer{
   background-color: #333;
 }
 .footeri{
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "s1 s2 s3"
-    "s4 s4 s4"; 
+    "s4 s4 s4";
   column-gap: 5px;
-  row-gap: 15px;
   padding: 0.5em;
+  text-align: center;
 }
  .footerleft{
   grid-area: s1;
   align-self: center;
   width: 100%;
  }
-
+ .footerleft img{
+  width: 150px;
+  height: auto;
+ }
 .logoblanco{
   grid-area: s2;
 }
 .logoblanco img{
-  width: 100%;
+  width: 150px;
 }
 .logotipos{
   grid-area: s3;
@@ -33,10 +35,7 @@
 }
 .enlaces{
   grid-area: s4;
-
-  align-self: center;
-  justify-self: center;
-
+text-align: center;
 }
 .enlaces a{
   color: rgb(233, 233, 233);
@@ -44,41 +43,36 @@
   font-size: 14px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight:normal;
-
 }
-
-
-
-
 @media (min-width: 728px){
-/* Móvil */
 .footer{
   background-color: #333;
 }
 .footeri{
-  
   display: grid;
-  grid-template-areas: 
-    "s1 s2 s3 s4"; 
+  grid-template-areas:
+    "s1 s2 s3 s4";
   column-gap: 5px;
   row-gap: 5px;
-  padding: 0.em;
+  padding: 0.5em;
   justify-content: center;
+  align-content: center;
+align-items: center;
 }
  .footerleft{
   grid-area: s1;
-  align-self: center;
-  justify-self: center;
- } 
+  width: 100%;
+ }
  .footerleft img{
-  width: 200px;
- } 
+  width: 100px;
+  height: auto;
+ }
 .logoblanco{
   grid-area: s2;
   margin-right: 0.5em;
 }
 .logoblanco img{
-  width: 200px;
+  width: 100px;
 }
 .logotipos{
   grid-area: s3;
@@ -92,7 +86,6 @@
 .enlaces{
   grid-area: s4;
   margin: 0.5em;
-
 }
 .enlaces a{
   color: rgb(233, 233, 233);
@@ -100,7 +93,5 @@
   font-size: 14px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight:normal;
-
 }
-
 }

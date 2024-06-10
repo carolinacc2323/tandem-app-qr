@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
 
 function QRComponent({ onColorChange, onSizeChange }) {
@@ -14,41 +15,106 @@ function QRComponent({ onColorChange, onSizeChange }) {
         onSizeChange(event.target.value);
     };
 
+    const getBorderColor = (color) => {
+        switch(color) {
+            case 'black':
+                return 'black';
+            case 'blue':
+                return 'blue';
+            case 'red':
+                return 'red';
+            default:
+                return 'transparent';
+        }
+    };
+
     return (
-        <div className='container'>
-            <p>Selecciona el color de tu QR</p>
-            <div>
-                <div className='form-check'>
-                <label className='form-check-label'>
-                    <input className='form-check-input'
-                        type="radio"
-                        value="black"
-                        checked={selectedColor === 'black'}
-                        onChange={handleColorChange}
+        <div style={{
+            textAlign:'center',
+        }}>
+            <h4>Selecciona el color de tu QR</h4>
+            <br></br>
+            <div style={{
+                display:'grid',
+                gridTemplateColumns:'1fr 1fr 1fr',
+                columnGap: '15px',
+            }}>
+
+                    <label 
+                        className='form-check-label' 
+                        style={{
+                            display: 'flex', 
+                            flexDirection: 'column', 
+                            alignItems: 'center'
+                        }}
+                    >
+                        <StaticImage 
+                            src='../images/qrnegro.jpg' 
+                            alt='qr negro' 
+                            style={{
+                                transition: 'all 0.3s',
+                                padding: selectedColor === 'black' ? '10px' : '0',
+                                border: selectedColor === 'black' ? `2px solid ${getBorderColor('black')}` : 'none'
+                            }}
+                        />
+                        <input className='form-check-input'
+                            type="radio"
+                            value="black"
+                            checked={selectedColor === 'black'}
+                            onChange={handleColorChange}
+                        />
+                    </label>
+
+                <label 
+                    className='form-check-label' 
+                    style={{
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        alignItems: 'center'
+                    }}
+                >
+                    <StaticImage 
+                        src='../images/qrazul.jpg' 
+                        alt='qr azul' 
+                        style={{
+                            transition: 'all 0.3s',
+                            padding: selectedColor === 'blue' ? '10px' : '0',
+                            border: selectedColor === 'blue' ? `2px solid ${getBorderColor('blue')}` : 'none'
+                        }}
                     />
-                    Negro
-                </label>
-                </div>
-                <label className='form-check-label'>
                     <input className='form-check-input'
                         type="radio"
                         value="blue"
                         checked={selectedColor === 'blue'}
                         onChange={handleColorChange}
                     />
-                    Azul
                 </label>
-                <label className='form-check-label'>
+                <label 
+                    className='form-check-label' 
+                    style={{
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        alignItems: 'center'
+                    }}
+                >
+                    <StaticImage 
+                        src='../images/qrrojo.jpg' 
+                        alt='qr rojo' 
+                        style={{
+                            transition: 'all 0.3s',
+                            padding: selectedColor === 'red' ? '10px' : '0',
+                            border: selectedColor === 'red' ? `2px solid ${getBorderColor('red')}` : 'none'
+                        }}
+                    />
                     <input className='form-check-input'
                         type="radio"
                         value="red"
                         checked={selectedColor === 'red'}
                         onChange={handleColorChange}
                     />
-                    Rojo
                 </label>
             </div>
-            <p>Selecciona el tamaño de tu QR</p>
+            <h4>Selecciona el tamaño de tu QR</h4>
             <div>
                 <label className='form-check-label'>
                     <input className='form-check-input'
@@ -78,7 +144,6 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     Grande
                 </label>
             </div>
-            {/* Custom styling using CSS (optional) */}
             <style jsx="true">
                 {`
                     label {
@@ -90,6 +155,9 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     }
                     input[type="radio"] {
                         margin-right: 5px;
+                    }
+                    .form-check-label:hover img {
+                        padding: 10px;
                     }
                 `}
             </style>

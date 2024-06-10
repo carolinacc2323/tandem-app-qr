@@ -1,67 +1,245 @@
 .titulo{
     text-align: center;
-}
-.container1{
+  }
+  .pagina{
+  display: grid;
+  grid-template-columns: 1fr;
+  height: auto;
+  margin: 1em;
+  }
+  
+  @keyframes placeholderAnimation {
+    0% {
+      content: 'Introduce el contenido';
+    }
+    33% {
+      content: 'Introduce la URL';
+    }
+    66% {
+      content: 'Introduce la coordenada';
+    }
+    100% {
+      content: 'Introduce el texto';
+    }
+  }
+  
+  #inputField::placeholder {
+    animation: placeholderAnimation 3s infinite;
+  }
+  
+  .url{
+    border: #B91400 solid 0.3em;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+  
+  }
+  .input-container{
+      position: relative;
+    margin-top: 2em;
+  }
+  
+  input[type="text"]{
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.8s;
+  }
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #FFC107;
+  }
+  .input-container label{
+    position: absolute;
+    left: 20px;
+    top:50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+    pointer-events: none;
+    transition: top 0.8s font-size 0.3s;
+  }
+  
+  .input-container input:focus + label,
+  .input-container input:not(:placeholder-shown) + label{
+  top: -2px;
+  font-size: 12px;
+  color: #FFC107 ;
+  background-color: white;
+  padding: 0.2em;
+  }
+  
+  .url h1{
+    border: #B91400 solid 0.1em;
+    border-radius: 6px;
+    padding: 0.5em;
+  
+  }
+  .qrcomponent{
+    border: #B91400 solid 0.3em;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+  }
+  .qrcomponent h1{
+    border: #B91400 solid 0.1em;
+    border-radius: 6px;
+    padding: 0.5em;
+  }
+  .qrcontenido{
+    border: #B91400 solid 0.3em;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+  
+  }
+  
+  .grupo1{
+      color: white;
+      font-Weight: bold;
+      text-Align: center;
+      background-color: #b91200af ;
+      padding: .5em;
+      border-radius: 10px;
+      font-size: 25px;
+  }
+  .grupo2{
+    color: white;
+    font-Weight: bold;
+    text-Align: center;
+    background-color: #b91200af ;
+    padding: .5em;
+    border-radius: 10px;
+    font-size: 25px;
+    margin-bottom: 0.5em;
+  }
+  .grupo3{
+    color: white;
+    font-Weight: bold;
+    text-Align: center;
+    background-color: #b91200af ;
+    padding: .5em;
+    border-radius: 10px;
+    font-size: 25px;
+    margin-bottom: 1em;
+  }
+  
+  
+  
+  
+  
+  @media (min-width:728px){
+    .titulo{
+      text-align: center;
+    }
+    .pagina{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: auto;
     margin: 1em;
-}
-/* Primer Grupo */
-.contenidoqr{
-    border: #B91400 solid 0.15em;
-    min-height: 60vh;
-    padding: 2em;
-    margin: 1em;
-    border-radius: 10px;
-}
-.contenido1{
-    background-color: #F0F0F0; 
-    border-radius: 10px;
-    border-color: #B91400;
-    padding: 50px;
-    align-items: center;
+    }
     
-}
-.url{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.grupo1{
-    border: #B91400 solid 0.1em;
-    border-radius: 6px;
-    padding: 0.5em;
-}
-/* Segundo Grupo */
-.personalizarqr{
-    border: #B91400 solid 0.15em;
-    min-height: 60vh;
-    padding: 2em;
-    margin: 1em;
-    border-radius: 10px;
-}
-.grupo2{
-    border: #B91400 solid 0.1em;
-    border-radius: 6px;
-    padding: 0.5em;
-}
-/* Grupo 3 */
-.qrcontenido{
-    border: #B91400 solid 0.15em;
-    min-height: 60vh;
-    padding: 2em;
-    margin: 1em;
-    border-radius: 10px; 
-}
-.grupo3{
-    border: #B91400 solid 0.1em;
-    border-radius: 6px;
-    padding: 0.5em;
-}
-.qrdescarga{
-    background-color: azure;
-}
-/* .qrcreado{
-    background-color: peachpuff;
-} */
+    .url{
+      border: #B91400 solid 0.3em;
+    
+      padding: 2em;
+      margin: 1em;
+      border-radius: 10px;
+    }
+    .inputi{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .url h1{
+      border: #B91400 solid 0.1em;
+      border-radius: 6px;
+      padding: 0.5em;
+    }
+    .inputfield{
+      position: relative;
+    }
+    .inputfield input{
+      width: 350px;
+      height: 60px;
+      border-radius: 6px;
+      font-size: 18px;
+      padding: 0 15px;
+      border: 2px solid #b9120084;
+      background: transparent;
+      color: #b9120084;
+      outline: none;
+    }
+    .inputfield label{
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color:#b9120084 ;
+      font-size: 19px;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+    .aurl:focus ~ label{
+      top: 0;
+      left: 15px;
+      font-size: 16px;
+      padding: 0 2px;
+      background-color: white;
+    }
+    
+    
+    .qrcomponent{
+      border: #B91400 solid 0.3em;
+      padding: 2em;
+      margin: 1em;
+      border-radius: 10px;
+    }
+    .qrcomponent h1{
+      border: #B91400 solid 0.1em;
+      border-radius: 6px;
+      padding: 0.5em;
+    }
+    .qrcontenido{
+      border: #B91400 solid 0.3em;
+      padding: 2em;
+      margin: 1em;
+      border-radius: 10px;
+    text-align: center;
+    }
+    
+    .grupo1{
+        color: white;
+        font-Weight: bold;
+        text-Align: center;
+        background-color: #b91200af ;
+        padding: .5em;
+        border-radius: 10px;
+        font-size: 25px;
+    }
+    .grupo2{
+      color: white;
+      font-Weight: bold;
+      text-Align: center;
+      background-color: #b91200af ;
+      padding: .5em;
+      border-radius: 10px;
+      font-size: 25px;
+      margin-bottom: 0.5em;
+    }
+    .grupo3{
+      color: white;
+      font-Weight: bold;
+      text-Align: center;
+      background-color: #b91200af ;
+      padding: .5em;
+      border-radius: 10px;
+      font-size: 25px;
+      margin-bottom: 1em;
+    }
+    
+  }

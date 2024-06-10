@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -8,34 +8,73 @@ import {
   Nav,
   NavItem,
   NavLink,
+  NavbarText,
 } from 'reactstrap';
-function NavbarTandem(props) {
-  const [collapsed, setCollapsed] = useState(true);
-  const toggleNavbar = () => setCollapsed(!collapsed);
+
+function NavbarTandem(args) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div>
-      <Navbar color="dark" dark className='my-2'>
-        <NavbarBrand href="/" className="me-auto">
-          <StaticImage src='../images/logoblanco.png' width={150}/>
+      <Navbar color="dark" dark expand="md" >
+        <NavbarBrand href="/">
+          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100}  />
         </NavbarBrand>
-        <NavbarToggler onClick={toggleNavbar} className="me-2" />
-        <Collapse isOpen={!collapsed} navbar>
-          <Nav navbar>
+        {isMobile ? (
+          <>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="me-auto" navbar>
+                <NavItem>
+                  <NavLink href="/CrearQr">App QR</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/">
+                    Soporte
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/InfoInstitucional">
+                    Información Institucional
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </>
+        ) : (
+          <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Inicio</NavLink>
+              <NavLink href="/CrearQr">App QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/AppQr">App QR</NavLink>
+              <NavLink href="/">
+                Soporte Técnico
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/InfoInstitucional">
-                Info Institucional
+                Información Institucional
               </NavLink>
             </NavItem>
           </Nav>
-        </Collapse>
+        )}
       </Navbar>
     </div>
   );
 }
+
 export default NavbarTandem;
