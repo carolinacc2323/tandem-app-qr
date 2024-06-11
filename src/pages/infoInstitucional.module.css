@@ -1,11 +1,22 @@
-/* .imagencentral img{
-    align-items: center;
-    width: 100px;
-    height: auto;
-} */
-.accordion-header {
-    background-color: #FF0000; 
-}
-.accordion {
-    background-color: #F0F0F0;
-}
+/* infoInstitucional.module.css */
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .buttonContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .buttonContainer .btn {
+    margin-bottom: 10px;
+  }
+  
+  .contentContainer {
+    flex: 2;
+    padding: 20px;
+  }
+  

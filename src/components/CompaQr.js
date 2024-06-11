@@ -1,7 +1,7 @@
 import React from 'react';
 import './CompaQr.css';
-import { FacebookShareButton, TwitterShareButton, EmailShareButton } from "react-share";
-import { FacebookIcon, TwitterIcon, EmailIcon } from "react-share";
+import { FacebookShareButton, TwitterShareButton, EmailShareButton, WhatsappShareButton, } from "react-share";
+import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon, XIcon } from "react-share";
 
 function CompaQr() {
   return (
@@ -11,6 +11,14 @@ function CompaQr() {
         <p>COMPARTIR</p>
       </div>
       <div className="compartir-icons">
+      <EmailShareButton
+        subject='Generador códigos QR'
+        body='carolinacc.tandem@gmail.com'
+        separator='--'
+      >
+        <EmailIcon size={32} round/>
+      </EmailShareButton>
+      <br />
       <FacebookShareButton
         url={"https://www.pinterest.es/"}
         quote={"no sé que es quote"}
@@ -26,19 +34,12 @@ function CompaQr() {
         url={"https://www.pinterest.es/"}
         hashtags={["qrpatrimonio", "hashtag2"]}
       >
-        <TwitterIcon size={32} round />
-        
+        <XIcon size={32} round />
       </TwitterShareButton>
-      <EmailShareButton
-        subject='Generador códigos QR'
-        body='carolinacc.tandem@gmail.com'
-        separator='--'
-      >
-        <EmailIcon size={32} round/>
-      </EmailShareButton>
-
-
-        
+      <br />
+      <WhatsappShareButton>
+        <WhatsappIcon size={32} round/>
+      </WhatsappShareButton>
       </div>
     </div>
   );

@@ -26,9 +26,27 @@
 .qrimagen{
   width:100%;
 text-align: center;
+width: 750px;
+height:370px;
+background-image: url('../images/usos.png');
+background-size: contain;
 }
 
 .desplegableSlide{
-
   text-align: center;
+}
+
+@media (min-width:728px){
+  .card{
+    min-height: 30vh;
+}
+.qrimagen{
+  width:100%;
+text-align: center;
+width: 650px;
+height:370px;
+}
+.buttondeps{
+  margin-top: 2em;
+}
 }

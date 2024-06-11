@@ -1,34 +1,32 @@
 import React from "react"
-import  { Card, CardBody, CardTitle, CardSubtitle,Button } from "reactstrap"
+import  { Card, CardImg, CardImgOverlay, CardTitle, CardSubtitle,Button } from "reactstrap"
 import { StaticImage } from "gatsby-plugin-image"
 import "./CardAcceso.css"
-import { PiUserSquareThin } from "react-icons/pi"
 
+import image from "../images/acceso5.png"
 const CardTandemAcceso = ()=>{
 
 return (
-<Card>
-  <CardBody  className="cardi text-center">
-    <CardTitle tag="h1" className="eslogani2 rounded-4">
-    <h1>EMPLEADOS PATRIMONIO NACIONAL</h1>
-    </CardTitle>
-    <PiUserSquareThin size={200} style={{
-      color:'#ffc107'
-    }}/>
-    <Button color="danger"
-    outline size="lg" href='../AppQr' className="w-40">
-      <p className="h3">ACCESO GENERADOR QR</p>
+<Card inverse>
+<CardImg
+      alt="Card image cap"
+      src= {image}
+      className="imagenacceso"
+    />
+    <CardImgOverlay>
+    <Button color="warning"
+      href='../AppQr' className="buttonacceso" >
+      <p className="h3"> ACCEDE AQUI</p>
     </Button>
+
     <CardSubtitle
-      className="mb-2  eslogani"
-      tag="h6"
-    >
-      Acceso solo para empleados registrados
-      
+      className="eslogani"
+      tag="h6">
+      <p>Acceso solo para empleados registrados</p>
+
     </CardSubtitle>
-    <StaticImage src="../images/qi.jpg"/>
+    </CardImgOverlay>
     
-  </CardBody>
 </Card>
 )
 }

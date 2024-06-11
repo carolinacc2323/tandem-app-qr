@@ -9,6 +9,8 @@ import ModalExport from "../components/ModalExport";
 import './CrearQr.css';
 import TabsQr from "../components/TabsQr";
 import ModalCompartir from "../components/ModalCompartir";
+import InstModal from "../components/InstModal";
+
 
 function CrearQr() {
   const [inputValue, setInputValue] = useState('');
@@ -34,7 +36,7 @@ function CrearQr() {
       case 'one':
         return 'Introduce la URL';
       case 'two':
-        return 'Introduce la coordenada';
+        return 'Introduce la coordenada (latitud,longitud)';
       case 'three':
         return 'Introduce el texto';
       default:
@@ -58,7 +60,7 @@ function CrearQr() {
         <div className="url">
           <h4 className="grupo1" >Contenido del QR</h4>
           <TabsQr onTabChange={handleTabChange} />
-
+          
         <div className="input-container">
          
         <input
@@ -72,7 +74,7 @@ function CrearQr() {
           />
           <label htmlFor="inputField">{getPlaceholder()}</label>
         </div>
-          
+        <InstModal />
         </div>
 
         <div className="qrcomponent">

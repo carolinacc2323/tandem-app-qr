@@ -46,7 +46,7 @@ function ModalExport({ className, qrRef }) {
   
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <Button color="success" onClick={toggle}>
         Descargar
       </Button>{mensaje}
       

@@ -1,29 +1,65 @@
 .cardi{
   justify-content: center;
 align-items: center;
+
+}
+.imagenacceso{
+height: 605;
 width: 100%;
+}
+
+.buttonacceso{
+display: absolute;
+margin-Top:220px;
+margin-Right:80px;
+padding: 0.6em;
+}
+.buttonacceso p{
+font-size: 14px;
+}
+
+
+.eslogani{
+width: 100%;
+font-size: 20px;
+padding: .2em;
+color: #264295;
+border:#EEF6FC;
+margin-Top:70px;
+margin-Right:130px;
+background-Color: #bcdbf3;
+border-Radius:10px;
+}
+
+
+@media (min-width:728px){
+.cardi{
+  min-height: 70vh;
+}
+.imagenacceso{
+height: 595px;
+width: 100%;
+}
+
+.buttonacceso{
+  display: absolute;
+  margin-Top:340px;
+  margin-Right:120px;
+}
+.buttonacceso p{
+  font-size: 20px;
 }
 
 .eslogani{
 width: 100%;
 font-size: 30px;
-padding: 1em;
-color: #DC3545;
+padding: .2em;
+color: #264295;
+border:#EEF6FC;
+margin-Top:100px;
+margin-Right:130px;
+background-Color: #bcdbf3;
+border-Radius:10px;
+margin-bottom: 3em;
 }
-.eslogani h3{
-font-family: 'Times New Roman', Times, serif;
-
-
-}
-.eslogani2{
-background-color: #EEF6FC!important;
-color: black!important;
-padding: 0.5em;
-width: 100%;
-text-align: center;
-font-size: 30px;
-}
-.eslogani2 h2{
-font-weight:bold;  
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

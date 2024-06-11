@@ -1,15 +1,16 @@
 .compartir-container {
-  border: 2px solid #B91400;
+  border: 5px solid #b91200af;
   border-radius: 10px;
   width: fit-content;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
+  font-Weight: bold;
 }
 
 .compartir-header {
-  background-color: white;
-  border: 2px solid black;
+  background-color: #b91200af;
+  /* border: 2px solid black; */
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -17,7 +18,7 @@
 
 .compartir-header p {
   margin: 0;
-  color: #B91400;
+  color: white;
   font-size: 24px;
 }
 
@@ -27,6 +28,7 @@
   border: 2px solid black;
   padding: 20px;
   border-radius: 10px;
+  
 }
 
 .icon {
