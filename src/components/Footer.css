@@ -6,7 +6,7 @@
   display: grid;
   grid-template-areas: 
     "s1 s2 s3"
-    "s4 s4 s5"; 
+    "s4 s4 s4"; 
   column-gap: 5px;
   padding: 0.5em;
   text-align: center;
@@ -39,9 +39,6 @@
   grid-area: s4;
 text-align: center;
 }
-.compartir{
-  grid-area: s5;
-}
 
 .enlaces a{
   color: rgb(233, 233, 233);
@@ -61,7 +58,7 @@ text-align: center;
   
   display: grid;
   grid-template-areas: 
-    "s1 s2 s3 s4 s5"; 
+    "s1 s2 s3 s4"; 
   column-gap: 25px;
   row-gap: 5px;
   padding: 0.5em;

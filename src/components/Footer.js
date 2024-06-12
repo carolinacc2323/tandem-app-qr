@@ -1,8 +1,8 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import './Footer.css'
-import FooterModalCompartir from "./FooterModalCompartir"
-import { FaLinkedin } from "react-icons/fa6";
+// import FooterModalCompartir from "./FooterModalCompartir"
+// import { FaLinkedin } from "react-icons/fa6";
 
 const Footer = () =>{
     return(
@@ -31,9 +31,9 @@ const Footer = () =>{
                 <a href="https://www.patrimonionacional.es/aviso-legal"> Aviso legal</a>
               </div>
               
-              <div className="compartir">
+              {/* <div className="compartir">
                 <FooterModalCompartir/>
-              </div>
+              </div> */}
             </div>
         </footer>
     )

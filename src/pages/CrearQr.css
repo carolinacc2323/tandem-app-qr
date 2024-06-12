@@ -1,12 +1,18 @@
-.titulo {
+.titulo{
   text-align: center;
-}
 
-.pagina {
-  display: grid;
-  grid-template-columns: 1fr;
-  height: auto;
-  margin: 1em;
+}
+.titulo h1{
+  margin-bottom: 0.5em;
+  color: #264295;
+  font-weight: bolder;
+  font-size:40px;
+}
+.pagina{
+display: grid;
+grid-template-columns: 1fr;
+height: auto;
+margin: 1em;
 }
 
 @keyframes placeholderAnimation {
@@ -28,19 +34,19 @@
   animation: placeholderAnimation 3s infinite;
 }
 
-.url {
-  border: #b91400 solid 0.3em;
+.url{
+  border: #264295 solid 0.3em;
   padding: 2em;
   margin: 1em;
-  border-radius: 10px;
-}
+  border-radius: 5px;
 
-.input-container {
-  position: relative;
+}
+.input-container{
+    position: relative;
   margin-top: 2em;
 }
 
-input[type="text"] {
+input[type="text"]{
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
@@ -49,166 +55,197 @@ input[type="text"] {
   font-size: 16px;
   transition: border-color 0.8s;
 }
-
 input[type="text"]:focus {
   outline: none;
-  border-color: #ffc107;
+  border-color: #FFC107;
 }
-
-.input-container label {
+.input-container label{
   position: absolute;
   left: 20px;
-  top: 50%;
+  top:50%;
   transform: translateY(-50%);
   color: #999;
   font-size: 16px;
   pointer-events: none;
-  transition: top 0.8s, font-size 0.3s;
+  transition: top 0.8s font-size 0.3s;
 }
 
 .input-container input:focus + label,
-.input-container input:not(:placeholder-shown) + label {
-  top: -2px;
-  font-size: 12px;
-  color: #ffc107;
-  background-color: white;
-  padding: 0.2em;
+.input-container input:not(:placeholder-shown) + label{
+top: -2px;
+font-size: 12px;
+color: #FFC107 ;
+background-color: white;
+padding: 0.2em;
 }
 
-.url h1 {
-  border: #b91400 solid 0.1em;
-  border-radius: 6px;
+.url h1{
+  border: #264295 solid 0.1em;
+  border-radius: 5px;
   padding: 0.5em;
-}
 
-.qrcomponent {
-  border: #b91400 solid 0.3em;
+}
+.qrcomponent{
+  border: #264295 solid 0.3em;
   padding: 2em;
   margin: 1em;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-
-.qrcomponent h1 {
-  border: #b91400 solid 0.1em;
-  border-radius: 6px;
+.qrcomponent h1{
+  border: #264295 solid 0.1em;
+  border-radius: 5px;
   padding: 0.5em;
 }
-
-.qrcontenido {
-  border: #b91400 solid 0.3em;
+.qrcontenido{
+  border: #264295 solid 0.3em;
   padding: 2em;
   margin: 1em;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 5px;
+
 }
 
-.qrcontenidoint {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.grupo1{
+    color: white;
+    font-Weight: bold;
+    text-Align: center;
+    background-color: #264295a9 ;
+    padding: .5em;
+    border-radius: 5px;
+    font-size: 25px;
 }
-
-.map-container {
-  margin-top: 1em;
-  width: 100%;
-  height: 400px; /* Adjust height as needed */
-}
-
-.grupo1,
-.grupo2,
-.grupo3 {
+.grupo2{
   color: white;
-  font-weight: bold;
-  text-align: center;
-  background-color: #b91200af;
-  padding: 0.5em;
-  border-radius: 10px;
+  font-Weight: bold;
+  text-Align: center;
+  background-color: #264295a9 ;
+  padding: .5em;
+  border-radius: 5px;
   font-size: 25px;
   margin-bottom: 0.5em;
 }
+.grupo3{
+  color: white;
+  font-Weight: bold;
+  text-Align: center;
+  background-color: #264295a9;
+  padding: .5em;
+  border-radius: 5px;
+  font-size: 25px;
+  margin-bottom: 1em;
+}
 
-@media (min-width: 728px) {
-  .titulo {
+
+
+
+
+@media (min-width:728px){
+  .titulo{
     text-align: center;
   }
-  .pagina {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: auto;
-    margin: 1em;
+  .pagina{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: auto;
+  margin: 1em;
   }
-  .url {
-    border: #b91400 solid 0.3em;
+  
+  .url{
+    border: #5d03a190 solid 0.3em;
     padding: 2em;
     margin: 1em;
-    border-radius: 10px;
+    border-radius: 5px;
   }
-  .inputi {
+  .inputi{
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .url h1 {
-    border: #b91400 solid 0.1em;
-    border-radius: 6px;
+  
+  .url h1{
+    border: #264295 solid 0.1em;
+    border-radius: 5px;
     padding: 0.5em;
   }
-  .inputfield {
+  .inputfield{
     position: relative;
   }
-  .inputfield input {
+  .inputfield input{
     width: 350px;
     height: 60px;
-    border-radius: 6px;
+    border-radius: 5px;
     font-size: 18px;
     padding: 0 15px;
-    border: 2px solid #b9120084;
+    border: 2px solid #5d03a190;
     background: transparent;
-    color: #b9120084;
+    color: #26429590;
     outline: none;
   }
-  .inputfield label {
+  .inputfield label{
     position: absolute;
     top: 50%;
     left: 15px;
     transform: translateY(-50%);
-    color: #b9120084;
+    color:#26429590;
     font-size: 19px;
     pointer-events: none;
     transition: 0.5s;
   }
-  .aurl:focus ~ label {
+  .aurl:focus ~ label{
     top: 0;
     left: 15px;
     font-size: 16px;
     padding: 0 2px;
     background-color: white;
   }
-  .qrcomponent {
-    border: #b91400 solid 0.3em;
+  
+  
+  .qrcomponent{
+    border: #5d03a190 solid 0.3em;
     padding: 2em;
     margin: 1em;
-    border-radius: 10px;
+    border-radius: 5px;
   }
-  .qrcomponent h1 {
-    border: #b91400 solid 0.1em;
-    border-radius: 6px;
+  .qrcomponent h1{
+    border: #5d03a190 solid 0.1em;
+    border-radius: 5px;
     padding: 0.5em;
   }
-  .qrcontenido {
-    border: #b91400 solid 0.3em;
+  .qrcontenido{
+    border: #5d03a190 solid 0.3em;
     padding: 2em;
     margin: 1em;
-    border-radius: 10px;
-    text-align: center;
+    border-radius: 5px;
+  text-align: center;
   }
-  .qrcontenidoint {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+  
+  .grupo1{
+      color: white;
+      font-Weight: bold;
+      text-Align: center;
+      background-color: #26429590 ;
+      padding: .5em;
+      border-radius: 5px;
+      font-size: 25px;
   }
-  .map-container {
-    margin-top: 1em;
-    width: 100%;
-    height: 400px; /* Adjust height as needed */
+  .grupo2{
+    color: white;
+    font-Weight: bold;
+    text-Align: center;
+    background-color: #26429585 ;
+    padding: .5em;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-bottom: 0.5em;
   }
+  .grupo3{
+    color: white;
+    font-Weight: bold;
+    text-Align: center;
+    background-color: #26429585 ;
+    padding: .5em;
+    border-radius: 5px;
+    font-size: 25px;
+    margin-bottom: 1em;
+  }
+  
 }

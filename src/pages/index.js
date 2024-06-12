@@ -2,11 +2,14 @@ import * as React from "react"
 import Layout from "../components/layout"
 import CardTandemAcceso from "../components/CardTandemAcceso"
 import CardTandemUsos from "../components/CardTandemUsos"
+import NavbarTandem from "../components/NavbarTandem"
+import FooterInicio from "../components/FooterInicio"
+// import FooterInicio from "../components/FooterInicio"
 const Index = () => {
   
     return (
     <>
-    <Layout>
+    <NavbarTandem/>
       
       <div className="row">
         <div className="col-12 col-md-6">
@@ -16,7 +19,8 @@ const Index = () => {
           <CardTandemAcceso/>
         </div>
       </div>
-    </Layout>
+    <FooterInicio/>  
+    
     </>
     )
   }

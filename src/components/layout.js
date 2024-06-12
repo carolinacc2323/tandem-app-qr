@@ -10,10 +10,8 @@ const Layout = ({ children }) => {
       <NavbarTandem/>
       <main>
         {children}
-        </main>
-      <footer>
-        <Footer/>
-      </footer>
+      </main>
+      <Footer/>
     </>
   )
 }

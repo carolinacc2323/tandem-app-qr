@@ -6,6 +6,8 @@ import ModalExport from "../components/ModalExport";
 import './CrearQr.css';
 import TabsQr from "../components/TabsQr";
 import Mapa from "../components/Mapa";
+import { Button } from "reactstrap";
+import { FaHouse } from "react-icons/fa6";
 
 function CrearQr() {
   const [inputValue, setInputValue] = useState('');
@@ -162,10 +164,13 @@ function CrearQr() {
             </div>
 
             <div className="qrcreado">
-              <p>Contenido: {inputValue}</p>
+              {/* <p>Contenido: {inputValue}</p> */}
               <p>Color: {qrColor}</p>
               <p>Tamaño: {qrSize}</p>
               <ModalExport qrRef={qrRef} />
+              <Button color="info" href="/AppQr">
+              <FaHouse size={30}/>
+              </Button>
             </div>
           </div>
           

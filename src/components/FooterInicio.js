@@ -1,10 +1,10 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import './Footer.css'
+import './FooterInicio.css'
 import FooterModalCompartir from "./FooterModalCompartir"
 import { FaLinkedin } from "react-icons/fa6";
 
-const Footer = () =>{
+const FooterInicio = () =>{
     return(
         <footer className='footer '>
           <div className='footeri'>
@@ -38,4 +38,4 @@ const Footer = () =>{
         </footer>
     )
 }
-export default Footer
+export default FooterInicio
