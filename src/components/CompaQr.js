@@ -1,7 +1,8 @@
 import React from 'react';
 import './CompaQr.css';
 import { FacebookShareButton, TwitterShareButton, EmailShareButton, WhatsappShareButton, } from "react-share";
-import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon, XIcon } from "react-share";
+import { FacebookIcon, EmailIcon, WhatsappIcon, XIcon } from "react-share";
+import { FiLink } from "react-icons/fi";
 
 function CompaQr() {
   return (
@@ -20,7 +21,7 @@ function CompaQr() {
       </EmailShareButton>
       <br />
       <FacebookShareButton
-        url={"https://www.pinterest.es/"}
+        url={"https://www.patrimonionacional.es/"}
         quote={"no sé que es quote"}
         hashtag={"#generadorqrpatrimonio"}
         description={'dataUrl'}
@@ -31,7 +32,7 @@ function CompaQr() {
       <br />
       <TwitterShareButton
         title={"Generar códigos QR"}
-        url={"https://www.pinterest.es/"}
+        url={"https://www.patrimonionacional.es/"}
         hashtags={["qrpatrimonio", "hashtag2"]}
       >
         <XIcon size={32} round />
@@ -40,6 +41,7 @@ function CompaQr() {
       <WhatsappShareButton>
         <WhatsappIcon size={32} round/>
       </WhatsappShareButton>
+      <FiLink size={32}/>
       </div>
     </div>
   );

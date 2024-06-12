@@ -10,7 +10,6 @@
 .eslogan h3{
   font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
-  
 }
 .eslogan2{
   background-color: white;
@@ -19,10 +18,9 @@
   font-size: 30px;
 }
 .eslogan2 h2{
-  font-weight:bold;  
+  font-weight:bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 .qrimagen{
   width:100%;
 text-align: center;
@@ -31,11 +29,9 @@ height:370px;
 background-image: url('../images/usos.png');
 background-size: contain;
 }
-
 .desplegableSlide{
   text-align: center;
 }
-
 @media (min-width:728px){
   .card{
     min-height: 30vh;

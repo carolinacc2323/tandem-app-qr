@@ -23,6 +23,7 @@ export default function TabsQr({ onTabChange }) {
         <Tab value="one" label="URL" />
         <Tab value="two" label="Coordenadas" />
         <Tab value="three" label="Texto" />
+
       </Tabs>
     </Box>
   );
