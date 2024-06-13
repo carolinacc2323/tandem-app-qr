@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import Layout from '../components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import TabsInfo from '../components/TabsInfo';
 
 export default function InfoInstitucional() {
@@ -89,7 +90,7 @@ export default function InfoInstitucional() {
 
   return (
     <Layout>
-      <div className={`container ${infoStyle.flexContainer}`}>
+      <div >
         <TabsInfo tabs={tabs} />
       </div>
     </Layout>
