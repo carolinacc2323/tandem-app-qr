@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import './FooterInicio.css'
-import FooterModalCompartir from "./FooterModalCompartir"
+import ModalCompartir from "./ModalCompartir"
 import { FaLinkedin } from "react-icons/fa6";
 
 const FooterInicio = () =>{
@@ -32,7 +32,7 @@ const FooterInicio = () =>{
               </div>
               
               <div className="compartir">
-                <FooterModalCompartir/>
+                <ModalCompartir/>
               </div>
             </div>
         </footer>

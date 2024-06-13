@@ -1,26 +1,27 @@
 import * as React from "react"
-import Layout from "../components/layout"
+import NavbarInicio from "../components/NavbarInicio"
 import CardTandemAcceso from "../components/CardTandemAcceso"
 import CardTandemUsos from "../components/CardTandemUsos"
-import NavbarTandem from "../components/NavbarTandem"
 import FooterInicio from "../components/FooterInicio"
-// import FooterInicio from "../components/FooterInicio"
+
 const Index = () => {
   
     return (
     <>
-    <NavbarTandem/>
+      <NavbarInicio/>
       
-      <div className="row">
-        <div className="col-12 col-md-6">
+      <div className="row text-center" >
+        <div className="col-12 col-md-6" style={{
+        
+        
+      }}>
           <CardTandemUsos/>
         </div>
         <div className="col-12 col-md-6">
           <CardTandemAcceso/>
         </div>
       </div>
-    <FooterInicio/>  
-    
+      <FooterInicio/>
     </>
     )
   }

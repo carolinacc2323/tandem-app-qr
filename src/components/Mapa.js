@@ -2,9 +2,6 @@ import React, { useState, useEffect} from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-
-
-
 const Mapa = ({ setLatLng, latLng }) => {
   const [isClient, setIsClient] = useState(false);
 
@@ -17,7 +14,6 @@ const Mapa = ({ setLatLng, latLng }) => {
   useEffect(() => {
     if (isClient) {
       const L = require('leaflet');
-
       // Arreglar el problema de los iconos que no se muestran
       import('leaflet/dist/images/marker-icon.png');
       import('leaflet/dist/images/marker-icon-2x.png');

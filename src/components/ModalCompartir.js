@@ -7,7 +7,7 @@ import { Button,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import CompaQr from "./CompaQr.js"
-import { StaticImage } from 'gatsby-plugin-image';
+// import { StaticImage } from 'gatsby-plugin-image';
 import { GoShareAndroid } from "react-icons/go";
 
 function ModalCompartir(props) {
@@ -24,7 +24,7 @@ function ModalCompartir(props) {
 
   return (
     <div>
-      <Button color="warning" onClick={toggle} >
+      <Button color="warning" onClick={toggle}>
       <GoShareAndroid size={30}/>
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
@@ -39,7 +39,7 @@ function ModalCompartir(props) {
           <Button color="warning" href="../AppQr">
             Volver a Inicio
           </Button>
-          <Button color="danger" onClick={toggle}>
+          <Button color="dark" onClick={toggle}>
             Cancelar
           </Button>
         </ModalFooter>

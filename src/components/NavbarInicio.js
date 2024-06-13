@@ -8,14 +8,16 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText,
 } from 'reactstrap';
+import ModalSoporte from './ModalSoporte'; // Asegúrate de tener la importación correcta
 
-function NavbarTandem(args) {
+function NavbarInicio(args) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const toggleModal = () => setModal(!modal);
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,9 +32,9 @@ function NavbarTandem(args) {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md" >
+      <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">
-          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100}  />
+          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100} />
         </NavbarBrand>
         {isMobile ? (
           <>
@@ -40,16 +42,16 @@ function NavbarTandem(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar>
                 <NavItem>
-                  <NavLink href="/AppQr">App QR</NavLink>
+                  <NavLink href="/CrearQr">App QR</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">
-                    Área Personal
+                  <NavLink href="#" onClick={toggleModal}>
+                    Soporte
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">
-                    Soporte técnico
+                  <NavLink href="/InfoInstitucional">
+                    Información Institucional
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -58,23 +60,24 @@ function NavbarTandem(args) {
         ) : (
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/AppQr">App QR</NavLink>
+              <NavLink href="/CrearQr">App QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">
-                Área personal
+              <NavLink href="#" onClick={toggleModal}>
+                Soporte Técnico
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">
-                Soporte técnico
+              <NavLink href="/InfoInstitucional">
+                Información Institucional
               </NavLink>
             </NavItem>
           </Nav>
         )}
       </Navbar>
+      <ModalSoporte modal={modal} toggleModal={toggleModal} />
     </div>
   );
 }
 
-export default NavbarTandem;
+export default NavbarInicio;

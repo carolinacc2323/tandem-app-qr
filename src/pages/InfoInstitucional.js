@@ -90,7 +90,7 @@ export default function InfoInstitucional() {
 
   return (
     <Layout>
-      <div >
+      <div>
         <TabsInfo tabs={tabs} />
       </div>
     </Layout>
