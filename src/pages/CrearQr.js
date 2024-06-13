@@ -126,7 +126,8 @@ function CrearQr() {
               />
             )}
           </div>
-          {tabValue === 'two' && (
+          
+          {tabValue === 'two' && typeof window !== 'undefined' && (
             <div className="map-container">
               <Mapa setLatLng={setLatLngFromMap} latLng={latLng} />
               <div className="coordinates">
