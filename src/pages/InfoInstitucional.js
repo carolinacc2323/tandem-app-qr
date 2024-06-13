@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import Layout from '../components/layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import * as infoStyle from '../pages/InfoInstitucional.module.css';
 import TabsInfo from '../components/TabsInfo';
 
 export default function InfoInstitucional() {
