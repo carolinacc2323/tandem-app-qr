@@ -129,8 +129,9 @@ function CrearQr() {
           
           {tabValue === 'two' && typeof window !== 'undefined' && (
             <div className="map-container">
+              <p>Haz clic en el mapa para obtener las coordenadas</p>
               <Mapa setLatLng={setLatLngFromMap} latLng={latLng} />
-              <div className="coordinates">
+              {/* <div className="coordinates">
                 {latLng ? (
                   <p>
                     Latitud: {latLng.lat}, Longitud: {latLng.lng}
@@ -138,7 +139,7 @@ function CrearQr() {
                 ) : (
                   <p>Haz clic en el mapa para obtener las coordenadas</p>
                 )}
-              </div>
+              </div> */}
             </div>
           )}
         </div>

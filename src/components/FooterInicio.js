@@ -25,10 +25,10 @@ const FooterInicio = () =>{
               </div>
 
               <div className='enlaces'>
-                <a href="https://www.patrimonionacional.es/politica-de-privacidad">Política de Privacidad </a>|
-                <a href="https://www.patrimonionacional.es/politica-de-cookies"> Cookies </a>|
-                <a href="https://www.patrimonionacional.es/accesibilidad"> Accesibilidad </a>|
-                <a href="https://www.patrimonionacional.es/aviso-legal"> Aviso legal</a>
+                <a href="./Politica">Política de Privacidad </a>|
+                <a href="./Cookies"> Cookies </a>|
+                <a href="./Accesibilidad"> Accesibilidad </a>|
+                <a href="./AvisoLegal"> Aviso legal</a>
               </div>
               
               <div className="compartir">

@@ -14,6 +14,7 @@ const Mapa = ({ setLatLng, latLng }) => {
   useEffect(() => {
     if (isClient) {
       const L = require('leaflet');
+
       // Arreglar el problema de los iconos que no se muestran
       import('leaflet/dist/images/marker-icon.png');
       import('leaflet/dist/images/marker-icon-2x.png');
