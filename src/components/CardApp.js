@@ -19,7 +19,7 @@ const CardApp = () => {
                 <Card className="no-border" style={{ width: '100%' }}>
                     <Row>
                         <Col>
-                            <StaticImage src="../images/creando.jpg" className="imagen1" />
+                            <StaticImage src="../images/creandoqr.png" className="imagen1" />
                         </Col>
                         <Col className="d-flex align-items-center justify-content-center">
                             <CardBody className="cuerpo text-center">
@@ -52,7 +52,7 @@ const CardApp = () => {
                             </CardBody>
                         </Col>
                         <Col>
-                            <StaticImage src="../images/listadoqr.jpg" className="imagen2"/>
+                            <StaticImage src="../images/listadoqr.png" className="imagen2"/>
                         </Col>
                     </Row>
                 </Card>
