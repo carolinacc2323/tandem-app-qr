@@ -29,7 +29,7 @@ const CardApp = () => {
                                 <CardText className="texto">
                                     Crea códigos QR personalizados para compartir información.
                                 </CardText>
-                                <Button href='../CrearQr'>
+                                <Button href='../CrearQr' color="warning">
                                     CREAR QR
                                 </Button>
                             </CardBody>
@@ -46,7 +46,7 @@ const CardApp = () => {
                                 <CardText className="texto">
                                     Embárcate en un viaje interactivo por Aranjuez con nuestro listado de códigos QR.
                                 </CardText>
-                                <Button>
+                                <Button color="warning">
                                     LISTADO QR
                                 </Button>
                             </CardBody>

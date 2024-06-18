@@ -98,32 +98,41 @@ function CrearQr() {
           <div className="input-container">
             {tabValue === 'two' ? (
               <>
-                <input
-                  type="text"
-                  placeholder="Latitud"
-                  value={latitude}
-                  onChange={handleLatChange}
-                  id="latitude"
-                  name="latitude"
-                />
-                <input
-                  type="text"
-                  placeholder="Longitud"
-                  value={longitude}
-                  onChange={handleLngChange}
-                  id="longitude"
-                  name="longitude"
-                />
+                <div className="input-field">
+                  <input
+                    type="text"
+                    placeholder=" "
+                    value={latitude}
+                    onChange={handleLatChange}
+                    id="latitude"
+                    name="latitude"
+                  />
+                  <label htmlFor="latitude">Latitud</label>
+                </div>
+                <div className="input-field">
+                  <input
+                    type="text"
+                    placeholder=" "
+                    value={longitude}
+                    onChange={handleLngChange}
+                    id="longitude"
+                    name="longitude"
+                  />
+                  <label htmlFor="longitude">Longitud</label>
+                </div>
               </>
             ) : (
-              <input
-                type="text"
-                placeholder={getPlaceholder()}
-                value={inputValue}
-                onChange={handleInputChange}
-                id="inputField"
-                name="inputField"
-              />
+              <div className="input-field">
+                <input
+                  type="text"
+                  placeholder=" "
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  id="inputField"
+                  name="inputField"
+                />
+                <label htmlFor="inputField">{getPlaceholder()}</label>
+              </div>
             )}
           </div>
           
@@ -131,15 +140,6 @@ function CrearQr() {
             <div className="map-container">
               <p>Haz clic en el mapa para obtener las coordenadas</p>
               <Mapa setLatLng={setLatLngFromMap} latLng={latLng} />
-              {/* <div className="coordinates">
-                {latLng ? (
-                  <p>
-                    Latitud: {latLng.lat}, Longitud: {latLng.lng}
-                  </p>
-                ) : (
-                  <p>Haz clic en el mapa para obtener las coordenadas</p>
-                )}
-              </div> */}
             </div>
           )}
         </div>
@@ -166,12 +166,11 @@ function CrearQr() {
             </div>
 
             <div className="qrcreado">
-              {/* <p>Contenido: {inputValue}</p> */}
               <p>Color: {qrColor}</p>
               <p>Tamaño: {qrSize}</p>
               <ModalExport qrRef={qrRef} />
-              <Button color="info" href="/AppQr">
-              <FaHouse size={30}/>
+              <Button color="warning" href="/AppQr">
+                <FaHouse size={30} />
               </Button>
             </div>
           </div>
