@@ -6,7 +6,7 @@ const AvisoLegal=()=>{
         <>
             <Layout>
                 <div className="containerpaginas">
-                    <h1>AVISO LEGAL</h1>
+                    <h1 className="h1pages">AVISO LEGAL</h1>
                     <p>El dominio www.patrimonionacional.es es de titularidad del organismo público Consejo de Administración del Patrimonio Nacional.</p>
                     <p>La página web y todos los dominios y directorios incluidos bajo la misma (en adelante conjuntamente denominados como Portal), así como los servicios o contenidos que a través de él se puedan obtener, están sujetos a los términos que se detallan en este Aviso Legal, sin perjuicio de que el acceso a alguno de dichos servicios o contenidos pudieran precisar de la aceptación de una Condiciones Generales adicionales.</p>
                     <p>Por ello, si las consideraciones detalladas en este Aviso Legal no son de su conformidad, rogamos no haga uso del Portal, ya que cualquier uso que haga del mismo o de los servicios y contenidos en él incluidos implicará la aceptación de los términos legales recogidos en este texto.</p>

@@ -17,7 +17,7 @@
   width: 100%;
  }
  .footerleft img{
-  width: 150px;
+  width: 100px;
   height: auto;
  }
 
@@ -25,25 +25,26 @@
   grid-area: s2;
 }
 .logoblanco img{
-  width: 150px;
+  width: 100px;
 }
 .logotipos{
   grid-area: s3;
-  align-self: center;
 }
 .logotipos img{
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
 }
 .enlaces{
   grid-area: s4;
-text-align: center;
+}
+.compartir{
+  grid-area: s5;
 }
 
 .enlaces a{
   color: rgb(233, 233, 233);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 10px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight:normal;
   
@@ -102,9 +103,6 @@ text-align: center;
   font-size: 14px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight:normal;
-}
-.compartir{
-  margin-top: 1.8em;
 }
 
 }

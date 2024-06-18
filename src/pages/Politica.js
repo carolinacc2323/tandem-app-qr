@@ -5,7 +5,7 @@ const Politica =()=>{
     return(
         <Layout>
             <div className="containerpaginas">
-            <h1>POLÍTICA DE PRIVACIDAD</h1>
+            <h1 className="h1pages">POLÍTICA DE PRIVACIDAD</h1>
             <h2 className="h2pages">PROTECCIÓN DE DATOS</h2>
             <p>En cumplimiento de lo establecido en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de datos de las personas físicas en lo que respecta al tratamiento de datos personales, adaptado al derecho español por el Real Decreto Legislativo 5/2018, de 17 de julio; así como a la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y Garantía de los Derechos Digitales en lo que se oponga a lo anterior, el titular de la autorización acepta que los datos que figuran en la autorización se incorporen al fichero correspondiente de Patrimonio Nacional.</p>
             <p>La finalidad de este tratamiento es el mantenimiento de la autorización, en base al Real Decreto 496/1987, de 18 de marzo, por el que se aprueba el Reglamento de la Ley 23/1982, de 16 de junio, reguladora del Patrimonio Nacional. Artículo 27 y el Real decreto 214/2014 de 28 marzo, artículo 83- d. Los datos serán comunicados, únicamente, para sus funciones de control económico y de legalidad a la Intervención General del Estado y al Tribunal de Cuentas. Los datos serán conservados durante el tiempo necesario para cumplir con la finalidad para la que se han recabado y para determinar las posibles responsabilidades que se pudieran derivar de dicha finalidad y del tratamiento de los datos.</p>

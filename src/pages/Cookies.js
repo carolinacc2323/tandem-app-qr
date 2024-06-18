@@ -6,7 +6,7 @@ const Cookies=()=>{
         <>
         <Layout>
             <div className="containerpaginas">
-                <h1>POLÍTICA DE COOKIES</h1>
+                <h1 className="h1pages">POLÍTICA DE COOKIES</h1>
                 <p>Cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.. El navegador del usuario memoriza cookies en el disco duro solamente durante la sesión actual ocupando un espacio de memoria mínimo y no perjudicando al ordenador. Las cookies no contienen ninguna clase de información personal específica, y la mayoría de las mismas se borran del disco duro al finalizar la sesión de navegador (las denominadas cookies de sesión).</p>
                 <p>La mayoría de los navegadores aceptan como estándar a las cookies y, con independencia de las mismas, permiten o impiden en los ajustes de seguridad las cookies temporales o memorizadas.</p>
                 <p>Sin su expreso consentimiento –mediante la activación de las cookies en su navegador no enlazará en las cookies los datos memorizados con sus datos personales proporcionados en el momento del registro o la compra.</p>

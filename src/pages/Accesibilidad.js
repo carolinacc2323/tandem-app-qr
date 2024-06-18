@@ -6,7 +6,7 @@ const Accesibilidad=()=>{
         <>
             <Layout>
                 <div className="containerpaginas">
-                    <h1>ACCESIBILIDAD</h1>
+                    <h1 className="h1pages">ACCESIBILIDAD</h1>
                     <p>Uno de los objetivos de Patrimonio Nacional es tener un portal accesible para todos los ciudadanos.</p>
                     <p>La accesibilidad en un sitio web consiste en garantizar el acceso a la información y a los servicios de sus páginas sin limitación ni restricción alguna por razón de discapacidad de cualquier carácter o condicionantes técnicos, debiendo tener en cuenta que muchas personas que acceden a la información incluida en páginas Web lo hacen desde diferentes dispositivos y contextos.</p>
                     <p>Con el fin de ayudar y facilitar el acceso a la información, las páginas web deben cumplir una serie de pautas y recomendaciones indicadas por el grupo de trabajo WAI (Web Accessibility Initiative), que forma parte del consorcio de W3C (World Wide Web Consortium). Tales pautas conforman un estándar de hecho en materia de accesibilidad a las páginas web.</p>
