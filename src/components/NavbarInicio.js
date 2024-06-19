@@ -10,6 +10,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import ModalSoporte from './ModalSoporte'; // Asegúrate de tener la importación correcta
+import "./NavbarInicio.css"
 
 function NavbarInicio(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,16 +43,16 @@ function NavbarInicio(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar>
                 <NavItem>
-                  <NavLink href="/CrearQr">App QR</NavLink>
+                  <NavLink href="/CrearQr" className='navlink'>APP QR</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#" onClick={toggleModal}>
-                    Soporte
+                  <NavLink href="#" onClick={toggleModal} className='navlink'>
+                    SOPORTE
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/InfoInstitucional">
-                    Información Institucional
+                  <NavLink href="/InfoInstitucional" className='navlink'>
+                    INFORMACIÓN INSTITUCIONAL
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -60,16 +61,16 @@ function NavbarInicio(args) {
         ) : (
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/CrearQr">App QR</NavLink>
+              <NavLink href="/CrearQr" className='navlink'>APP QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#" onClick={toggleModal}>
-                Soporte Técnico
+              <NavLink href="#" onClick={toggleModal} className='navlink'>
+                SOPORTE TÉCNICO
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/InfoInstitucional">
-                Información Institucional
+              <NavLink href="/InfoInstitucional" className='navlink'>
+                INFORMACIÓN INSTITUCIONAL
               </NavLink>
             </NavItem>
           </Nav>
@@ -77,7 +78,7 @@ function NavbarInicio(args) {
       </Navbar>
       <ModalSoporte modal={modal} toggleModal={toggleModal} />
     </div>
-  );
+  )
 }
 
-export default NavbarInicio;
+export default NavbarInicio

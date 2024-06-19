@@ -94,7 +94,7 @@ function RegisterModal(props) {
         La Granja San Ildefonso
       </option>
       <option>
-        Mayorca
+        Mallorca
       </option>
       <option>
         Moncloa

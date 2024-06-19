@@ -10,6 +10,7 @@ import {
   NavLink,
   NavbarText,
 } from 'reactstrap';
+import "./NavbarTandem.css";
 
 function NavbarTandem(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,16 +41,16 @@ function NavbarTandem(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar>
                 <NavItem>
-                  <NavLink href="/AppQr">App QR</NavLink>
+                  <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">
-                    Área Personal
+                  <NavLink href="/" className='navlink'>
+                    ÁREA PERSONAL
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">
-                    Soporte técnico
+                  <NavLink href="/" className='navlink'>
+                    SOPORTE TÉCNICO
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -58,16 +59,16 @@ function NavbarTandem(args) {
         ) : (
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/AppQr">App QR</NavLink>
+              <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">
-                Área personal
+              <NavLink href="/" className='navlink'>
+                ÁREA PERSONAL
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">
-                Soporte técnico
+              <NavLink href="/" className='navlink'>
+                SOPORTE TÉCNICO
               </NavLink>
             </NavItem>
           </Nav>

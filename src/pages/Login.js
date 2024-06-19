@@ -3,8 +3,8 @@ import Layout from "../components/layout";
 import "./Login.css"
 
 import RegisterModal from '../components/RegisterModal';
-import { Button,Col, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, FormFeedback, Label, Input, FormText } from 'reactstrap';
-import PropTypes from 'prop-types';
+import { Button,Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+// import PropTypes from 'prop-types';
 
 const Login = () => {
   return (
