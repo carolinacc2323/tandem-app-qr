@@ -3,9 +3,10 @@
 }
 .titulo h1 {
   margin-bottom: 0.5em;
-  color: #264295;
+  color: #8F6F24;
   font-weight: bolder;
   font-size: 40px;
+  font-family: Georgia, serif;
 }
 .pagina {
   display: grid;

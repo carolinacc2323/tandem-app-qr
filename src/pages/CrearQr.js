@@ -88,8 +88,8 @@ function CrearQr() {
 
   return (
     <Layout>
-      <div className="titulo">
-        <h1>GENERADOR DE QR</h1>
+      <div className="titulo mt-3">
+        <h1 >GENERADOR DE QR</h1>
       </div>
       <div className="pagina" style={containerStyle}>
         <div className="url">

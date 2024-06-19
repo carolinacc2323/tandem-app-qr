@@ -34,7 +34,7 @@ border-Radius:10px;
 
 @media (min-width:728px){
 .cardi{
-  min-height: 70vh;
+  min-height: 80vh;
 }
 .imagenacceso{
 height: 595px;
@@ -56,10 +56,8 @@ font-size: 30px;
 padding: .2em;
 color: #264295;
 border:#EEF6FC;
-margin-Top:100px;
-margin-Right:130px;
-background-Color: #bcdbf3;
-border-Radius:10px;
+background-color: #bcdbf3;
+border-radius:10px;
 margin-bottom: 3em;
 }
 }

@@ -4,6 +4,8 @@ import CardTandemAcceso from "../components/CardTandemAcceso"
 import CardTandemUsos from "../components/CardTandemUsos"
 import FooterInicio from "../components/FooterInicio"
 
+// import Login from './Login';
+// import AreaPersonal from './AreaPersonal';
 const Index = () => {
   
     return (
