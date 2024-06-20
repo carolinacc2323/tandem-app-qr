@@ -1,5 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
+import "./QrComponent.css"
 
 function QRComponent({ onColorChange, onSizeChange }) {
     const [selectedColor, setSelectedColor] = useState('negro');
@@ -32,7 +33,7 @@ function QRComponent({ onColorChange, onSizeChange }) {
         <div style={{
             textAlign:'center',
         }}>
-            <h4>Selecciona el color de tu QR</h4>
+            <h4 className='colorqr'>Selecciona el color de tu QR</h4>
             <br></br>
             <div style={{
                 display:'grid',
@@ -114,8 +115,8 @@ function QRComponent({ onColorChange, onSizeChange }) {
                     />
                 </label>
             </div>
-            <h4>Selecciona el tamaño de tu QR</h4>
-            <div>
+            <h4 className='colorqr'>Selecciona el tamaño de tu QR</h4>
+            <div className='colorqrr'>
                 <label className='form-check-label'>
                     <input className='form-check-input'
                         type="radio"

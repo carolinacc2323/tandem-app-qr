@@ -14,16 +14,16 @@ import '../components/CardApp.css';
 const CardApp = () => {
     return (
         <>
-            <h1>CREACIÓN DE QR</h1>
+            <h1 className="creacionqr">CREACIÓN DE QR</h1>
             <div className="container">
-                <Card className="no-border" style={{ width: '100%' }}>
+                <Card className="no-border" id="card1" style={{ width: '100%' }}>
                     <Row>
                         <Col>
                             <StaticImage src="../images/creandoqr.png" className="imagen1" />
                         </Col>
                         <Col className="d-flex align-items-center justify-content-center">
                             <CardBody className="cuerpo text-center">
-                                <CardTitle tag="h5">
+                                <CardTitle tag="h5" className="crearpage">
                                     CREA CÓDIGOS QR
                                 </CardTitle>
                                 <CardText className="texto">
@@ -36,11 +36,11 @@ const CardApp = () => {
                         </Col>
                     </Row>
                 </Card>
-                <Card className="no-border" style={{ width: '100%' }}>
+                <Card className="no-border" id="card1" style={{ width: '100%' }}>
                     <Row>
                         <Col className="d-flex align-items-center justify-content-center">
                             <CardBody className="text-center">
-                                <CardTitle tag="h5">
+                                <CardTitle tag="h5" className="crearpage">
                                     LISTADO DE CÓDIGOS QR
                                 </CardTitle>
                                 <CardText className="texto">

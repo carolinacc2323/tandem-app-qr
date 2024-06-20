@@ -93,7 +93,7 @@ function CrearQr() {
       </div>
       <div className="pagina" style={containerStyle}>
         <div className="url">
-          <h4 className="grupo1">Contenido del QR</h4>
+          <h4 className="grupo1">CONTENIDO DEL QR</h4>
           <TabsQr onTabChange={handleTabChange} />
           <div className="input-container">
             {tabValue === 'two' ? (
@@ -138,14 +138,14 @@ function CrearQr() {
           
           {tabValue === 'two' && typeof window !== 'undefined' && (
             <div className="map-container">
-              <p>Haz clic en el mapa para obtener las coordenadas</p>
+              <p className="frasemapa">Haz clic en el mapa para obtener las coordenadas</p>
               <Mapa setLatLng={setLatLngFromMap} latLng={latLng} />
             </div>
           )}
         </div>
 
         <div className="qrcomponent">
-          <h4 className="grupo2">Personalizar QR</h4>
+          <h4 className="grupo2">PERSONALIZAR QR</h4>
           <div className="colorytamaño">
             <QrComponent
               onColorChange={handleColorChange}
@@ -156,7 +156,7 @@ function CrearQr() {
         </div>
 
         <div className="qrcontenido">
-          <h4 className="grupo3">QR creado</h4>
+          <h4 className="grupo3">QR CREADO</h4>
           <div className="qrcontenidoint" style={{
             display: 'grid',
             gridTemplateColumns: '3fr 1fr'
