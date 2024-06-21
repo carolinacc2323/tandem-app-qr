@@ -8,7 +8,7 @@
   width: 100%;
 }
 .eslogan h3{
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Georgia, serif;
   font-size: 20px;
 }
 .eslogan2{
@@ -16,6 +16,7 @@
   width: 100%;
   text-align: center;
   font-size: 30px;
+  font-family: Century Gothic, serif;
 }
 .eslogan2 h2{
   font-weight:bold;
