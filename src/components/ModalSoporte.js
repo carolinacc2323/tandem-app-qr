@@ -18,10 +18,10 @@ function ModalSoporte({ modal, toggleModal }) {
             </FormGroup>
             <FormGroup>
               <Input
-                id="apellido"
-                name="apellido"
-                placeholder="Escribe tu apellido"
-                type="text" />
+                id="email"
+                name="email"
+                placeholder="Escribe tu correo"
+                type="email" />
             </FormGroup>
           </Form>
           <Form>

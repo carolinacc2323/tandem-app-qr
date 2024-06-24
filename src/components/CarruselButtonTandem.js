@@ -18,7 +18,7 @@ const items = [
   {
     src: qr1,
     altText: 'Slide 1',
-    caption: 'Identificar productos para controlar stock',
+    caption: 'Control de stock',
     key: 1,
   },
   {
@@ -30,13 +30,13 @@ const items = [
   {
     src: qr3,
     altText: 'Slide 3',
-    caption: 'Aplicación disponible para disferentes formatos de pantallas',
+    caption: 'Diseño adaptativo',
     key: 3,
   },
   {
     src: qr4,
     altText: 'Slide 4',
-    caption: 'Compartir archivos rápidamente entre usuarios',
+    caption: 'Compartir archivos',
     key: 4,
   },
   {

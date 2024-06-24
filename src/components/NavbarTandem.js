@@ -41,10 +41,10 @@ function NavbarTandem(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar>
                 <NavItem>
-                  <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
+                  <NavLink href="/Login" className='navlink'>APP QR</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/" className='navlink'>
+                  <NavLink href="/AreaPersonal" className='navlink'>
                     ÁREA PERSONAL
                   </NavLink>
                 </NavItem>
@@ -59,10 +59,10 @@ function NavbarTandem(args) {
         ) : (
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
+              <NavLink href="/Login" className='navlink'>APP QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/" className='navlink'>
+              <NavLink href="/AreaPersonal" className='navlink'>
                 ÁREA PERSONAL
               </NavLink>
             </NavItem>

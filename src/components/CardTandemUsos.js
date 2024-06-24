@@ -4,24 +4,23 @@ import { StaticImage } from "gatsby-plugin-image"
 import ButtonModalTandem from "./ButtonModalTandem"
 import "./CardUsos.css"
 
+import CarruselButtonTandem from "./CarruselButtonTandem"
 
 const CardTandemUsos = ()=>{
 
 return (
 <Card >
-  <div className='qrimagen mt-2'>
-
-  </div>
+  <CarruselButtonTandem/>
   <CardBody className="card">
     <CardTitle tag="h5" className='eslogan '>
-    <h3>Vive una experiencia única con nuestros QR</h3>
+    <h3><strong>Vive una experiencia única</strong> visita Aranjuez</h3>
     </CardTitle>
     
     <CardSubtitle
-      className="mb-2 text-muted " tag="h6">
+      className="text-muted " tag="h6">
       <h2 className='eslogan2'>GENERADOR DE CÓDIGOS QR</h2>
     </CardSubtitle>
-    <ButtonModalTandem className='buttondeps'/>
+    {/* <ButtonModalTandem className='buttondeps'/> */}
   </CardBody>
 </Card>
 )

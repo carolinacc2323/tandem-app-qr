@@ -8,40 +8,39 @@
   width: 100%;
 }
 .eslogan h3{
-  font-family: Georgia, serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
+  
 }
 .eslogan2{
   background-color: white;
   width: 100%;
   text-align: center;
   font-size: 30px;
-  font-family: Century Gothic, serif;
 }
 .eslogan2 h2{
-  font-weight:bold;
+  font-weight:bold;  
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 .qrimagen{
-  width:100%;
 text-align: center;
-width: 750px;
-height:370px;
-background-image: url('../images/usos.png');
-background-size: contain;
+width: 450px;
+height:170px;
 }
+
 .desplegableSlide{
   text-align: center;
 }
+
 @media (min-width:728px){
   .card{
-    min-height: 30vh;
+    min-height: 5vh;
 }
 .qrimagen{
-  width:100%;
 text-align: center;
-width: 650px;
-height:370px;
+width: 350px;
+height:170px;
 }
 .buttondeps{
   margin-top: 2em;
