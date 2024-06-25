@@ -2,20 +2,20 @@
 
 nav {
     font-family: Century Gothic, serif;
-}
-
-.navlink {
+  }
+  
+  .navlink {
     position: relative;
     color: white;
     transition: color 0.3s ease;
-}
-
-.navlink:hover {
+  }
+  
+  .navlink:hover {
     color: white; /* Cambia el color del texto a blanco */
     font-weight: 700;
-}
-
-.navlink::before {
+  }
+  
+  .navlink::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -26,9 +26,9 @@ nav {
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
-}
-
-.navlink:hover::before {
+  }
+  
+  .navlink:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
-}
+  }

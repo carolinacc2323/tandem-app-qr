@@ -35,7 +35,7 @@ function NavbarInicio(args) {
     <div>
       <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">
-          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100} />
+          <StaticImage src='../images/logoblanco.png' alt="Logo" width={80} />
         </NavbarBrand>
         {isMobile ? (
           <>
@@ -43,7 +43,7 @@ function NavbarInicio(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar>
                 <NavItem>
-                  <NavLink href="/Login" className='navlink'>APP QR</NavLink>
+                  <NavLink href="/Login" style={{fontSize: '12px'}}className='navlink'>APP QR</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="#" onClick={toggleModal} className='navlink'>
@@ -61,15 +61,15 @@ function NavbarInicio(args) {
         ) : (
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/Login" className='navlink'>APP QR</NavLink>
+              <NavLink href="/Login" className='navlink' style={{fontSize: '12px'}}>APP QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#" onClick={toggleModal} className='navlink'>
+              <NavLink href="#" onClick={toggleModal} style={{fontSize: '12px'}} className='navlink'>
                 SOPORTE TÉCNICO
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/InfoInstitucional" className='navlink'>
+              <NavLink href="/InfoInstitucional" className='navlink' style={{fontSize: '12px'}}>
                 INFORMACIÓN INSTITUCIONAL
               </NavLink>
             </NavItem>
