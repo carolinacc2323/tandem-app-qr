@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
-import { Button, Fade, CloseButton } from 'reactstrap';
+import { Collapse, Button, CardBody, Card,CloseButton } from 'reactstrap';
 
-function InstModal() {
-  const [isOpen, setIsOpen] = useState(false); // Initial state for fade visibility
+function InstModal(args) {
 
-  const handleClick = () => {
-    setIsOpen(!isOpen); // Toggle open/closed state on button click
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Button color="primary" onClick={handleClick}>
-        Instrucciones
+    <React.StrictMode>
+      <Button color="info" onClick={toggle} style={{ marginBottom: '1rem', fontSize:'20px' }}>
+        Instrucciones de uso
       </Button>
-      <Fade in={isOpen} timeout={500} className="mt-3" tag="h5">
-        <CloseButton onClick={()=>{
-          setIsOpen(false)
-        }}/>
-        <ol>
-        <li>Ingrese el contenido que desea codificar en el código QR (URL, coordenadas o texto según la selección de pestaña).</li>
-        <li>Elija el color y tamaño deseado para el código QR entre las opciones disponibles.</li>
-        <li>El código QR generado debe mostrarse junto con sus detalles.</li>
-        </ol>
-      </Fade>
-    </div>
+      <Collapse isOpen={isOpen} {...args}>
+      <Card>
+      <CardBody>
+
+      <CloseButton onClick={()=>{setIsOpen(false)}}/>
+          
+      <div style={{
+          fontSize:'15px',
+          marginTop:'30px',
+      }}>
+        <p>1 - Ingrese el contenido que desea codificar en el código QR (URL, coordenadas o texto según la selección de pestaña).</p>
+        <p>2 - Elija el color y tamaño deseado para el código QR entre las opciones disponibles.</p>
+        <p>3 - El código QR generado debe mostrarse junto con sus detalles en el apartado 'QR Creado'.</p>
+        <p>4 - Para finalizar puede descargar el Qr generado en el formato de su preferencia</p>
+        </div>
+        </CardBody>
+        </Card>
+      </Collapse>
+    </React.StrictMode>
   );
 }
 

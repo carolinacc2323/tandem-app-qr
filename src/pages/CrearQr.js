@@ -7,7 +7,9 @@ import './CrearQr.css';
 import TabsQr from "../components/TabsQr";
 import Mapa from "../components/Mapa";
 import { Button } from "reactstrap";
-import { FaHouse } from "react-icons/fa6";
+import { LuSave } from "react-icons/lu";
+import { FaRedoAlt } from "react-icons/fa";
+import InstModal from "../components/InstModal";
 
 function CrearQr() {
   const [inputValue, setInputValue] = useState('');
@@ -17,6 +19,7 @@ function CrearQr() {
   const [latLng, setLatLng] = useState(null);
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
   const qrRef = useRef(null);
 
   const handleInputChange = (event) => {
@@ -81,6 +84,11 @@ function CrearQr() {
     }
   };
 
+  const handleSaveClick = () => {
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000); // El popup desaparece después de 2 segundos
+  };
+
   const containerStyle = {
     padding: "5px",
   };
@@ -89,7 +97,8 @@ function CrearQr() {
   return (
     <Layout>
       <div className="titulo mt-3">
-        <h1 >GENERADOR DE QR</h1>
+        <h1>GENERADOR DE QR</h1>
+        <InstModal/>
       </div>
       <div className="pagina" style={containerStyle}>
         <div className="url">
@@ -135,7 +144,7 @@ function CrearQr() {
               </div>
             )}
           </div>
-          
+
           {tabValue === 'two' && typeof window !== 'undefined' && (
             <div className="map-container">
               <p className="frasemapa">Haz clic en el mapa para obtener las coordenadas</p>
@@ -161,6 +170,7 @@ function CrearQr() {
             display: 'grid',
             gridTemplateColumns: '3fr 1fr'
           }}>
+            
             <div className="qrdescarga" ref={qrRef}>
               <QRCode value={inputValue} size={qrSize} fgColor={qrColor} />
             </div>
@@ -169,14 +179,27 @@ function CrearQr() {
               <p>Color: {qrColor}</p>
               <p>Tamaño: {qrSize}</p>
               <ModalExport qrRef={qrRef} />
-              <Button color="warning" href="/AppQr">
-                <FaHouse size={30} />
+              <div className="row">
+              <Button color="warning" className="guardarqrr" onClick={handleSaveClick}>
+                <LuSave size={30} />
+                <p>GUARDAR</p>
+              </Button>
+              <Button color="light" className="guardarqrr" href='/AppQr'>
+                <FaRedoAlt size={30} />
+                <p>Nuevo QR</p>
               </Button>
             </div>
+              
+            </div>
           </div>
-          
         </div>
       </div>
+
+      {showPopup && (
+        <div className="popup">
+          ¡Se ha guardado con éxito!
+        </div>
+      )}
     </Layout>
   );
 }

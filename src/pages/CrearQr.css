@@ -3,14 +3,9 @@
 }
 .titulo h1 {
   margin-bottom: 0.5em;
-  color: #8f6f24b6;
+  color: #FFC107;
   font-weight: bolder;
   font-size: 40px;
-  font-family: Georgia, serif;
-}
-
-.map-container{
-  font-family: Georgia, serif;
 }
 .pagina {
   display: grid;
@@ -93,15 +88,8 @@ input[type="text"]:focus {
   padding: 0.5em;
   border-radius: 5px;
   font-size: 25px;
-  font-family: Century Gothic, serif;
 }
-.frasemapa{
-  font-family: Lato, Open Sans, sans-serif;
-}
-.qrcreado{
-  font-family: Lato, Open Sans, sans-serif;
-  font-size: 16px;
-}
+
 @media (min-width: 728px) {
   .titulo {
     text-align: center;
@@ -123,5 +111,10 @@ input[type="text"]:focus {
     align-items: center;
     justify-content: center;
     color: #5d03a190;
+  }
+  .guardarqrr{
+    width: 80%;
+    min-height: 20px;
+    justify-content: center;
   }
 }

@@ -11,7 +11,8 @@ import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout';
 
 import LeerMas from '../components/LeerMas';
-
+import NavbarInicio from "../components/NavbarInicio";
+import FooterInicio from "../components/FooterInicio";
 
 
 function InfoInstitucional(props) {
@@ -26,7 +27,7 @@ function InfoInstitucional(props) {
 
   return (
     <>
-    <Layout>
+    <NavbarInicio/>
     <div className='container'>
         {/* <div className='imagenprincipal'>
             <StaticImage  src='../images/palacio.jpg' className={infoStyle.imagenprincipal}/>
@@ -75,7 +76,6 @@ function InfoInstitucional(props) {
       fontSize:'15px'
     }} className='mt-5'>
             Patrimonio Nacional es un organismo público regulado por una Ley específica de 1982, Ley 23/1982, de 16 de junio, heredera de una larga serie de disposiciones entre las cuales cabe destacar las leyes de 1865, 1869, 1876, 1932 y 1940, aparte de las ordenanzas anteriores al siglo XIX. En definitiva, esta entidad estatal constituye el núcleo esencial y más importante del antiguo Real Patrimonio, o Patrimonio de la Corona, denominado Patrimonio de la República por la Ley de 1932, y con su nombre actual por las leyes de 1940 y 1982.<br></br>
-
             DOBLE FUNCIÓN: CONSTITUCIONAL Y CULTURAL
             La función de este organismo público, dependiente del Ministerio de la Presidencia, Relaciones con las Cortes y Memoria Democrática es doble: el apoyo a la Jefatura del Estado para la alta representación que la Constitución y las leyes le atribuyen, y la puesta a disposición de los ciudadanos del patrimonio histórico-artístico a través de su uso con fines culturales, científicos y docentes.<br></br>
 
@@ -219,7 +219,7 @@ function InfoInstitucional(props) {
         </AccordionItem>
       </Accordion>
     </div>
-    </Layout>
+    <FooterInicio/>
     </>
   );
 }

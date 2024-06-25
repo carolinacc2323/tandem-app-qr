@@ -59,7 +59,7 @@ function NavbarTandem(args) {
         ) : (
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/Login" className='navlink'>APP QR</NavLink>
+              <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/AreaPersonal" className='navlink'>

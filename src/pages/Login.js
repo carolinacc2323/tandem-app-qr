@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Layout from "../components/layout";
+import NavbarInicio from '../components/NavbarInicio'
+import Footer from '../components/Footer';
 import "./Login.css";
 import RegisterModal from '../components/RegisterModal';
 import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
@@ -35,7 +36,7 @@ const Login = () => {
 
   return (
     <>
-      <Layout>
+      <NavbarInicio />
         <div className='row mb-5'>
           <div className='loginform col-12 col-md-11 mt-2 p-5 mr-2'>
             <div className='h1login'>
@@ -85,7 +86,7 @@ const Login = () => {
             </Form>
           </div>
         </div>
-      </Layout>
+      <Footer />
     </>
   );
 };

@@ -8,6 +8,7 @@ import { Button,
 import PropTypes from 'prop-types';
 import download from "downloadjs";
 import { toPng, toJpeg, toSvg } from "html-to-image";
+import { LuArrowDownToLine } from "react-icons/lu";
 
 function ModalExport({ className, qrRef }) {
   const [modal, setModal] = useState(false);
@@ -25,15 +26,13 @@ function ModalExport({ className, qrRef }) {
       let dataUrl;
       if (selectedFormat === 'png') {
         dataUrl = await toPng(qrRef.current); 
-        
+        // console.log('se ha descargado')
         setDescargado(true)
         
       } else if (selectedFormat === 'jpeg') {
         dataUrl = await toJpeg(qrRef.current);
-        setDescargado(true)
       } else if (selectedFormat === 'svg') {
         dataUrl = await toSvg(qrRef.current);
-        setDescargado(true)
       }
       download(dataUrl, `qr-code.${selectedFormat}`);
     }
@@ -41,14 +40,20 @@ function ModalExport({ className, qrRef }) {
   };
   let mensaje=""
   if(descargado){
-    mensaje = <div className="alert alert-success" role="alert">Se ha descargado correctamente</div>
+    mensaje = 'Se ha descargado el QR'
+    // `<div className="alert alert-success" role="alert">
+    //   Se ha descargado correctamente
+    //   </div>`
   }
   
   return (
     <div>
-      <Button color="success" onClick={toggle}>
-        Descargar
-      </Button>{mensaje}
+      <Button color="success" className="guardarqr" onClick={toggle}>
+      <LuArrowDownToLine size={30}/>
+        <p>DESCARGAR</p>
+      </Button>
+      
+      {mensaje}
       
       <Modal
         isOpen={modal}
@@ -108,4 +113,4 @@ ModalExport.propTypes = {
   qrRef: PropTypes.object.isRequired,
 };
 
-export default ModalExport;
+export default ModalExport
