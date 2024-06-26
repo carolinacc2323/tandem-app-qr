@@ -11,7 +11,11 @@ import { LuSave } from "react-icons/lu";
 import { FaRedoAlt } from "react-icons/fa";
 import InstModal from "../components/InstModal";
 
-function CrearQr() {
+function CrearQr({ userId }) {
+  const [data, setData] = useState('');
+  const [description, setDescription] = useState('');
+  const [nombre_ref, setNombre_ref] = useState('');
+  const [message, setMessage] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [qrColor, setQrColor] = useState('black');
   const [qrSize, setQrSize] = useState(100);
@@ -21,7 +25,7 @@ function CrearQr() {
   const [longitude, setLongitude] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const qrRef = useRef(null);
-
+  
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -84,7 +88,27 @@ function CrearQr() {
     }
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
+    try {
+      const response = await fetch('http://localhost/gatsby-qr/v1/create-qr.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          data: inputValue,
+          nombre_ref,
+          description,
+          created_by: userId
+        })
+      });
+      const code = await response.json();
+      setMessage(code.message);
+    } catch (error) {
+      console.error('Error creando código QR', error);
+      setMessage('Error creando código QR');
+    }
+
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 2000); // El popup desaparece después de 2 segundos
   };
@@ -98,7 +122,7 @@ function CrearQr() {
     <Layout>
       <div className="titulo mt-3">
         <h1>GENERADOR DE QR</h1>
-        <InstModal/>
+        <InstModal />
       </div>
       <div className="pagina" style={containerStyle}>
         <div className="url">
@@ -170,7 +194,6 @@ function CrearQr() {
             display: 'grid',
             gridTemplateColumns: '3fr 1fr'
           }}>
-            
             <div className="qrdescarga" ref={qrRef}>
               <QRCode value={inputValue} size={qrSize} fgColor={qrColor} />
             </div>
@@ -180,16 +203,15 @@ function CrearQr() {
               <p>Tamaño: {qrSize}</p>
               <ModalExport qrRef={qrRef} />
               <div className="row">
-              <Button color="warning" className="guardarqrr" onClick={handleSaveClick}>
-                <LuSave size={30} />
-                <p>GUARDAR</p>
-              </Button>
-              <Button color="light" className="guardarqrr" href='/AppQr'>
-                <FaRedoAlt size={30} />
-                <p>Nuevo QR</p>
-              </Button>
-            </div>
-              
+                <Button color="warning" className="guardarqrr" onClick={handleSaveClick}>
+                  <LuSave size={30} />
+                  <p>GUARDAR</p>
+                </Button>
+                <Button color="light" className="guardarqrr" href='/AppQr'>
+                  <FaRedoAlt size={30} />
+                  <p>Nuevo QR</p>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -201,7 +223,7 @@ function CrearQr() {
         </div>
       )}
     </Layout>
-  );
+  )
 }
 
-export default CrearQr;
+export default CrearQr
