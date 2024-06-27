@@ -11,7 +11,7 @@ import { LuSave } from "react-icons/lu";
 import { FaRedoAlt } from "react-icons/fa";
 import InstModal from "../components/InstModal";
 
-function CrearQr({ userId }) {
+function CrearQr({ tandemId }) {
   const [data, setData] = useState('');
   const [description, setDescription] = useState('');
   const [nombre_ref, setNombre_ref] = useState('');
@@ -99,9 +99,10 @@ function CrearQr({ userId }) {
           data: inputValue,
           nombre_ref,
           description,
-          created_by: userId
+          created_by: localStorage.getItem('tandemId'),
         })
       });
+      console.log(localStorage.getItem('tandemId'));
       const code = await response.json();
       setMessage(code.message);
     } catch (error) {

@@ -22,6 +22,8 @@ const Login = () => {
       const data = await response.json();
       if (data.message === 'Login exitoso') {
         console.log(data.user);
+        localStorage.setItem('tandemId',data.user.id)
+        localStorage.setItem('email',data.user.email)
         setMessage('Login exitoso');
         // Aquí podrías redirigir al usuario a otra página o guardar el usuario en el estado global/localStorage
         window.location.href = '/AppQr';
@@ -78,7 +80,9 @@ const Login = () => {
               </Button>
               <br></br>
               <p>{message}</p>
-
+              <div>
+                <a href='/ChangePass'>¿Has olvidado tu contraseña?</a>
+              </div>
               <div className='registro mt-5'>
                 <h4>En caso de que no estés registrado</h4>
                 <RegisterModal />
