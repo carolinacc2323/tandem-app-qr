@@ -11,7 +11,7 @@ import { LuSave } from "react-icons/lu";
 import { FaRedoAlt } from "react-icons/fa";
 import InstModal from "../components/InstModal";
 
-function CrearQr({ tandemId }) {
+function CrearQr({ userId }) {
   const [data, setData] = useState('');
   const [description, setDescription] = useState('');
   const [nombre_ref, setNombre_ref] = useState('');
@@ -25,7 +25,7 @@ function CrearQr({ tandemId }) {
   const [longitude, setLongitude] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const qrRef = useRef(null);
-  
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -96,13 +96,12 @@ function CrearQr({ tandemId }) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          data: inputValue,
+          data : inputValue,
           nombre_ref,
           description,
-          created_by: localStorage.getItem('tandemId'),
+          created_by: localStorage.getItem('tandem_id')
         })
       });
-      console.log(localStorage.getItem('tandemId'));
       const code = await response.json();
       setMessage(code.message);
     } catch (error) {
@@ -127,6 +126,30 @@ function CrearQr({ tandemId }) {
       </div>
       <div className="pagina" style={containerStyle}>
         <div className="url">
+        <h4 className="grupo1">NOMBRE DEL QR</h4>
+        <div className="input-field mt-4">
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={nombre_ref}
+                    onChange={e => setNombre_ref(e.target.value)}
+                    id="nombre_ref"
+                    name="nombre_ref"
+                  />
+                  <label htmlFor="nombre_ref">Escribe el nombre de tu QR</label>
+          </div>
+          <h4 className="grupo1">DESCRIPCION</h4>
+        <div className="input-field mt-4">
+                  <input
+                    type="text"
+                    placeholder=""
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                    id="description"
+                    name="description"
+                  />
+                  <label htmlFor="nombre_ref">Escribe una descripcion del contenido  tu QR</label>
+          </div>
           <h4 className="grupo1">CONTENIDO DEL QR</h4>
           <TabsQr onTabChange={handleTabChange} />
           <div className="input-container">
@@ -224,7 +247,7 @@ function CrearQr({ tandemId }) {
         </div>
       )}
     </Layout>
-  )
+  );
 }
 
-export default CrearQr
+export default CrearQr;

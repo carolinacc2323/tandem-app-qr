@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import NavbarInicio from '../components/NavbarInicio'
-import Footer from '../components/Footer';
 import "./Login.css";
 import RegisterModal from '../components/RegisterModal';
 import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import NavbarInicio from "../components/NavbarInicio";
+import FooterInicio from "../components/FooterInicio";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -19,13 +19,14 @@ const Login = () => {
         },
         body: JSON.stringify({ email, password })
       });
-      const data = await response.json();
-      if (data.message === 'Login exitoso') {
-        console.log(data.user);
-        localStorage.setItem('tandemId',data.user.id)
-        localStorage.setItem('email',data.user.email)
-        setMessage('Login exitoso');
-        // Aquí podrías redirigir al usuario a otra página o guardar el usuario en el estado global/localStorage
+      const respuesta = await response.json();
+      if (respuesta.message === 'Login exitoso') {
+        console.log(respuesta.user);
+        localStorage.setItem('tandem_id', respuesta.user.id);
+        localStorage.setItem('tandem_email', respuesta.user.email);
+        localStorage.setItem('tandem_token', respuesta.token);
+        localStorage.setItem('tandem_nombre', respuesta.user.nombre);
+        setMessage('Login exitoso para:' + respuesta.user.nombre);
         window.location.href = '/AppQr';
       } else {
         setMessage('Credenciales incorrectas');
@@ -38,59 +39,59 @@ const Login = () => {
 
   return (
     <>
-      <NavbarInicio />
-        <div className='row mb-5'>
-          <div className='loginform col-12 col-md-11 mt-2 p-5 mr-2'>
-            <div className='h1login'>
-              <h1>Accede a tu área personal</h1>
-            </div>
-            <Form className='formu'>
-              <FormGroup row>
-                <Label for="email" sm={2}>Correo electrónico</Label>
-                <Col sm={10}>
-                  <Input
-                    id="email"
-                    name="email"
-                    placeholder="Escribe tu correo electrónico"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Col>
-                <FormText>Este campo es obligatorio</FormText>
-              </FormGroup>
-
-              <FormGroup row>
-                <Label for="examplePassword" sm={2}>Contraseña</Label>
-                <Col sm={10}>
-                  <Input
-                    id="examplePassword"
-                    name="password"
-                    placeholder="Escribe tu contraseña"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Col>
-                <FormText>Este campo es obligatorio</FormText>
-              </FormGroup>
-
-              <Button className='btnlogin' color='warning' onClick={handleLogin}>
-                <p>Acceder</p>
-              </Button>
-              <br></br>
-              <p>{message}</p>
-              <div>
-                <a href='/ChangePass'>¿Has olvidado tu contraseña?</a>
-              </div>
-              <div className='registro mt-5'>
-                <h4>En caso de que no estés registrado</h4>
-                <RegisterModal />
-              </div>
-            </Form>
+      <NavbarInicio/>
+      <div className='row mb-5'>
+        <div className='loginform col-12 col-md-11 mt-2 p-5 mr-2'>
+          <div className='h1login'>
+            <h1>Accede a tu área personal</h1>
           </div>
+          <Form className='formu'>
+            <FormGroup row>
+              <Label for="email" sm={2}>Correo electrónico</Label>
+              <Col sm={10}>
+                <Input
+                  id="email"
+                  name="email"
+                  placeholder="Escribe tu correo electrónico"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Col>
+              <FormText>Este campo es obligatorio</FormText>
+            </FormGroup>
+
+            <FormGroup row>
+              <Label for="examplePassword" sm={2}>Contraseña</Label>
+              <Col sm={10}>
+                <Input
+                  id="examplePassword"
+                  name="password"
+                  placeholder="Escribe tu contraseña"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Col>
+              <FormText>Este campo es obligatorio</FormText>
+            </FormGroup>
+
+            <Button className='btnlogin' color='warning' onClick={handleLogin}>
+              <p>Acceder</p>
+            </Button>
+            <br />
+            <p>{message}</p>
+            <div>
+              <a href='../ChangePassword'>¿Has olvidado tu contraseña?</a>
+            </div>
+            <div className='registro mt-5'>
+              <h4>En caso de que no estés registrado</h4>
+              <RegisterModal />
+            </div>
+          </Form>
         </div>
-      <Footer />
+      </div>
+      <FooterInicio/>
     </>
   );
 };

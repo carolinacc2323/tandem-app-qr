@@ -27,12 +27,6 @@ const AreaPersonal = () => {
           justifyContent: 'center'
         }}>
           <h1>ÁREA PERSONAL</h1>
-          <div className='text-center'>
-        <Button  color="warning" href="/" className='cerrarsesion'>
-          <FaPowerOff className='offcd'/>
-            <p className='offpcd'>Cerrar sesión</p>
-          </Button>
-        </div>
         </div>
         <div className='containeru text-center'>
         <div className='cardcambiardatos'>

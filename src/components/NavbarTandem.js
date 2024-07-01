@@ -8,9 +8,9 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText,
 } from 'reactstrap';
 import "./NavbarTandem.css";
+import CerrarSesion from './CerrarSesion'; // Asegúrate de ajustar la ruta según tu estructura de archivos
 
 function NavbarTandem(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ function NavbarTandem(args) {
     <div>
       <Navbar color="dark" dark expand="md" >
         <NavbarBrand href="/">
-          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100}  />
+          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100} />
         </NavbarBrand>
         {isMobile ? (
           <>
@@ -53,6 +53,9 @@ function NavbarTandem(args) {
                     SOPORTE TÉCNICO
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <CerrarSesion />
+                </NavItem>
               </Nav>
             </Collapse>
           </>
@@ -71,6 +74,9 @@ function NavbarTandem(args) {
                 SOPORTE TÉCNICO
               </NavLink>
             </NavItem>
+            <NavItem>
+              <CerrarSesion />
+            </NavItem>
           </Nav>
         )}
       </Navbar>
@@ -78,4 +84,4 @@ function NavbarTandem(args) {
   );
 }
 
-export default NavbarTandem;
+export default NavbarTandem
