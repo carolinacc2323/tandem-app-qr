@@ -1,15 +1,15 @@
 import React from 'react';
 import './BannerUser.css';
-import { FaUser } from "react-icons/fa";
 
 const BannerUser = () => {
+  const rutaimg = 'http://localhost/gatsby-qr/images/users/'+ localStorage.getItem('tandem_img_user')
+
   return (
     <>
     <div className='banneruser'>
         
-        <p><FaUser style={{
-          fontSize: '50px',
-        }}/>¡Hola <strong>{localStorage.getItem('tandem_nombre')}</strong>!</p>
+        <p><img width={80} src={rutaimg}/>¡Hola <strong>{localStorage.getItem('tandem_nombre')}</strong>!</p>
+        
     </div>
 
       {/* <p>{localStorage.getItem('tandem_email')}</p>
