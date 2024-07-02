@@ -24,7 +24,7 @@ const ChangePassword =()=>{
                 console.error('Error registrando usuario', error);
                 setMessage('Error en el registro');
             }
-        };
+        }
     return(
         <>
             <NavbarTandem/>

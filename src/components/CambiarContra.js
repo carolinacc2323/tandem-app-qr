@@ -14,6 +14,7 @@ function CambiarContra(props) {
     <button className="close" onClick={toggle} type="button">
       &times;
     </button>
+  
   );
   
 
