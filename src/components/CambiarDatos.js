@@ -59,18 +59,11 @@ const CambiarDatos = ({ className }) => {
         <ModalBody>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
+            <Label for="email" sm={7}>Escribe tu nuevo correo electrónico</Label>
               <Input
                 id="nombre"
                 name="nombre"
-                placeholder="Escribe tu nombre"
-                type="text"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Input
-                id="apellido"
-                name="apellido"
-                placeholder="Escribe tu apellido"
+                placeholder="Escribe tu email"
                 type="text"
               />
             </FormGroup>
