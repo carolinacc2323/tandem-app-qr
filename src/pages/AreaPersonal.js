@@ -9,7 +9,8 @@ import { Button } from 'reactstrap';
 
 import { MdSupportAgent } from "react-icons/md";
 import { FaPowerOff } from "react-icons/fa";
-
+import BannerUser from '../components/BannerUser';
+import { FaUsersGear } from "react-icons/fa6";
 
 const AreaPersonal = () => {
 
@@ -28,6 +29,10 @@ const AreaPersonal = () => {
         }}>
           <h1>ÁREA PERSONAL</h1>
         </div>
+        <BannerUser/>
+        <Button href='/Profile'>
+          <FaUsersGear fontSize={50} />
+        </Button>
         <div className='containeru text-center'>
         <div className='cardcambiardatos'>
           <div className='modaldatos'>

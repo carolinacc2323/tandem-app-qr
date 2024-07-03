@@ -27,6 +27,7 @@ const Login = () => {
         localStorage.setItem('tandem_token', respuesta.token);
         localStorage.setItem('tandem_nombre', respuesta.user.nombre);
         localStorage.setItem('tandem_img_user', respuesta.user.image_url);
+        localStorage.setItem('tandem_role', respuesta.user.role);
         setMessage('Login exitoso para:' + respuesta.user.nombre);
         window.location.href = '/AppQr';
       } else {

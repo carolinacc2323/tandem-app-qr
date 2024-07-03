@@ -4,9 +4,9 @@ import { RiShutDownLine } from "react-icons/ri";
 const CerrarSesion = () => {
   const handleCerrarSesion = () => {
     window.location.href = '/';
-    localStorage.removeItem('tndm_id');
-    localStorage.removeItem('tndm_email');
-    localStorage.removeItem('tndm_token');
+    localStorage.removeItem('tandem_id');
+    localStorage.removeItem('tandem_email');
+    localStorage.removeItem('tandem_token');
   };
 
   return (
