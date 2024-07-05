@@ -36,7 +36,7 @@
   .loginform{
     background-image: url(../images/accesologin.png);
     background-size:cover;
-    min-height: 73vh;
+    min-height: 70vh;
     display: grid;
     grid-template-areas:
     "h1 h1 h1 h1 h1" 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import BannerUser from './BannerUser'
 
 const Perfil = ({id,email,role})=>{
 
@@ -8,16 +9,16 @@ const Perfil = ({id,email,role})=>{
             <>
                 <p>Eres: {email} | {role}</p>
                 <ul>
-                    <li>Ver lista de usuarios</li>
+                    <li>Ver lista de usuarios!!!</li>
                     <li>Ver lista de códigos Qr</li>
                     <li>Cambiar modo oscuro/claro</li>
                     <li>Cambiar contraseña</li>
                     <li>Contactar con soporte</li>
                     <li>Cambiar su foto de perfil</li>
-                    <li>Crear código QR</li>
+                    <li><Link to='/AppQr'>Crear QR</Link></li>
                     <li>Mostrar historial de tu QR</li>
                     <li>Administrar tus propios códigos QR</li>
-                    <li><Link to='/AppQr'>Crear QR</Link></li>
+                    
                 </ul>
             </>
         )
@@ -25,16 +26,16 @@ const Perfil = ({id,email,role})=>{
     if(role=='employee'){
         return(
             <>
+                <BannerUser/>
                 <p>Eres: {email} | {role} | {id}</p>
                 <ul>
                     <li>Cambiar modo oscuro/claro</li>
                     <li>Cambiar contraseña</li>
                     <li>Contactar con soporte</li>
                     <li>Cambiar su foto de perfil</li>
-                    <li>Crear código QR</li>
-                    <li>Mostrar historial de tu QR</li>
-                    <li>Administrar tus propios códigos QR</li>
                     <li><Link to='/AppQr'>Crear QR</Link></li>
+                    <li>Mostrar historial de tu QR</li>
+                    <li>Administrar tus propios códigos QR!!!</li>
                 </ul>
             </>
         )

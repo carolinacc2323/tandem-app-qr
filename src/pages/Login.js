@@ -5,7 +5,7 @@ import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap
 import NavbarInicio from "../components/NavbarInicio";
 import FooterInicio from "../components/FooterInicio";
 
-const Login = () => {
+const Login = (role) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
