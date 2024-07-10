@@ -5,7 +5,7 @@ import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap
 import NavbarInicio from "../components/NavbarInicio";
 import FooterInicio from "../components/FooterInicio";
 
-const Login = (role) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -24,9 +24,8 @@ const Login = (role) => {
         console.log(respuesta.user);
         localStorage.setItem('tandem_id', respuesta.user.id);
         localStorage.setItem('tandem_email', respuesta.user.email);
-        localStorage.setItem('tandem_token', respuesta.token);
+        localStorage.setItem('tandem_image_url', respuesta.user.image_url);
         localStorage.setItem('tandem_nombre', respuesta.user.nombre);
-        localStorage.setItem('tandem_img_user', respuesta.user.image_url);
         localStorage.setItem('tandem_role', respuesta.user.role);
         setMessage('Login exitoso para:' + respuesta.user.nombre);
         window.location.href = '/AppQr';
@@ -98,4 +97,4 @@ const Login = (role) => {
   );
 };
 
-export default Login;
+export default Login

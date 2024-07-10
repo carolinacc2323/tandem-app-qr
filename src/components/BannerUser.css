@@ -3,12 +3,11 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    margin: 1em;
-    
     }
 .banneruser p{
     border-radius: 10px;
-    padding: 20px;
-    font-size: 30px;
-    border:#A471CA solid 0.3em;
+    padding: 10px;
+    font-size: 20px;
+    border:#A471CA solid 0.1em;
+    color: aliceblue;
 }

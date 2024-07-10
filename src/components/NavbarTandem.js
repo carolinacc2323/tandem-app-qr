@@ -10,14 +10,17 @@ import {
   NavLink,
 } from 'reactstrap';
 import "./NavbarTandem.css";
-import CerrarSesion from './CerrarSesion'; // Asegúrate de ajustar la ruta según tu estructura de archivos
+import CerrarSesion from './CerrarSesion';
+import BannerUser from "../components/BannerUser";
+import ModalSoporte from './ModalSoporte';
 
 function NavbarTandem(args) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-
+  const toggleModal = () => setModal(!modal);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -32,9 +35,15 @@ function NavbarTandem(args) {
   return (
     <div>
       <Navbar color="dark" dark expand="md" >
-        <NavbarBrand href="/">
-          <StaticImage src='../images/logoblanco.png' alt="Logo" width={100} />
+        <NavbarBrand href="/" style={{
+          display: 'flex',
+        }}>
+          <StaticImage src='../images/logoblanco.png' alt="Logo" width={200} />
+          
         </NavbarBrand>
+        <NavLink  href="/AreaPersonal">
+          <BannerUser />
+        </NavLink>
         {isMobile ? (
           <>
             <NavbarToggler onClick={toggle} />
@@ -49,7 +58,7 @@ function NavbarTandem(args) {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/" className='navlink'>
+                  <NavLink href="#" onClick={toggleModal}>
                     SOPORTE TÉCNICO
                   </NavLink>
                 </NavItem>
@@ -60,17 +69,17 @@ function NavbarTandem(args) {
             </Collapse>
           </>
         ) : (
-          <Nav className="me-auto" navbar>
+          <Nav className="ms-auto" navbar>
             <NavItem>
-              <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
+              <NavLink href="/AppQr" className='navlink' style={{fontSize: '15px'}}>APP QR</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/AreaPersonal" className='navlink'>
+              <NavLink href="/AreaPersonal" className='navlink' style={{fontSize: '15px'}}>
                 ÁREA PERSONAL
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/" className='navlink'>
+              <NavLink href="#" onClick={toggleModal} style={{fontSize: '15px'}}>
                 SOPORTE TÉCNICO
               </NavLink>
             </NavItem>
@@ -80,6 +89,7 @@ function NavbarTandem(args) {
           </Nav>
         )}
       </Navbar>
+      <ModalSoporte modal={modal} toggleModal={toggleModal} />
     </div>
   );
 }

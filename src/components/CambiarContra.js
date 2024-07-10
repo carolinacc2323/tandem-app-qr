@@ -73,4 +73,4 @@ CambiarContra.propTypes = {
   className: PropTypes.string,
 };
 
-export default CambiarContra;
+export default CambiarContra

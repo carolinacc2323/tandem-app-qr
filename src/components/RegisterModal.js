@@ -6,14 +6,25 @@ function RegisterModal(props) {
   const { className } = props;
 
   const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal);
+    setError('');
+    setSuccess('');
+  };
 
   const [nombre, setNombre] = useState('');
   const [delegacion, setDelegacion] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleRegister = async () => {
+    if (!nombre || !email || !delegacion || !password) {
+      setError('Por favor, complete todos los campos obligatorios.');
+      return;
+    }
+
     console.log(nombre, delegacion, email, password);
     try {
       const response = await fetch('http://localhost/gatsby-qr/v1/register-user.php', {
@@ -34,8 +45,16 @@ function RegisterModal(props) {
       }
       const data = await response.json();
       console.log(data);
+      setSuccess('Registro exitoso. Bienvenido!');
+      setError('');
+      setNombre('');
+      setDelegacion('');
+      setEmail('');
+      setPassword('');
     } catch (error) {
       console.error('Error registrando usuario:', error);
+      setError('Hubo un error al registrar el usuario. Por favor, intente de nuevo más tarde.');
+      setSuccess('');
     }
   };
 
@@ -55,6 +74,8 @@ function RegisterModal(props) {
           Registro de nuevos usuarios
         </ModalHeader>
         <ModalBody>
+          {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+          {success && <div style={{ color: 'green', marginBottom: '10px' }}>{success}</div>}
           <Form>
             <FormGroup floating>
               <Input
@@ -109,21 +130,12 @@ function RegisterModal(props) {
                 value={delegacion}
                 onChange={(e) => setDelegacion(e.target.value)}
               >
-                <option>
-                  Aranjuez
-                </option>
-                <option>
-                  El Escorial
-                </option>
-                <option>
-                  La Granja San Ildefonso
-                </option>
-                <option>
-                  Mallorca
-                </option>
-                <option>
-                  Moncloa
-                </option>
+                <option value="">Selecciona una delegación</option>
+                <option value="Aranjuez">Aranjuez</option>
+                <option value="El Escorial">El Escorial</option>
+                <option value="La Granja San Ildefonso">La Granja San Ildefonso</option>
+                <option value="Mallorca">Mallorca</option>
+                <option value="Moncloa">Moncloa</option>
               </Input>
             </FormGroup>
             {' '}
@@ -146,4 +158,4 @@ RegisterModal.propTypes = {
   className: PropTypes.string,
 };
 
-export default RegisterModal;
+export default RegisterModal
