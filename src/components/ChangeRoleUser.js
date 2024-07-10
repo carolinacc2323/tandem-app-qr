@@ -3,8 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, La
 import { PiUserSwitchDuotone } from "react-icons/pi";
 
 // modal padre
-const ChangeRoleUser = (className) => {
-const [email, setEmail] = useState('');
+const ChangeRoleUser = ({className, initialEmail}) => {
+const [email, setEmail] = useState(initialEmail);
 const [role, setRole] = useState('');
 const [message, setMessage] = useState('');
 const [modal, setModal] = useState(false);
