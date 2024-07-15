@@ -36,6 +36,7 @@ function ListadosUsers({ url }) {
   const handleUserUpdated = () => {
     setRefresh(!refresh); // Cambia el estado de refresh para desencadenar useEffect
   };
+  
 
   return (
     <div className="containerlist">
@@ -61,10 +62,18 @@ function ListadosUsers({ url }) {
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a href="#" className="social-link"><ChangeRoleUser initialEmail={user.email} className="social-link"/></a>
+                  <a href="#" className="social-link">
+                    <ChangeRoleUser 
+                    initialEmail={user.email}
+                    onRoleChanged={handleUserUpdated}
+                    />
+                  </a>
                 </li>
                 <li className="list-inline-item">
-                  <a href="#" className="social-link"><DeleteUser /></a>
+                  <a href="#" className="social-link">
+                    <DeleteUser 
+                    />
+                  </a>
                 </li>
               </ul>
             </div>
