@@ -46,7 +46,7 @@ const CardApp = () => {
                                 <CardText className="texto">
                                     Embárcate en un viaje interactivo por Aranjuez con nuestro listado de códigos QR.
                                 </CardText>
-                                <Button color="warning">
+                                <Button href='../ListadoQr' color="warning">
                                     LISTADO QR
                                 </Button>
                             </CardBody>

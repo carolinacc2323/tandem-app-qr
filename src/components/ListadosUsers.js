@@ -47,7 +47,7 @@ function ListadosUsers({ url }) {
               <img src={'http://localhost/gatsby-qr/images/users/' + user.image_url} alt={user.nombre} width="100" className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
               <h5 className="mb-0">{user.nombre}</h5>
               <span className="small text-uppercase text-muted">{user.role}</span>
-              <p>{user.id}</p>
+              <p>Id:{user.id}</p>
               <p>{user.email}</p>
               <p>{user.delegacion}</p>
               <ul className="social mb-0 list-inline mt-3">

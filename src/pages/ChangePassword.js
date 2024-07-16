@@ -49,7 +49,6 @@ const ChangePassword =()=>{
                 </Col>
                 <FormText>Este campo es obligatorio</FormText>
             </FormGroup>
-
             <FormGroup row className='formuchangepassword mt-5 mb-5'>
                 <Label for="examplePassword" sm={4}>Escribe tu nueva contraseña</Label>
                 <Col sm={8}>

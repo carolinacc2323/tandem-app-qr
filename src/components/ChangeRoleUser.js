@@ -49,14 +49,15 @@ const ChangeRoleUser = ({ className, initialEmail, onRoleChanged }) => {
         <ModalBody>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label for="email" sm={7}>Escribe el correo electrónico</Label>
-              <Input
+            <Label for="email"><h6>Correo del empleado:</h6></Label>
+              <p>{email}</p>
+              {/* <Input
                 type="text"
                 placeholder="Escribe el email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              />
+              /> */}
             </FormGroup>
             <FormGroup tag="fieldset">
               <legend>Rol</legend>

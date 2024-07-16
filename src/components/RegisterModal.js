@@ -70,8 +70,8 @@ function RegisterModal(props) {
         Click aquí
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} close={closeBtn}>
-          Registro de nuevos usuarios
+        <ModalHeader toggle={toggle} close={closeBtn} className='justify-content-end'>
+        <h3 className='m-1'>Registro de nuevos usuarios </h3>
         </ModalHeader>
         <ModalBody>
           {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}

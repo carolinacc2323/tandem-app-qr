@@ -50,6 +50,19 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
         <ModalBody>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
+              <Label for="email"><h6>Este perfil corresponde al empleado: {nombre}</h6></Label>
+              <p><h6>Correo: {email}</h6></p>
+              {/* <Input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Escribe el email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              /> */}
+            </FormGroup>
+            <FormGroup>
               <Label for="nombre">Escribe el nombre</Label>
               <Input
                 type="text"
@@ -61,18 +74,7 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
                 required
               />
             </FormGroup>
-            <FormGroup>
-              <Label for="email">Escribe el correo electrónico</Label>
-              <Input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Escribe el email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </FormGroup>
+            
             <FormGroup>
               <Label for="delegacion">Elige la delegación</Label>
               <Input

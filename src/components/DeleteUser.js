@@ -53,7 +53,8 @@ const DeleteUser = (className) => {
                 <ModalBody>
                     <Form onSubmit={handleDelete}>
                         <FormGroup>
-                            <Label for="email">Escribe el correo electrónico</Label>
+                            <p><h6>Correo: {email}</h6></p>
+                            <Label for="email">Escriba el correo electrónico</Label>
                             <Input
                                 type="email"
                                 placeholder="Email del usuario"
