@@ -34,7 +34,7 @@ function CompaQr() {
           body='carolinacc.tandem@gmail.com'
           separator='--'
         >
-          <EmailIcon size={32} round/>
+          <EmailIcon size={35} round/>
         </EmailShareButton>
         <br />
         <FacebookShareButton
@@ -44,7 +44,7 @@ function CompaQr() {
           description={'dataUrl'}
           className="Demo__some-network__share-button"
         >
-          <FacebookIcon size={32} round />
+          <FacebookIcon size={35} round />
         </FacebookShareButton>
         <br />
         <TwitterShareButton
@@ -52,13 +52,16 @@ function CompaQr() {
           url={"https://tandem-app-qr.vercel.app/"}
           hashtags={["qrpatrimonio", "codigoqr"]}
         >
-          <XIcon size={32} round />
+          <XIcon size={35} round />
         </TwitterShareButton>
         <br />
-        <WhatsappShareButton>
-          <WhatsappIcon size={32} round/>
+        <WhatsappShareButton
+          title={"Generar códigos QR"}
+          url={"https://tandem-app-qr.vercel.app/"}
+        >
+          <WhatsappIcon size={35} round/>
         </WhatsappShareButton>
-        <FiLink size={32} onClick={handleCopyLink}/>
+        <FiLink size={35} onClick={handleCopyLink} />
       </div>
       {showPopup && (
         <div className="popup">

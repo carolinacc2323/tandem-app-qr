@@ -34,7 +34,7 @@ const FooterInicio = () => {
     color: "#E9E9E9",
     textDecoration: "none",
     fontSize: "14px",
-    fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
+    fontFamily: "Georgia, serif",
     fontWeight: "normal",
     margin: "0.5em",
   }

@@ -6,13 +6,12 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import qr1 from '../images/qr1.jpg'
-import qr2 from '../images/qr2.jpg'
-import qr3 from '../images/qr3.jpg'
-import qr4 from '../images/qr4.jpg'
-import qr5 from '../images/qr5.jpg'
-import "./CarruselButton.css"
-
+import qr1 from '../images/qr1.jpg';
+import qr2 from '../images/qr2.jpg';
+import qr3 from '../images/qr3.jpg';
+import qr4 from '../images/qr4.jpg';
+import qr5 from '../images/qr5.jpg';
+import './CarruselButton.css';
 
 const items = [
   {
@@ -77,8 +76,8 @@ function CarruselButtonTandem(args) {
       >
         <img src={item.src} alt={item.altText} />
         <CarouselCaption
-        className="text-light bg-dark rounded-4 caption"
-          captionHeader={item.caption}
+          className="carousel-text"
+          captionText={item.caption}
         />
       </CarouselItem>
     );
@@ -90,7 +89,6 @@ function CarruselButtonTandem(args) {
       next={next}
       previous={previous}
       {...args}
-      
     >
       <CarouselIndicators
         items={items}

@@ -45,13 +45,15 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
       <a onClick={toggle}><TbUserEdit fontSize={40} /></a>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
-          <h3 className='m-1'>Cambiar datos</h3>
+          <h3 className='m-1'>Modificar datos del usuario</h3>
         </ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label for="email"><h6>Este perfil corresponde al empleado: {nombre}</h6></Label>
-              <p><h6>Correo: {email}</h6></p>
+              <Label for="email"><h6>Este perfil corresponde al empleado:</h6></Label>
+              <p>{nombre}</p>
+              <Label for="email"><h6>Correo del empleado:</h6></Label>
+              <p>{email}</p>
               {/* <Input
                 type="email"
                 id="email"

@@ -78,7 +78,7 @@ const Login = () => {
             </FormGroup>
 
             <Button className='btnlogin' color='warning' onClick={handleLogin}>
-              <p>Acceder</p>
+              <p>ACCEDER</p>
             </Button>
             <br />
             <p>{message}</p>
@@ -86,8 +86,8 @@ const Login = () => {
               <a href='../ChangePassword'>¿Has olvidado tu contraseña?</a>
             </div>
             <div className='registro mt-5'>
-              <h4>En caso de que no estés registrado</h4>
-              <RegisterModal />
+              {/* <h4>En caso de que no estés registrado</h4> */}
+              <RegisterModal buttonText="Crear cuenta nueva"/>
             </div>
           </Form>
         </div>

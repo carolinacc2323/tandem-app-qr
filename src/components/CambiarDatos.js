@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { BiSolidUserDetail } from "react-icons/bi";
+import styled from 'styled-components';
 
 const CambiarDatos = ({idUser}) => {
   const [image, setImage] = useState(null);
@@ -43,15 +44,31 @@ const CambiarDatos = ({idUser}) => {
           setLoading(false);
       }
   };
+  const Fotobutton = styled.button`
+      background-color: #5e039780;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 50px 200px;
+      border-radius: 5px;
+      column-gap: 5px;
+      justify-content: center;
+      align-content: center;
+      color: white;
+      margin-top: 1em;
+      align-items: center;
+      &:hover{
+      background-color: #5e0397;
+      }`
   return (
     <div>
-      <Button color="primary" className='cambiardatos' onClick={toggle}>
-        <BiSolidUserDetail className='contracd' />
-        <p className='pcd'>Cambiar foto de perfil</p>
-      </Button>
+      <Fotobutton onClick={toggle}>
+        <BiSolidUserDetail fontSize={50}/>
+        <p>Cambiar foto de perfil</p>
+      </Fotobutton>
+
       <Modal isOpen={modal} toggle={toggle} className={idUser}>
         <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
-          <h3 className='m-1'>Cambia tu foto de perfil</h3>
+          <h3>Cambia tu foto de perfil</h3>
         </ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>

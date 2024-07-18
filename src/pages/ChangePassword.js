@@ -1,8 +1,8 @@
 import React, { useState} from 'react';
-import NavbarTandem from '../components/NavbarTandem';
 import Footer from '../components/Footer';
 import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './ChangePassword.css'
+import NavbarInicio from '../components/NavbarInicio'
 
 const ChangePassword =()=>{
     const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ const ChangePassword =()=>{
         }
     return(
         <>
-            <NavbarTandem/>
+            <NavbarInicio/>
             <h1 className='changepasstitulo mt-3'>RESTABLECE TU CONTRASEÑA</h1>
             <div className="row cambiarpassword">
                 <div className="col-12 col-md-5">

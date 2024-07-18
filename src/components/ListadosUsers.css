@@ -10,6 +10,7 @@ body {
     height: 30px;
     border: 1px solid #ddd;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     color: #666;

@@ -2,17 +2,60 @@ import React, { useState, useEffect } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import {
   Collapse,
-  Navbar,
+  Navbar as ReactstrapNavbar,
   NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
+  NavbarBrand as ReactstrapNavbarBrand,
+  Nav as ReactstrapNav,
+  NavItem as ReactstrapNavItem,
+  NavLink as ReactstrapNavLink,
 } from 'reactstrap';
-import "./NavbarTandem.css";
+import styled from 'styled-components';
 import CerrarSesion from './CerrarSesion';
 import BannerUser from "../components/BannerUser";
 import ModalSoporte from './ModalSoporte';
+
+const Navbar = styled(ReactstrapNavbar)`
+  font-family: Century Gothic, serif;
+`;
+
+const NavbarBrand = styled(ReactstrapNavbarBrand)`
+  display: flex;
+`;
+
+const NavLink = styled(ReactstrapNavLink)`
+  position: relative;
+  color: white;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: white;
+    font-weight: 700;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #BC9FF0;
+    top: -10px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+`;
+
+const Nav = styled(ReactstrapNav)`
+  .navlink {
+    font-size: 15px;
+  }
+`;
 
 function NavbarTandem(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,14 +77,11 @@ function NavbarTandem(args) {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md" >
-        <NavbarBrand href="/" style={{
-          display: 'flex',
-        }}>
+      <Navbar color="dark" dark expand="md">
+        <NavbarBrand href="/">
           <StaticImage src='../images/logoblanco.png' alt="Logo" width={200} />
-          
         </NavbarBrand>
-        <NavLink  href="/AreaPersonal">
+        <NavLink href="/AreaPersonal">
           <BannerUser />
         </NavLink>
         {isMobile ? (
@@ -49,43 +89,43 @@ function NavbarTandem(args) {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar>
-                <NavItem>
+                <ReactstrapNavItem>
                   <NavLink href="/Login" className='navlink'>APP QR</NavLink>
-                </NavItem>
-                <NavItem>
+                </ReactstrapNavItem>
+                <ReactstrapNavItem>
                   <NavLink href="/AreaPersonal" className='navlink'>
                     ÁREA PERSONAL
                   </NavLink>
-                </NavItem>
-                <NavItem>
+                </ReactstrapNavItem>
+                <ReactstrapNavItem>
                   <NavLink href="#" onClick={toggleModal}>
                     SOPORTE TÉCNICO
                   </NavLink>
-                </NavItem>
-                <NavItem>
+                </ReactstrapNavItem>
+                <ReactstrapNavItem>
                   <CerrarSesion />
-                </NavItem>
+                </ReactstrapNavItem>
               </Nav>
             </Collapse>
           </>
         ) : (
           <Nav className="ms-auto" navbar>
-            <NavItem>
-              <NavLink href="/AppQr" className='navlink' style={{fontSize: '15px'}}>APP QR</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/AreaPersonal" className='navlink' style={{fontSize: '15px'}}>
+            <ReactstrapNavItem>
+              <NavLink href="/AppQr" className='navlink'>APP QR</NavLink>
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
+              <NavLink href="/AreaPersonal" className='navlink'>
                 ÁREA PERSONAL
               </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#" onClick={toggleModal} style={{fontSize: '15px'}}>
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
+              <NavLink href="#" onClick={toggleModal}>
                 SOPORTE TÉCNICO
               </NavLink>
-            </NavItem>
-            <NavItem>
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
               <CerrarSesion />
-            </NavItem>
+            </ReactstrapNavItem>
           </Nav>
         )}
       </Navbar>

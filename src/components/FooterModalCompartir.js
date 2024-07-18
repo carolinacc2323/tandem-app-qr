@@ -29,7 +29,7 @@ function FooterModalCompartir(props) {
           <Button color="warning" href="/">
             Volver a Inicio
           </Button>
-          <Button color="danger" onClick={toggle}>
+          <Button  onClick={toggle}>
             Cancelar
           </Button>
         </ModalFooter>

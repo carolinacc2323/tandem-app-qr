@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { FaUserPlus } from "react-icons/fa";
 
-function RegisterModal(props) {
-  const { className } = props;
-
+function RegisterModal({ className, buttonText }) {
   const [modal, setModal] = useState(false);
   const toggle = () => {
     setModal(!modal);
@@ -67,11 +66,11 @@ function RegisterModal(props) {
   return (
     <div>
       <Button color="success" onClick={toggle}>
-        Click aquí
+        <p><FaUserPlus size={30}/> {buttonText}</p>
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} close={closeBtn} className='justify-content-end'>
-        <h3 className='m-1'>Registro de nuevos usuarios </h3>
+          <h3 className='m-1'>Registro de nuevos usuarios</h3>
         </ModalHeader>
         <ModalBody>
           {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
@@ -156,6 +155,7 @@ function RegisterModal(props) {
 
 RegisterModal.propTypes = {
   className: PropTypes.string,
+  buttonText: PropTypes.string.isRequired,
 };
 
 export default RegisterModal

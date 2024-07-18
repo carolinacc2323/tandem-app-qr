@@ -1,63 +1,65 @@
 .loginform{
-    background-color:#92cbf773;
-    border-radius: 20px;
-    width: 100%;
-    height: auto;
-    border: #02355c solid 0.2em;
-  }
-  
+  background-color:#92cbf773;
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  border: #02355c solid 0.2em;
+  font-family: Century Gothic, serif;
+}
+
+.h1login{
+  color: #02355c;
+  text-decoration: underline;
+  grid-area: h1;
+  font-family: Georgia, serif; 
+}
+.btnlogin{
+font-size: 20px;
+}
+.formu{
+grid-area: formu;
+}
+.registro{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+@media (min-width:728px){
   .h1login{
-    color: #02355c;
+    color: #02355C;
     text-decoration: underline;
     grid-area: h1;
+    display: flex;
+    justify-content: end;
   }
-  .btnlogin{
-  font-size: 20px;
+  .h1login h1{
+    font-size: 50px;
+    justify-self: end;
   }
-  .formu{
-  grid-area: formu;
-  }
-  .registro{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
-  @media (min-width:728px){
-    .h1login{
-      color: #02355C;
-      text-decoration: underline;
-      grid-area: h1;
-      display: flex;
-      justify-content: end;
-    }
-    .h1login h1{
-      font-size: 50px;
-      justify-self: end;
-    }
-  .loginform{
-    background-image: url(../images/accesologin.png);
-    background-size:cover;
-    min-height: 70vh;
-    display: grid;
-    grid-template-areas:
-    "h1 h1 h1 h1 h1" 
-    ". . . . formu"
-    ". . . . .";
-    background-color: transparent;
-    border: none;
-  }
-  .formu{
-    background-color:#92cbf773;
-    padding: 1.5em;
-    height: auto;
-    border-radius: 10px;
-    font-size: 15px;
-  }
-  .formu label{
-    font-weight: bolder;
-  }
-  .registro{
-    display: grid;
-    grid-template-columns: 300px 100px;
-    margin-top: 5em;
-  }
-  }
+.loginform{
+  background-image: url(../images/accesologin.png);
+  background-size:cover;
+  min-height: 70vh;
+  display: grid;
+  grid-template-areas:
+  "h1 h1 h1 h1 h1" 
+  ". . . . formu"
+  ". . . . .";
+  background-color: transparent;
+  border: none;
+}
+.formu{
+  background-color:#92cbf773;
+  padding: 1.5em;
+  height: auto;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.formu label{
+  font-weight: bolder;
+}
+.registro{
+  display: grid;
+  grid-template-columns: 300px 100px;
+  margin-top: 5em;
+}
+}
