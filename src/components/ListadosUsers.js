@@ -1,118 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from 'styled-components';
 import ChangeRoleUser from './ChangeRoleUser';
 import UpdateUser from './UpdateUser';
 import DeleteUser from './DeleteUser';
 import CardEstilo from './CardEstilo'; // Importamos el componente base
+import "./ListadosUsers.css";
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-
-// Styled components
-const ContainerList = styled.div`
-  min-height: 70vh;
-  margin: 2em;
-`;
-
-const Wrapper = styled.div`
-  justify-items: center;
-  .search-wrapper {
-    margin-bottom: 1em;
-
-  }
-
-  .search-input {
-    width: 400px;
-    height: 40px;
-    font-size: 16px;
-    padding: 10px;
-  }
-`;
-
-const CardGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, .1fr));
-  grid-gap: 8px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 100%;
-
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(auto-fill, minmax(300px, .1fr));
-    grid-gap: 8px;
-  }
-`;
-
-const CardList = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 100%;
-
-  div {
-    display: flex;
-    flex-direction: row;
-    min-width: 100%;
-    column-gap: 10px;
-    align-items: center;
-
-    @media (max-width: 600px) {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-  }
-
-  h2 {
-    font-size: 40px;
-    padding-right: 6em;
-    width: 100%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-
-    @media (max-width: 600px) {
-      font-size: 20px;
-      padding-right: 5em;
-      text-overflow: clip;
-      white-space: wrap;
-    }
-  }
-
-  img {
-    background-color: #30b3f0;
-    margin-right: 2em;
-
-    @media (max-width: 600px) {
-      width: 50px;
-    }
-  }
-
-  .descripcion span,
-  .descripcion .email,
-  .descripcion .dele,
-  .id {
-    margin-right: 1em;
-    font-size: 20px;
-
-    @media (max-width: 600px) {
-      font-size: 10px;
-    }
-  }
-
-  ul {
-    display: grid;
-    grid-template-columns: .5fr .5fr .5fr;
-    column-gap: 0;
-
-    li {
-      width: 50px;
-    }
-  }
-`;
 
 function ListadosUsers({ url, isGridView }) {
   const [error, setError] = useState(null);
@@ -158,26 +52,27 @@ function ListadosUsers({ url, isGridView }) {
           item[param]
             .toString()
             .toLowerCase()
-            .indexOf(q.toLowerCase()) > -1
+            .includes(q.toLowerCase())
         );
       });
     });
   };
 
-  const handleSearchChange = debounce((e) => {
+  const handleSearchChange = useCallback(debounce((e) => {
     setQ(e.target.value);
-  }, 300);
+  }, 300), []);
 
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
     return <div>Cargando lista...</div>;
   } else {
+
     return (
-      <ContainerList>
-        <Wrapper>
+      <div className="containerlist" style={{ minHeight: '70vh', margin: '2em' }}>
+        <div className='wrapper'>
           <div className="search-wrapper">
-            <label htmlFor="search-form">
+            <label htmlFor="search-form" style={{ marginBottom: '1em' }}>
               <input
                 type="search"
                 name="search-form"
@@ -185,95 +80,58 @@ function ListadosUsers({ url, isGridView }) {
                 className="search-input"
                 placeholder="Buscar por nombre, email o delegacion..."
                 onChange={handleSearchChange}
+                style={{ width: '400px', height: '40px', fontSize: '16px', padding: '10px',
+                }}
               />
             </label>
           </div>
 
-          {isGridView ? (
-            <CardGrid>
-              {search(users).map((user) => (
-                <div key={user.id}>
-                  <CardEstilo
-                    url={'http://localhost/gatsby-qr/images/users/' + user.image_url}
-                    titulo={user.nombre}
-                    descripcion={
-                      <>
-                        <div className='descripcion'>
-                          <span className="small text-uppercase text-muted">{user.role}</span>
-                          <p className='id'><strong>Id usuario:</strong> {user.id}</p>
-                          <p className='email'><strong>Email:</strong> {user.email}</p>
-                          <p className='dele'><strong>Delegación:</strong> {user.delegacion}</p>
-                          <ul className="social mb-0 list-inline">
-                            <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                              <UpdateUser
-                                initialEmail={user.email}
-                                initialNombre={user.nombre}
-                                initialDepartamento={user.delegacion}
-                                onUserUpdated={handleUserUpdated}
-                              />
-                            </li>
-                            <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                              <ChangeRoleUser
-                                className="social-link"
-                                initialEmail={user.email}
-                                onRoleChanged={handleUserUpdated}
-                              />
-                            </li>
-                            <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                              <DeleteUser />
-                            </li>
-                          </ul>
-                        </div>
-                      </>
-                    }
-                  />
-                </div>
-              ))}
-            </CardGrid>
-          ) : (
-            <CardList>
-              {search(users).map((user) => (
-                <div key={user.id}>
-                  <CardEstilo
-                    url={'http://localhost/gatsby-qr/images/users/' + user.image_url}
-                    titulo={user.nombre}
-                    descripcion={
-                      <>
-                        <div className='descripcion'>
-                          <span className="small text-uppercase text-muted">{user.role}</span>
-                          <p className='id'><strong>Id usuario:</strong> {user.id}</p>
-                          <p className='email'><strong>Email:</strong> {user.email}</p>
-                          <p className='dele'><strong>Delegación:</strong> {user.delegacion}</p>
-                          <ul className="social mb-0 list-inline">
-                            <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                              <UpdateUser
-                                initialEmail={user.email}
-                                initialNombre={user.nombre}
-                                initialDepartamento={user.departamento}
-                                onUserUpdated={handleUserUpdated}
-                              />
-                            </li>
-                            <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                              <ChangeRoleUser
-                                className="social-link"
-                                initialEmail={user.email}
-                                onRoleChanged={handleUserUpdated}
-                              />
-                            </li>
-                            <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                              <DeleteUser />
-                            </li>
-                          </ul>
-                        </div>
-                      </>
-                    }
-                  />
-                </div>
-              ))}
-            </CardList>
-          )}
-        </Wrapper>
-      </ContainerList>
+          <div className={isGridView ? "card-grido" : "card-listo"} >
+            {search(users).map((user) => (
+              <CardEstilo
+                key={user.id}
+                url={`http://localhost/gatsby-qr/images/users/${user.image_url}`}
+                titulo={user.nombre}
+                descripcion={
+                  <>
+                    <div className='descripcion'>
+                      <span className="small text-uppercase text-muted">{user.role}</span>
+                      <p className='id'><strong>Id usuario:</strong> {user.id}</p>
+                      <p className='email'><strong>Email:</strong> {user.email}</p>
+                      <p className='dele'><strong>Delegación:</strong> {user.delegacion}</p>
+                      
+                      <div className="social">
+                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <UpdateUser
+                            className="social-link"
+                            initialEmail={user.email}
+                            initialNombre={user.nombre}
+                            initialDepartamento={user.departamento}
+                            onUserUpdated={handleUserUpdated}
+                          />
+                        </li>
+                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <ChangeRoleUser
+                            className="social-link"
+                            initialEmail={user.email}
+                            onRoleChanged={handleUserUpdated}
+                          />
+                        </li>
+                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <DeleteUser 
+                            className="social-link"
+                            onDeleteUser={handleUserUpdated}
+                          />
+                        </li>
+                      </div>
+                    </div>
+                  </>
+                }
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     );
   }
 }

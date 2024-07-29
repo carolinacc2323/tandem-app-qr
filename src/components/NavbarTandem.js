@@ -13,6 +13,9 @@ import styled from 'styled-components';
 import CerrarSesion from './CerrarSesion';
 import BannerUser from "../components/BannerUser";
 import ModalSoporte from './ModalSoporte';
+import DarkMode from '../components/DarkMode';
+import { MdDarkMode } from "react-icons/md";
+import { CiLight } from "react-icons/ci";
 
 const Navbar = styled(ReactstrapNavbar)`
   font-family: Century Gothic, serif;
@@ -64,6 +67,11 @@ function NavbarTandem(args) {
 
   const toggle = () => setIsOpen(!isOpen);
   const toggleModal = () => setModal(!modal);
+  const [darkmode, setDarkMode] = useState(false);
+  const handleDarkMode = () => {
+      setDarkMode(!darkmode);
+  }
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -105,6 +113,17 @@ function NavbarTandem(args) {
                 <ReactstrapNavItem>
                   <CerrarSesion />
                 </ReactstrapNavItem>
+                <ReactstrapNavItem>
+                  <button style={{
+                    backgroundColor: 'transparent', 
+                    border: 'none',
+                    color: 'white',
+                    cursor: 'pointer'
+                  }} 
+                    onClick={handleDarkMode}>
+                    {darkmode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
+                  </button>
+                </ReactstrapNavItem>
               </Nav>
             </Collapse>
           </>
@@ -125,6 +144,17 @@ function NavbarTandem(args) {
             </ReactstrapNavItem>
             <ReactstrapNavItem>
               <CerrarSesion />
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
+              <button style={{
+                backgroundColor: 'transparent', 
+                border: 'none',
+                color: 'white',
+                cursor: 'pointer'
+              }} 
+                onClick={handleDarkMode}>
+                {darkmode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
+              </button>
             </ReactstrapNavItem>
           </Nav>
         )}

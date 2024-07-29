@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg, CardImgOverlay, CardTitle, CardSubtitle, Button } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardSubtitle, Button } from "reactstrap";
 import "./CardAcceso.css";
 import image from "../images/acceso5.png";
 
@@ -25,4 +25,4 @@ const CardTandemAcceso = () => {
   );
 };
 
-export default CardTandemAcceso;
+export default CardTandemAcceso

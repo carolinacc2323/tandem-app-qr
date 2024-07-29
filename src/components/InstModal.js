@@ -9,7 +9,7 @@ function InstModal(args) {
 
   return (
     <React.StrictMode>
-      <Button color="info" onClick={toggle} style={{ marginBottom: '1rem', fontSize:'20px' }}>
+      <Button color="info" onClick={toggle} style={{ marginBottom: '1rem', fontSize:'20px', fontFamily: 'Century Gothic, serif', }}>
         Instrucciones de uso
       </Button>
       <Collapse isOpen={isOpen} {...args}>
@@ -21,6 +21,7 @@ function InstModal(args) {
       <div style={{
           fontSize:'15px',
           marginTop:'30px',
+          fontFamily: 'Century Gothic, serif',
       }}>
         <p>1 - Ingrese el contenido que desea codificar en el código QR (URL, coordenadas o texto según la selección de pestaña).</p>
         <p>2 - Elija el color y tamaño deseado para el código QR entre las opciones disponibles.</p>

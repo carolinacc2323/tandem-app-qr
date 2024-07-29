@@ -250,4 +250,4 @@ function CrearQr({ userId }) {
   );
 }
 
-export default CrearQr;
+export default CrearQr

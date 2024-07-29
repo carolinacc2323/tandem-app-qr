@@ -52,4 +52,4 @@ ModalCompartir.propTypes = {
   className: PropTypes.string,
 };
 
-export default ModalCompartir;
+export default ModalCompartir

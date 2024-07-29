@@ -3,16 +3,16 @@ import { Helmet } from "react-helmet";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardQr.css";
 import CodigoQrNuevo from '../components/CodigoQrNuevo';
+import DeleteQr from "./DeleteQr";
 
-
-const CardQr = ({ url,isGridView }) => {
+const CardQr = ({ url, isGridView }) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [qrCodes, setQrCodes] = useState([]);
   const [message, setMessage] = useState('');
   const [expandedCards, setExpandedCards] = useState({});
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["nombre_ref", "data", "created_by"]);
+  const [searchParam] = useState(["qr_nombre_ref", "qr_data", "user_nombre"]);
 
   useEffect(() => {
     const fetchQrCodes = async () => {
@@ -59,6 +59,10 @@ const CardQr = ({ url,isGridView }) => {
     }));
   };
 
+  const handleQrDeletion = (nombreRef) => {
+    setQrCodes(qrCodes.filter(qrCode => qrCode.qr_nombre_ref !== nombreRef));
+  };
+
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -92,30 +96,35 @@ const CardQr = ({ url,isGridView }) => {
               </div>
               <div className={isGridView ? "card-grid" : "card-list"}>
                 {search(qrCodes).map((qrCode) => (
-                  <div className="col-lg-12 col-md-12 col-sm-12" key={qrCode.id}>
+                  <div className="col-lg-12 col-md-12 col-sm-12" key={qrCode.qr_id}>
                     <div className="our_solution_category">
                       <div className="solution_cards_box">
-                        <div className={`solution_card ${expandedCards[qrCode.id] ? 'expanded' : ''}`}>
+                        <div className={`solution_card ${expandedCards[qrCode.qr_id] ? 'expanded' : ''}`}>
                           <div className="hover_color_bubble"></div>
                           <div className="solu_title">
-                            <h3><strong>Nombre del QR: </strong>{qrCode.nombre_ref}</h3>
-                            <CodigoQrNuevo datos={qrCode.data} />
+                            <h3><strong>Nombre del QR: </strong>{qrCode.qr_nombre_ref}</h3>
+                            <CodigoQrNuevo datos={qrCode.qr_data} />
                           </div>
                           <div className="solu_description">
                             <button
                               type="button"
                               className="read_more_btn"
-                              onClick={() => toggleExpandCard(qrCode.id)}
+                              onClick={() => toggleExpandCard(qrCode.qr_id)}
                             >
-                              {expandedCards[qrCode.id] ? 'Ver menos' : 'Ver más'}
+                              {expandedCards[qrCode.qr_id] ? 'Ver menos' : 'Ver más'}
                             </button>
-                            {expandedCards[qrCode.id] && (
+                            {expandedCards[qrCode.qr_id] && (
                               <div className="additional_info">
-                                <p><strong>ID: </strong> {qrCode.id}</p>
-                                <p><strong>Descripción: </strong> {qrCode.description}</p>
-                                <p><strong>Datos del QR: </strong> {qrCode.data}</p>
-                                <p><strong>Creado por: </strong> {qrCode.created_by}</p>
-                                <p><strong>Fecha y hora de creación: </strong> {qrCode.created_at}</p>
+                                <p><strong>Nº del QR: </strong> {qrCode.qr_id}</p>
+                                <p><strong>Descripción: </strong> {qrCode.qr_description}</p>
+                                <p><strong>Datos del QR: </strong> {qrCode.qr_data}</p>
+                                <p><strong>Creado por: </strong> {qrCode.user_nombre}</p>
+                                <p><strong>Fecha y hora de creación: </strong> {qrCode.qr_created_at}</p>
+                                <DeleteQr
+                                  className="social-link"
+                                  nombreRef={qrCode.qr_nombre_ref}
+                                  onDelete={handleQrDeletion}
+                                />
                               </div>
                             )}
                           </div>
@@ -130,6 +139,7 @@ const CardQr = ({ url,isGridView }) => {
         </div>
       </>
     );
-  }}
+  }
+}
 
-export default CardQr;
+export default CardQr

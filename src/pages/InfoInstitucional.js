@@ -8,7 +8,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { StaticImage } from 'gatsby-plugin-image'
-import Layout from '../components/layout';
+// import Layout from '../components/layout';
 
 import LeerMas from '../components/LeerMas';
 import NavbarInicio from "../components/NavbarInicio";

@@ -23,4 +23,4 @@ function ButtonModalTandem(args) {
   );
 }
 
-export default ButtonModalTandem;
+export default ButtonModalTandem

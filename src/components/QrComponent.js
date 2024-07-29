@@ -166,4 +166,4 @@ function QRComponent({ onColorChange, onSizeChange }) {
     );
 }
 
-export default QRComponent;
+export default QRComponent

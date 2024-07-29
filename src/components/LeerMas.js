@@ -40,4 +40,4 @@ function LeerMas(args) {
   );
 }
 
-export default LeerMas;
+export default LeerMas

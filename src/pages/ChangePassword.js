@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import Footer from '../components/Footer';
-import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Col, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './ChangePassword.css'
 import NavbarInicio from '../components/NavbarInicio'
 

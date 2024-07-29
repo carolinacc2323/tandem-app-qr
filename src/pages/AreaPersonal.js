@@ -5,11 +5,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 import CambiarContra from '../components/CambiarContra';
 import CambiarDatos from '../components/CambiarDatos';
 import ModalSoporte from '../components/ModalSoporte';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 
 import { MdSupportAgent } from "react-icons/md";
 import { FaUsersGear } from "react-icons/fa6";
-import { BiSolidUserDetail } from "react-icons/bi";
+// import { BiSolidUserDetail } from "react-icons/bi";
 
 import styled from 'styled-components';
 import CardEstilo from '../components/CardEstilo';
@@ -25,8 +25,8 @@ const ArTitulo = styled.h1`
       margin: .8em;
       font-size: 30px;
       font-weight: bolder;
-  }`
-
+  }
+`
 const Containerun = styled.div`
   @media (min-width:728px){
       display: grid;
@@ -43,35 +43,43 @@ padding: 1em;
   width: 100%;
   margin-bottom: 3.5em;}
 `
-const Adminbutton = styled.button`
+const Adminbutton = styled.div`
       background-color: #5e039780;
       width: 100%;
-      display: grid;
-      grid-template-columns: 50px 200px;
       border-radius: 5px;
+      &:hover{
+      background-color: #5e0397;
+      }
+`
+const Aadminbutton = styled.a`
+      display: flex;
+      align-items: center;
+
       column-gap: 5px;
       justify-content: center;
       align-content: center;
       color: white;
       margin-top: 1em;
       align-items: center;
-      &:hover{
-      background-color: #5e0397;
-      }`
+      text-decoration: none;
+
+`
 const Cardfoto = styled.div`
 padding: 1em;
   @media (min-width: 728px) {
   min-height: 30vh;
   width: 100%;
   margin-bottom: 3.5em;}
-`
+  `
+
 const Cardcontra = styled.div`
 padding: 1em;
   @media (min-width: 728px) {
   min-height: 30vh;
   width: 100%;
   margin-bottom: 3.5em;}
-`
+  `
+
 const Cardsoporte = styled.div`
 padding: 1em;
   @media (min-width: 728px) {
@@ -93,8 +101,10 @@ const Soportebutton = styled.button`
       align-items: center;
       &:hover{
       background-color: #5e0397;
-      }`
+      }
+      `
     const Containeru = styled.div`
+      margin: 0 5em;
       @media (min-width:728px){
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -127,9 +137,11 @@ const AreaPersonal = () => {
             src='../images/listadousuarios.jpg'
             alt="listado de usuarios"
             />
-              <Adminbutton onClick={toggleModal}>
-              <FaUsersGear fontSize={50}/>
-              Administrar Usuarios</Adminbutton>
+              <Adminbutton >
+              <Aadminbutton href='../ListadoUsuarios'>
+                <FaUsersGear fontSize={50}/> Administrar Usuarios
+              </Aadminbutton>
+              </Adminbutton>
               </>
             }
             >

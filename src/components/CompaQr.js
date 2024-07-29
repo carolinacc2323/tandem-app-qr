@@ -72,4 +72,4 @@ function CompaQr() {
   );
 }
 
-export default CompaQr;
+export default CompaQr

@@ -42,7 +42,7 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
 
   return (
     <div>
-      <a onClick={toggle}><TbUserEdit fontSize={40} /></a>
+      <a onClick={toggle}><TbUserEdit fontSize={40} className="social-link"/></a>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
           <h3 className='m-1'>Modificar datos del usuario</h3>
@@ -111,4 +111,4 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
   );
 };
 
-export default UpdateUser;
+export default UpdateUser

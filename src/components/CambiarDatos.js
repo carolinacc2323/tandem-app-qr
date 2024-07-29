@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import PropTypes from 'prop-types';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Input } from 'reactstrap';
+// import PropTypes from 'prop-types';
 import { BiSolidUserDetail } from "react-icons/bi";
 import styled from 'styled-components';
 

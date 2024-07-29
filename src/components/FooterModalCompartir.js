@@ -39,4 +39,4 @@ function FooterModalCompartir(props) {
 }
 
 
-export default FooterModalCompartir;
+export default FooterModalCompartir

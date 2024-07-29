@@ -9,8 +9,11 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-import ModalSoporte from './ModalSoporte'; // Asegúrate de tener la importación correcta
+import ModalSoporte from './ModalSoporte';
 import "./NavbarInicio.css"
+import DarkMode from '../components/DarkMode';
+import { MdDarkMode } from "react-icons/md";
+import { CiLight } from "react-icons/ci";
 
 function NavbarInicio(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +22,10 @@ function NavbarInicio(args) {
 
   const toggle = () => setIsOpen(!isOpen);
   const toggleModal = () => setModal(!modal);
+  const [darkmode, setDarkMode] = useState(false);
+  const handleDarkMode = () => {
+      setDarkMode(!darkmode);
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,6 +62,17 @@ function NavbarInicio(args) {
                     INFORMACIÓN INSTITUCIONAL
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <button style={{
+                    backgroundColor: 'transparent', 
+                    border: 'none',
+                    color: 'white',
+                    cursor: 'pointer'
+                  }} 
+                    onClick={handleDarkMode}>
+                    {darkmode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
+                  </button>
+                </NavItem>
               </Nav>
             </Collapse>
           </>
@@ -72,6 +90,17 @@ function NavbarInicio(args) {
               <NavLink href="/InfoInstitucional" className='navlink' style={{fontSize: '12px'}}>
                 INFORMACIÓN INSTITUCIONAL
               </NavLink>
+            </NavItem>
+            <NavItem>
+              <button style={{
+                backgroundColor: 'transparent', 
+                border: 'none',
+                color: 'white',
+                cursor: 'pointer'
+              }} 
+                onClick={handleDarkMode}>
+                {darkmode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
+              </button>
             </NavItem>
           </Nav>
         )}
