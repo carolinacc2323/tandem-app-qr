@@ -21,7 +21,7 @@ const DeleteUser = ({ className, onDeleteUser }) => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost/gatsby-qr/v1/delete-user.php', {
+            const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/delete-user.php', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

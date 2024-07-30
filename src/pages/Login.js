@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/login-user.php', {
+      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/login-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

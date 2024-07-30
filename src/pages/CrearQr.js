@@ -11,8 +11,7 @@ import { LuSave } from "react-icons/lu";
 import { FaRedoAlt } from "react-icons/fa";
 import InstModal from "../components/InstModal";
 
-function CrearQr({ userId }) {
-  const [data, setData] = useState('');
+function CrearQr() {
   const [description, setDescription] = useState('');
   const [nombre_ref, setNombre_ref] = useState('');
   const [message, setMessage] = useState('');
@@ -90,7 +89,7 @@ function CrearQr({ userId }) {
 
   const handleSaveClick = async () => {
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/create-qr.php', {
+      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/create-qr.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -106,7 +105,7 @@ function CrearQr({ userId }) {
       setMessage(code.message);
     } catch (error) {
       console.error('Error creando código QR', error);
-      setMessage('Error creando código QR');
+      setMessage('Error creando código QR' + error);
     }
 
     setShowPopup(true);
@@ -119,6 +118,7 @@ function CrearQr({ userId }) {
   const colorOptions = ['black', 'blue', 'red'];
 
   return (
+    <>
     <Layout>
       <div className="titulo mt-3">
         <h1>GENERADOR DE QR</h1>
@@ -243,10 +243,11 @@ function CrearQr({ userId }) {
 
       {showPopup && (
         <div className="popup">
-          ¡Se ha guardado con éxito!
+          {message}
         </div>
       )}
     </Layout>
+    </>
   );
 }
 

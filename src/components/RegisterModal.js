@@ -26,7 +26,7 @@ function RegisterModal({ className, buttonText }) {
 
     console.log(nombre, delegacion, email, password);
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/register-user.php', {
+      const response = await fetch('https://localhost/gatsbyqr/v1/register-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

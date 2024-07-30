@@ -17,7 +17,7 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/update-user.php', {
+      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/update-user.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

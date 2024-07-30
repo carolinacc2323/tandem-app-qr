@@ -41,7 +41,7 @@ function ListadoUsuarios() {
             </div>
               
             <div>
-              <ListadosUsers url='http://localhost/gatsby-qr/v1/list-users.php' isGridView={isGridView} />
+              <ListadosUsers url='https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/list-users.php' isGridView={isGridView} />
             </div>
           </Layout>      
         </>

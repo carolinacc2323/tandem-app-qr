@@ -16,7 +16,7 @@ const ChangeRoleUser = ({ className, initialEmail, onRoleChanged }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/change-role.php', {
+      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/change-role.php', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
