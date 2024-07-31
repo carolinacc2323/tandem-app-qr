@@ -1,12 +1,16 @@
 import React from 'react'
 import {QRCodeSVG} from 'qrcode.react';
+
+
 const CodigoQrNuevo = ({datos}) => {
+
   return (
     <div>
       <QRCodeSVG
+      className='qrimage'
   value={datos}
   size={156}
-  bgColor={"#FFFFFF"}
+  bgColor={"#ffffff"}
   fgColor={"#000000"}
   level={"L"}
   includeMargin={true}
@@ -22,4 +26,5 @@ const CodigoQrNuevo = ({datos}) => {
     </div>
   )
 }
+
 export default CodigoQrNuevo

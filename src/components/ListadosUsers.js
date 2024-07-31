@@ -28,6 +28,7 @@ function ListadosUsers({ url, isGridView }) {
         });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
+          setMessage(data.message);
         }
         const data = await response.json();
         setUsers(data.users);
@@ -85,7 +86,9 @@ function ListadosUsers({ url, isGridView }) {
               />
             </label>
           </div>
-
+                <div className='alert'>
+                      <p>{message}</p>
+                    </div>
           <div className={isGridView ? "card-grido" : "card-listo"} >
             {search(users).map((user) => (
               <CardEstilo
@@ -106,7 +109,6 @@ function ListadosUsers({ url, isGridView }) {
                             className="social-link"
                             initialEmail={user.email}
                             initialNombre={user.nombre}
-                            initialDepartamento={user.departamento}
                             onUserUpdated={handleUserUpdated}
                           />
                         </li>
@@ -125,6 +127,7 @@ function ListadosUsers({ url, isGridView }) {
                         </li>
                       </div>
                     </div>
+                    
                   </>
                 }
               />

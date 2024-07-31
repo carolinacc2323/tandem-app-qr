@@ -15,7 +15,7 @@ const DeleteQr = ({ className, nombreRef, onDelete }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/delete-qr.php', {
+      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/delete-qr.php', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

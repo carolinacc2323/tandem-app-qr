@@ -60,7 +60,7 @@ const EliminarQR = ({ qr, onUserUpdated }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost/gatsby-qr/v1/delete-qr.php', {
+      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/delete-qr.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const EliminarQR = ({ qr, onUserUpdated }) => {
       onUserUpdated();
     } catch (error) {
       console.error('Error eliminando el código QR', error);
-      setMessage('Error en la eliminación');
+      
     }
   };
 
@@ -99,4 +99,4 @@ const EliminarQR = ({ qr, onUserUpdated }) => {
   );
 };
 
-export default EliminarQR;
+export default EliminarQR

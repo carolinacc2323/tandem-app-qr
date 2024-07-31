@@ -1,18 +1,81 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Helmet } from "react-helmet";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardQr.css";
 import CodigoQrNuevo from '../components/CodigoQrNuevo';
-import DeleteQr from "./DeleteQr";
 
-const CardQr = ({ url, isGridView }) => {
+import ModalTandem from "./ModalTandem";
+import EliminarQR from "./EliminarQR";
+import PropTypes from 'prop-types';
+import debounce from 'lodash.debounce';//para la funcio
+import styled from "styled-components";
+
+
+const CardContainer = styled.div`
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 12px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #0a57ca7f;
+    color:white;
+  }
+  &.destacado {
+    background-color: orange;
+  }
+
+  /* @media (min-width: 768px) {
+    margin: 5em;
+  }
+  @media (max-width: 500px) {
+    margin: 10em;
+  } */
+`;
+
+const CardTitle = styled.h2`
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+`;
+
+const CardDescription = styled.div`
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  color: #000;
+`;
+
+const Button = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 1em;
+  &:hover {
+    background-color: #0056b3;
+  }
+  &.descargar {
+    background-color: red;
+  }
+`;
+
+const CardImg = styled.img`
+  max-width: 100px;
+`;
+
+const CardQr = ({ url, isGridView, onUserUpdated }) => {
+
+  const [qrCodes, setQrCodes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [qrCodes, setQrCodes] = useState([]);
+  const [refresh, setRefresh] = useState(false); // Estado para rastrear actualizaciones
   const [message, setMessage] = useState('');
-  const [expandedCards, setExpandedCards] = useState({});
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["qr_nombre_ref", "qr_data", "user_nombre"]);
+  const [searchParam] = useState(["qr_nombre_ref", "qr_data", "qr_created_by","qr_id"]);
 
   useEffect(() => {
     const fetchQrCodes = async () => {
@@ -28,40 +91,40 @@ const CardQr = ({ url, isGridView }) => {
         }
         const data = await response.json();
         setQrCodes(data.qr_codes);
-        setMessage(data.message);
         setIsLoaded(true);
+        setMessage(data.message);
       } catch (error) {
         setError(error);
-        setIsLoaded(true);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchQrCodes();
-  }, [url]);
+  }, [url, refresh]);
+
+  const handleUserUpdated = () => {
+    setRefresh(!refresh); // Cambia el estado de refresh para desencadenar useEffect
+    onUserUpdated();
+  };
 
   function search(items) {
     return items.filter((item) => {
       return searchParam.some((param) => {
         return (
+          item[param] && // Verifica que el campo existe
           item[param]
             .toString()
             .toLowerCase()
-            .indexOf(q.toLowerCase()) > -1
+            .includes(q.toLowerCase())
         );
       });
     });
   }
 
-  const toggleExpandCard = (id) => {
-    setExpandedCards((prevState) => ({
-      ...prevState,
-      [id]: !prevState[id],
-    }));
-  };
-
-  const handleQrDeletion = (nombreRef) => {
-    setQrCodes(qrCodes.filter(qrCode => qrCode.qr_nombre_ref !== nombreRef));
-  };
+  const handleSearchChange = useCallback(debounce((e) => {
+    setQ(e.target.value);
+  }, 300), []);
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -69,77 +132,68 @@ const CardQr = ({ url, isGridView }) => {
     return <div>Cargando lista...</div>;
   } else {
     return (
-      <>
-        <div className="section_our_solution">
-          <Helmet>
-            <link
-              rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            />
-          </Helmet>
-          <div style={{ minHeight: '70vh', margin: '2em' }}>
-            <div className="wrapper">
-              <div className="search-wrapper">
-                <label htmlFor="search-form">
-                  <span className="sr-only">Buscar por nombre, id de usuario o datos del QR... </span>
-                  <input
-                    type="search"
-                    name="search-form"
-                    id="search-form"
-                    className="search-input"
-                    placeholder="Buscar por nombre, id de usuario o datos del QR..."
-                    style={{ width: '400px', height: '40px', fontSize: '16px', padding: '10px' }}
-                    value={q}
-                    onChange={(e) => setQ(e.target.value)}
-                  />
-                </label>
-              </div>
-              <div className={isGridView ? "card-grid" : "card-list"}>
-                {search(qrCodes).map((qrCode) => (
-                  <div className="col-lg-12 col-md-12 col-sm-12" key={qrCode.qr_id}>
-                    <div className="our_solution_category">
-                      <div className="solution_cards_box">
-                        <div className={`solution_card ${expandedCards[qrCode.qr_id] ? 'expanded' : ''}`}>
-                          <div className="hover_color_bubble"></div>
-                          <div className="solu_title">
-                            <h3><strong>Nombre del QR: </strong>{qrCode.qr_nombre_ref}</h3>
-                            <CodigoQrNuevo datos={qrCode.qr_data} />
-                          </div>
-                          <div className="solu_description">
-                            <button
-                              type="button"
-                              className="read_more_btn"
-                              onClick={() => toggleExpandCard(qrCode.qr_id)}
-                            >
-                              {expandedCards[qrCode.qr_id] ? 'Ver menos' : 'Ver más'}
-                            </button>
-                            {expandedCards[qrCode.qr_id] && (
-                              <div className="additional_info">
-                                <p><strong>Nº del QR: </strong> {qrCode.qr_id}</p>
-                                <p><strong>Descripción: </strong> {qrCode.qr_description}</p>
-                                <p><strong>Datos del QR: </strong> {qrCode.qr_data}</p>
-                                <p><strong>Creado por: </strong> {qrCode.user_nombre}</p>
-                                <p><strong>Fecha y hora de creación: </strong> {qrCode.qr_created_at}</p>
-                                <DeleteQr
-                                  className="social-link"
-                                  nombreRef={qrCode.qr_nombre_ref}
-                                  onDelete={handleQrDeletion}
-                                />
-                              </div>
-                            )}
-                          </div>
+      <div className="containerlist" 
+      style={{ 
+        minHeight: '70vh', 
+        margin: '2em' 
+        }}>
+
+        <div className='wrapper'>
+          <div className="search-wrapper">
+            <label htmlFor="search-form" style={{ marginBottom: '1em' }}>
+              <input
+                type="search"
+                name="search-form"
+                id="search-form"
+                className="search-input"
+                placeholder="Buscar por nombre, id o datos..."
+                onChange={handleSearchChange}
+                style={{ width: '400px', height: '40px', fontSize: '16px', padding: '10px' }}
+              />
+            </label>
+          </div>
+
+          <div className={isGridView ? "card-grid" : "card-list"}>
+            
+            {search(qrCodes).map((qrCode) => (
+              <>
+                <CardContainer key={qrCode.qr_id}>
+                  <CardDescription>
+
+                  <div className='descripcion'>
+                        <CodigoQrNuevo datos={qrCode.qr_data} className='qrimage' />
+                        <p className='qrid'><strong>Id QR:</strong> {qrCode.qr_id}</p>
+                        <p className='qrnombre'><strong>Nombre:</strong> {qrCode.qr_nombre_ref}</p>
+                        <p className='qrdes'><strong>Descripción:</strong> {qrCode.qr_description}</p>
+                        <p className='qrdata'><strong>Datos del QR: </strong> {qrCode.qr_data}</p>
+                        <p className='qrcreat'><strong>Creado por: </strong> {qrCode.user_id}</p>
+                        <p className='qrdate'><strong>Fecha y hora de creación: </strong> {qrCode.qr_created_at}</p>
+                        <div >
+                          <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <ModalTandem
+                          className="socialqr"
+                    boton="Borrar"
+                    text={<EliminarQR 
+                      qr={qrCode.qr_nombre_ref} onUserUpdated={handleUserUpdated} />}
+                          />
+                          </li>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  </CardDescription>
+                </CardContainer>
+              </>
+            ))}
           </div>
         </div>
-      </>
+      </div>
     );
   }
-}
+};
 
-export default CardQr
+CardQr.propTypes = {
+  url: PropTypes.string.isRequired,
+  isGridView: PropTypes.bool,
+  onUserUpdated: PropTypes.func.isRequired,
+};
+
+export default CardQr;

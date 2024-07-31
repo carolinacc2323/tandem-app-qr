@@ -22,7 +22,12 @@ function ListadoUsuarios() {
               gridTemplateColumns:'1fr .15fr',
               padding:'2em',
             }}>
-              <RegisterModal buttonText="Registrar nuevo ususario" text='Click Aquí'/>
+
+              <RegisterModal 
+              buttonText="Registrar nuevo usuario" 
+              text='Click Aquí'
+              />
+
                   <Button 
                   color="info"
                   onClick={toggleView}

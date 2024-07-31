@@ -1,24 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import { MdDarkMode } from "react-icons/md";
+import { CiLight } from "react-icons/ci";
 import {
   Collapse,
-  Navbar,
+  Navbar as ReactstrapNavbar,
   NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
+  NavbarBrand as ReactstrapNavbarBrand,
+  Nav as ReactstrapNav,
+  NavItem as ReactstrapNavItem,
+  NavLink as ReactstrapNavLink,
+  Button,
 } from 'reactstrap';
-import ModalSoporte from './ModalSoporte';
-import "./NavbarInicio.css"
+import styled from 'styled-components';
+import ModalSoporte from './ModalSoporte'; // Asegúrate de tener la importación correcta
+import './NavbarInicio.css';
 
-function NavbarInicio() {
+
+const Navbar = styled(ReactstrapNavbar)
+`
+  font-family: Century Gothic, serif;
+  background-color: ${props => props.darkMode ? '#000' : '#f8f9fa'} !important;
+`;
+
+const NavbarBrand = styled(ReactstrapNavbarBrand)`
+  display: flex;
+`;
+
+const NavLink = styled(ReactstrapNavLink)`
+  position: relative;
+  color: ${props => props.darkMode ? 'white' : 'black'} !important;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${props => props.darkMode ? 'white' : 'black'} !important;
+    font-weight: 700;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #BC9FF0;
+    top: -10px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+`;
+
+const Nav = styled(ReactstrapNav)`
+  .navlink {
+    font-size: 15px;
+    color: ${props => props.darkMode ? 'white' : 'black'} !important;
+  }
+`;
+
+
+function NavbarInicio(args) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [modal, setModal] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
   const toggleModal = () => setModal(!modal);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.style.backgroundColor = '#000';
+      document.body.style.color = '#fff';
+    } else {
+      document.body.style.backgroundColor = '#fff';
+      document.body.style.color = '#000';
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,52 +97,73 @@ function NavbarInicio() {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">
-          <StaticImage src='../images/logoblanco.png' alt="Logo" width={80} />
+      <Navbar darkMode={darkMode} expand="md">
+        <NavbarBrand href="/"  style={{
+          backgroundColor: darkMode ?'transparent':'black',
+          borderRadius: '20px', 
+
+        }}>
+          <StaticImage src='../images/logoblanco.png' alt="Logo" width={150} style={{
+          color:'black',
+          height:'50px',
+          boxShadow: darkMode ? 'none' : '0px 4px 8px rgba(3,3,3)',
+          borderRadius: '20px'
+          }}/>
         </NavbarBrand>
         {isMobile ? (
           <>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
-              <Nav className="me-auto" navbar>
-                <NavItem>
-                  <NavLink href="/Login" style={{fontSize: '12px'}}className='navlink'>APP QR</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="#" onClick={toggleModal} className='navlink'>
-                    SOPORTE
+              <Nav className="me-auto" navbar darkMode={darkMode}>
+                <ReactstrapNavItem>
+                  <NavLink darkMode={darkMode} href="/InfoInstitucional" className='navlink'>Información Institucional</NavLink>
+                </ReactstrapNavItem>
+                <ReactstrapNavItem>
+                  <NavLink darkMode={darkMode} href="/Login" className='navlink'>
+                    APP QR
                   </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/InfoInstitucional" className='navlink'>
-                    INFORMACIÓN INSTITUCIONAL
+                </ReactstrapNavItem>
+                <ReactstrapNavItem>
+                  <NavLink darkMode={darkMode} href="#" onClick={toggleModal}>
+                    SOPORTE TÉCNICO
                   </NavLink>
-                </NavItem>
+                </ReactstrapNavItem>
               </Nav>
+              <Button color="secondary" onClick={toggleDarkMode}>
+              {darkMode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
+              </Button>
             </Collapse>
           </>
         ) : (
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink href="/Login" className='navlink' style={{fontSize: '12px'}}>APP QR</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#" onClick={toggleModal} style={{fontSize: '12px'}} className='navlink'>
+          <Nav className="ms-auto" navbar darkMode={darkMode}>
+            <ReactstrapNavItem>
+              <NavLink darkMode={darkMode} href="/InfoInstitucional" className='navlink'>Información Institucional</NavLink>
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
+              <NavLink darkMode={darkMode} href="/Login" className='navlink'>
+                APP QR
+              </NavLink>
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
+              <NavLink darkMode={darkMode} href="#" onClick={toggleModal}>
                 SOPORTE TÉCNICO
               </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/InfoInstitucional" className='navlink' style={{fontSize: '12px'}}>
-                INFORMACIÓN INSTITUCIONAL
-              </NavLink>
-            </NavItem>
+            </ReactstrapNavItem>
+            <ReactstrapNavItem>
+              <Button color="secondary" onClick={toggleDarkMode}>
+              {darkMode ? 
+              <CiLight size={24} /> 
+              : 
+              <MdDarkMode size={24} />
+              }
+              </Button>
+            </ReactstrapNavItem>
           </Nav>
         )}
       </Navbar>
       <ModalSoporte modal={modal} toggleModal={toggleModal} />
     </div>
-  )
+  );
 }
 
 export default NavbarInicio
