@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { StaticImage } from 'gatsby-plugin-image'
+import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChangeRoleUser from './ChangeRoleUser';
 import UpdateUser from './UpdateUser';
@@ -7,6 +9,61 @@ import CardEstilo from './CardEstilo'; // Importamos el componente base
 import "./ListadosUsers.css";
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+
+const CardContainer = styled.div`
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 12px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #0a57ca7f;
+    color:white;
+  }
+  &.destacado {
+    background-color: orange;
+  }
+
+  /* @media (min-width: 768px) {
+    margin: 5em;
+  }
+  @media (max-width: 500px) {
+    margin: 10em;
+  } */
+`;
+
+const CardTitle = styled.h2`
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+`;
+
+const CardDescription = styled.div`
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  color: #000;
+`;
+
+const Button = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 1em;
+  &:hover {
+    background-color: #0056b3;
+  }
+  &.descargar {
+    background-color: red;
+  }
+`;
+
+const CardImg = styled.img`
+  max-width: 100px;
+`;
 
 function ListadosUsers({ url, isGridView }) {
   const [error, setError] = useState(null);
@@ -28,7 +85,6 @@ function ListadosUsers({ url, isGridView }) {
         });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
-          setMessage(data.message);
         }
         const data = await response.json();
         setUsers(data.users);
@@ -86,16 +142,14 @@ function ListadosUsers({ url, isGridView }) {
               />
             </label>
           </div>
-                <div className='alert'>
-                      <p>{message}</p>
-                    </div>
+
           <div className={isGridView ? "card-grido" : "card-listo"} >
             {search(users).map((user) => (
-              <CardEstilo
-                key={user.id}
-                url={`http://localhost/gatsby-qr/images/users/${user.image_url}`}
-                titulo={user.nombre}
-                descripcion={
+              <>
+              <CardContainer key={user.id}>
+                <CardTitle>{user.nombre}</CardTitle>
+                <CardDescription>
+                  <img src={`https://carol.tandempatrimonionacional.eu/gatsbyqr/images/users/${user.image_url}`} alt={user.nombre} style={{width:'100%'}}/>
                   <>
                     <div className='descripcion'>
                       <span className="small text-uppercase text-muted">{user.role}</span>
@@ -109,6 +163,7 @@ function ListadosUsers({ url, isGridView }) {
                             className="social-link"
                             initialEmail={user.email}
                             initialNombre={user.nombre}
+                            initialDepartamento={user.departamento}
                             onUserUpdated={handleUserUpdated}
                           />
                         </li>
@@ -127,10 +182,51 @@ function ListadosUsers({ url, isGridView }) {
                         </li>
                       </div>
                     </div>
-                    
+                  </>
+                </CardDescription>
+              </CardContainer>
+              
+              {/* <CardEstilo
+                key={user.id}
+                url={`https://erika.tandempatrimonionacional.eu/gatsbyqr/${user.image_url}`}
+                titulo={user.nombre}
+                descripcion={
+                  <>
+                    <div className='descripcion'>
+                      <span className="small text-uppercase text-muted">{user.role}</span>
+                      <p className='id'><strong>Id usuario:</strong> {user.id}</p>
+                      <p className='email'><strong>Email:</strong> {user.email}</p>
+                      <p className='dele'><strong>Delegación:</strong> {user.delegacion}</p>
+                      
+                      <div className="social">
+                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <UpdateUser
+                            className="social-link"
+                            initialEmail={user.email}
+                            initialNombre={user.nombre}
+                            initialDepartamento={user.departamento}
+                            onUserUpdated={handleUserUpdated}
+                          />
+                        </li>
+                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <ChangeRoleUser
+                            className="social-link"
+                            initialEmail={user.email}
+                            onRoleChanged={handleUserUpdated}
+                          />
+                        </li>
+                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                          <DeleteUser 
+                            className="social-link"
+                            onDeleteUser={handleUserUpdated}
+                          />
+                        </li>
+                      </div>
+                    </div>
                   </>
                 }
-              />
+              /> */}
+              </>
             ))}
           </div>
         </div>

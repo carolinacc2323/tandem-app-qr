@@ -13,8 +13,6 @@ const toggleModal = () => setModalOpen(!modalOpen);
     return (
         <>
             <Layout>
-            
-                {/* <CardApp/> */}
                 {role === 'admin' || role === 'employee' ? 
                 <>
                 <CardApp />

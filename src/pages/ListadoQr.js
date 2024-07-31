@@ -40,7 +40,7 @@ const hoverStyle = {
                     style={hoverStyle}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                onClick={toggleView} 
+                    onClick={toggleView} 
                 >
                 {isGridView ? 
                     <>

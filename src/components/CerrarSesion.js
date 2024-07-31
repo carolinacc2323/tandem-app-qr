@@ -5,8 +5,9 @@ const CerrarSesion = () => {
   const handleCerrarSesion = () => {
     window.location.href = '/';
     localStorage.removeItem('tandem_id');
+    localStorage.removeItem('tandem_nombre');
     localStorage.removeItem('tandem_email');
-    localStorage.removeItem('tandem_token');
+    // localStorage.removeItem('tandem_token');
   };
 
   return (

@@ -27,7 +27,7 @@ const CambiarDatos = ({idUser}) => {
       setLoading(true);
       setMessage('');
       try {
-          const response = await fetch('http://localhost/gatsby-qr/v1/upload-image-user.php', {
+          const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/upload-image-user.php', {
               method: 'POST',
               body: formData,
           });
