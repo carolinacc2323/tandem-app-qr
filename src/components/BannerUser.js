@@ -2,7 +2,7 @@ import React from 'react';
 import './BannerUser.css';
 
 const BannerUser = ({ darkMode }) => {
-  const rutaimg = 'https://erika.tandempatrimonionacional.eu/gatsbyqr/images/users/'+ localStorage.getItem('tandem_image_url');
+  const rutaimg = 'https://carol.tandempatrimonionacional.eu/gatsbyqr/images/users/'+ localStorage.getItem('tandem_image_url');
 
   return (
     <div className='banneruser' style={{ color: darkMode ? 'white' : 'black' }}>
