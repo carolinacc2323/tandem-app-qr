@@ -67,7 +67,7 @@ const CambiarDatos = ({idUser}) => {
       </Fotobutton>
 
       <Modal isOpen={modal} toggle={toggle} className={idUser}>
-        <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
+        <ModalHeader toggle={toggle}>
           <h3>Cambia tu foto de perfil</h3>
         </ModalHeader>
         <ModalBody>
@@ -85,7 +85,7 @@ const CambiarDatos = ({idUser}) => {
               </Button>
             </ModalFooter>
           </Form>
-          {message && <p>{message}</p>}
+          <p>{message}</p>
         </ModalBody>
       </Modal>
     </div>

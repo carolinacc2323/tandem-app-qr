@@ -69,7 +69,7 @@ function RegisterModal({ className, buttonText }) {
         <p><FaUserPlus size={30}/> {buttonText}</p>
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} close={closeBtn} className='justify-content-end'>
+        <ModalHeader toggle={toggle} className='justify-content-end'>
           <h3 className='m-1'>Registro de nuevos usuarios</h3>
         </ModalHeader>
         <ModalBody>

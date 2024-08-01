@@ -9,9 +9,10 @@ const ChangePassword =()=>{
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const handlePassword=(e) => setPassword(e.target.value);
+    
     const handleChangePassword = async () => {
         try {
-            const response = await fetch('http://localhost/gatsby-qr/v1/change-password.php', {
+            const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/change-password.php', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

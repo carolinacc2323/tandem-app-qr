@@ -43,7 +43,7 @@ const ChangeRoleUser = ({ className, initialEmail, onRoleChanged }) => {
     <div >
       <a onClick={toggle}><PiUserSwitchDuotone fontSize={40} className="social-link"/></a>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
+        <ModalHeader toggle={toggle}>
           <h3 className='m-1'>Cambiar el rol</h3>
         </ModalHeader>
         <ModalBody>

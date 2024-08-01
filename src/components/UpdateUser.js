@@ -44,7 +44,7 @@ const UpdateUser = ({ className, initialNombre, initialEmail, initialDelegacion,
     <div>
       <a onClick={toggle}><TbUserEdit fontSize={40} className="social-link"/></a>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
+        <ModalHeader toggle={toggle}>
           <h3 className='m-1'>Modificar datos del usuario</h3>
         </ModalHeader>
         <ModalBody>
