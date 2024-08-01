@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { ImageContext } from '../context/ImageContext';
 import './BannerUser.css';
 
 const BannerUser = ({ darkMode }) => {
-  // Estado para almacenar la URL de la imagen y el nombre del usuario
-  const [userImageUrl, setUserImageUrl] = useState(localStorage.getItem('tandem_image_url'));
-  const [userName, setUserName] = useState(localStorage.getItem('tandem_nombre'));
-
-  // Efecto para actualizar el estado cuando cambian los valores en localStorage
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setUserImageUrl(localStorage.getItem('tandem_image_url'));
-      setUserName(localStorage.getItem('tandem_nombre'));
-    };
-
-    // Agregar evento para escuchar cambios en localStorage
-    window.addEventListener('storage', handleStorageChange);
-
-    // Limpiar el evento cuando el componente se desmonta
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []);
+  const { userImageUrl } = useContext(ImageContext);
+  const userName = localStorage.getItem('tandem_nombre');
 
   const rutaimg = `https://carol.tandempatrimonionacional.eu/gatsbyqr/images/users/${userImageUrl}`;
 
