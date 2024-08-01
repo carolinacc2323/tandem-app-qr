@@ -95,7 +95,10 @@ function NavbarTandem(args) {
           }}/>
         </NavbarBrand>
         <NavLink darkMode={darkMode} href="/AreaPersonal">
-          <BannerUser darkMode={darkMode} />
+          <BannerUser 
+          darkMode={darkMode} 
+       
+          />
         </NavLink>
         {isMobile ? (
           <>

@@ -13,7 +13,10 @@ const CambiarDatos = ({idUser}) => {
   const toggle = () => setModal(!modal);
   const handleImageChange = (e) => {
       setImage(e.target.files[0]);
+      localStorage.setItem('tandem_image_url', e.target.files[0].name)
+      console.log(e.target.files[0])
   };
+ 
   const handleSubmit = async (e) => {
       e.preventDefault();
       if (!image) {
