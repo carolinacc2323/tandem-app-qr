@@ -1,7 +1,6 @@
 import React from 'react';
 import { RiShutDownLine } from "react-icons/ri";
-
-const CerrarSesion = () => {
+const CerrarSesion = ({ darkMode }) => {
   const handleCerrarSesion = () => {
     if (typeof window !== 'undefined') {
       window.location.href = '/';
@@ -11,12 +10,10 @@ const CerrarSesion = () => {
       // localStorage.removeItem('tandem_token');
     }
   };
-
   return (
-    <button onClick={handleCerrarSesion} style={{ background: 'none', border: 'none', color: 'white' }}>
+    <button onClick={handleCerrarSesion} style={{ background: 'none', border: 'none', marginLeft:'20px', marginRight:'20px', color: darkMode ? 'white' : 'black' }}>
       <RiShutDownLine size={24} />
     </button>
   );
 };
-
 export default CerrarSesion
