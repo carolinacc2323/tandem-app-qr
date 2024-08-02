@@ -83,7 +83,7 @@ function NavbarTandem(args) {
   return (
     <div>
       <Navbar darkMode={darkMode} expand="md">
-        <NavbarBrand href="/"  style={{
+        <NavbarBrand href="/AppQr"  style={{
           backgroundColor: darkMode ?'transparent':'black',
           borderRadius: '20px',
         }}>
