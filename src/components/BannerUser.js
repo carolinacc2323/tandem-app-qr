@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ImageContext } from '../context/ImageContext';
 import './BannerUser.css';
 
 const BannerUser = ({ darkMode }) => {
   const { userImageUrl } = useContext(ImageContext);
-  const userName = typeof window !== 'undefined' ? localStorage.getItem('tandem_nombre') : '';
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUserName(localStorage.getItem('tandem_nombre'));
+    }
+  }, []);
 
   const rutaimg = `https://carol.tandempatrimonionacional.eu/gatsbyqr/images/users/${userImageUrl}`;
+
+  if (typeof window === 'undefined') {
+    // Render something else during SSR
+    return null;
+  }
 
   return (
     <div className='banneruser' style={{ color: darkMode ? 'white' : 'black' }}>
@@ -19,4 +30,4 @@ const BannerUser = ({ darkMode }) => {
   );
 };
 
-export default BannerUser
+export default BannerUser;
