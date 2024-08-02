@@ -17,7 +17,9 @@ const CambiarDatos = ({ idUser }) => {
     const file = e.target.files[0];
     setImage(file);
     const imageUrl = file.name;
-    localStorage.setItem('tandem_image_url', imageUrl);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('tandem_image_url', imageUrl);
+    }
     setUserImageUrl(imageUrl); // Actualizar el contexto
   };
 
@@ -102,4 +104,4 @@ const CambiarDatos = ({ idUser }) => {
   );
 };
 
-export default CambiarDatos;
+export default CambiarDatos

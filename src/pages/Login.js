@@ -22,11 +22,13 @@ const Login = () => {
       const respuesta = await response.json();
       if (respuesta.message === 'Login exitoso') {
         console.log(respuesta.user);
-        localStorage.setItem('tandem_id', respuesta.user.id);
-        localStorage.setItem('tandem_email', respuesta.user.email);
-        localStorage.setItem('tandem_image_url', respuesta.user.image_url);
-        localStorage.setItem('tandem_nombre', respuesta.user.nombre);
-        localStorage.setItem('tandem_role', respuesta.user.role);
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('tandem_id', respuesta.user.id);
+          localStorage.setItem('tandem_email', respuesta.user.email);
+          localStorage.setItem('tandem_image_url', respuesta.user.image_url);
+          localStorage.setItem('tandem_nombre', respuesta.user.nombre);
+          localStorage.setItem('tandem_role', respuesta.user.role);
+        }
         setMessage('Login exitoso para:' + respuesta.user.nombre);
         window.location.href = '/AppQr';
       } else {
@@ -86,7 +88,6 @@ const Login = () => {
               <a href='../ChangePassword'>¿Has olvidado tu contraseña?</a>
             </div>
             <div className='registro mt-5'>
-              {/* <h4>En caso de que no estés registrado</h4> */}
               <RegisterModal buttonText="Crear cuenta nueva"/>
             </div>
           </Form>

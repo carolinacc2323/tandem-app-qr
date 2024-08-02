@@ -3,11 +3,13 @@ import { RiShutDownLine } from "react-icons/ri";
 
 const CerrarSesion = () => {
   const handleCerrarSesion = () => {
-    window.location.href = '/';
-    localStorage.removeItem('tandem_id');
-    localStorage.removeItem('tandem_nombre');
-    localStorage.removeItem('tandem_email');
-    // localStorage.removeItem('tandem_token');
+    if (typeof window !== 'undefined') {
+      window.location.href = '/';
+      localStorage.removeItem('tandem_id');
+      localStorage.removeItem('tandem_nombre');
+      localStorage.removeItem('tandem_email');
+      // localStorage.removeItem('tandem_token');
+    }
   };
 
   return (
