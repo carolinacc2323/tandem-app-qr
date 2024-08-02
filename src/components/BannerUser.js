@@ -3,14 +3,18 @@ import { ImageContext } from '../context/ImageContext';
 import './BannerUser.css';
 
 const BannerUser = ({ darkMode }) => {
-  const { userImageUrl } = useContext(ImageContext);
+  const context = useContext(ImageContext);
   const [userName, setUserName] = useState('');
+  const [userImageUrl, setUserImageUrl] = useState('');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setUserName(localStorage.getItem('tandem_nombre'));
+      if (context) {
+        setUserImageUrl(context.userImageUrl);
+      }
     }
-  }, []);
+  }, [context]);
 
   const rutaimg = `https://carol.tandempatrimonionacional.eu/gatsbyqr/images/users/${userImageUrl}`;
 
@@ -30,4 +34,4 @@ const BannerUser = ({ darkMode }) => {
   );
 };
 
-export default BannerUser;
+export default BannerUser
