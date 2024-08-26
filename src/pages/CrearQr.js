@@ -9,6 +9,7 @@ import Mapa from "../components/Mapa";
 import { Button } from "reactstrap";
 import { LuSave } from "react-icons/lu";
 import { FaRedoAlt } from "react-icons/fa";
+import { PiFolderUserLight } from "react-icons/pi";
 import InstModal from "../components/InstModal";
 
 function CrearQr() {
@@ -235,6 +236,9 @@ function CrearQr() {
                   <FaRedoAlt size={30} />
                   <p>Nuevo QR</p>
                 </Button>
+                <PiFolderUserLight size={30}> 
+                  <p>Mis QR</p>
+                </PiFolderUserLight>
               </div>
             </div>
           </div>
