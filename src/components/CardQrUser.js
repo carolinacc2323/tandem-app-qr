@@ -2,12 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardQr.css";
 import CodigoQrNuevo from '../components/CodigoQrNuevo';
+
 import ModalTandem from "./ModalTandem";
 import EliminarQR from "./EliminarQR";
 import PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce'; // para la función debounce
 import styled from "styled-components";
-import DeleteQr from "./DeleteQr";
 
 const CardContainer = styled.div`
   border: 1px solid #ccc;
@@ -19,18 +19,11 @@ const CardContainer = styled.div`
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background-color: #0a57ca7f;
-    color:white;
+    color: white;
   }
   &.destacado {
     background-color: orange;
   }
-
-  /* @media (min-width: 768px) {
-    margin: 5em;
-  }
-  @media (max-width: 500px) {
-    margin: 10em;
-  } */
 `;
 
 const CardTitle = styled.h2`
@@ -64,7 +57,7 @@ const CardImg = styled.img`
   max-width: 100px;
 `;
 
-const CardQr = ({ url, isGridView, onUserUpdated }) => {
+const CardQrUser = ({ userId, isGridView, onUserUpdated }) => {
   const [qrCodes, setQrCodes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -72,21 +65,23 @@ const CardQr = ({ url, isGridView, onUserUpdated }) => {
   const [refresh, setRefresh] = useState(false); // Estado para rastrear actualizaciones
   const [message, setMessage] = useState('');
   const [q, setQ] = useState("");
-  const [searchParam] = useState(["qr_nombre_ref", "qr_data", "qr_created_by","qr_id"]);
+  const [searchParam] = useState(["qr_nombre_ref", "qr_data", "user_nombre", "qr_id"]);
 
   useEffect(() => {
-    
     const fetchQrCodes = async () => {
       try {
-        const response = await fetch(url, {
-          method: 'GET',
+        const response = await fetch("https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/list-qr-user.php", {
+          method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
-          }
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: userId }),
         });
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
+
         const data = await response.json();
         setQrCodes(data.qr_codes);
         setIsLoaded(true);
@@ -99,10 +94,10 @@ const CardQr = ({ url, isGridView, onUserUpdated }) => {
     };
 
     fetchQrCodes();
-  }, [url, refresh]);
+  }, [userId, refresh]);
 
   const handleUserUpdated = () => {
-    setRefresh(!refresh);
+    setRefresh(!refresh); // Cambia el estado de refresh para desencadenar useEffect
     onUserUpdated();
   };
 
@@ -111,18 +106,18 @@ const CardQr = ({ url, isGridView, onUserUpdated }) => {
       return searchParam.some((param) => {
         return (
           item[param] && // Verifica que el campo existe
-          item[param]
-            .toString()
-            .toLowerCase()
-            .includes(q.toLowerCase())
+          item[param].toString().toLowerCase().includes(q.toLowerCase())
         );
       });
     });
   }
 
-  const handleSearchChange = useCallback(debounce((e) => {
-    setQ(e.target.value);
-  }, 300), []);
+  const handleSearchChange = useCallback(
+    debounce((e) => {
+      setQ(e.target.value);
+    }, 300),
+    []
+  );
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -130,13 +125,14 @@ const CardQr = ({ url, isGridView, onUserUpdated }) => {
     return <div>Cargando lista...</div>;
   } else {
     return (
-      <div className="containerlist" 
-      style={{ 
-        minHeight: '70vh', 
-        margin: '2em' 
-        }}>
-
-        <div className='wrapper'>
+      <div
+        className="containerlist"
+        style={{
+          minHeight: '70vh',
+          margin: '2em',
+        }}
+      >
+        <div className="wrapper">
           <div className="search-wrapper">
             <label htmlFor="search-form" style={{ marginBottom: '1em' }}>
               <input
@@ -152,38 +148,41 @@ const CardQr = ({ url, isGridView, onUserUpdated }) => {
           </div>
 
           <div className={isGridView ? "card-grid" : "card-list"}>
-            
             {search(qrCodes).map((qrCode) => (
-              <>
-                <CardContainer key={qrCode.qr_id}>
-                  <CardDescription>
-
-                  <div className='descripcion'>
-                        <CodigoQrNuevo datos={qrCode.qr_data} className='qrimage' />
-                        <p className='qrid'><strong>Id QR:</strong> {qrCode.qr_id}</p>
-                        <p className='qrnombre'><strong>Nombre:</strong> {qrCode.qr_nombre_ref}</p>
-                        <p className='qrdes'><strong>Descripción:</strong> {qrCode.qr_description}</p>
-                        <p className='qrdata'><strong>Datos del QR: </strong> {qrCode.qr_data}</p>
-                        <p className='qrcreat'><strong>Creado por: </strong> {qrCode.user_id}</p>
-                        <p className='qrdate'><strong>Fecha y hora de creación: </strong> {qrCode.qr_created_at}</p>
-                        <div >
-                          <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                          <ModalTandem
+              <CardContainer key={qrCode.qr_id}>
+                <CardDescription>
+                  <div className="descripcion">
+                    <CodigoQrNuevo datos={qrCode.qr_data} className="qrimage" />
+                    <p className="qrid">
+                      <strong>Id QR:</strong> {qrCode.qr_id}
+                    </p>
+                    <p className="qrnombre">
+                      <strong>Nombre:</strong> {qrCode.qr_nombre_ref}
+                    </p>
+                    <p className="qrdes">
+                      <strong>Descripción:</strong> {qrCode.qr_description}
+                    </p>
+                    <p className="qrdata">
+                      <strong>Datos del QR: </strong> {qrCode.qr_data}
+                    </p>
+                    <p className="qrcreat">
+                      <strong>Creado por: </strong> {qrCode.user_nombre}
+                    </p>
+                    <p className="qrdate">
+                      <strong>Fecha y hora de creación: </strong> {qrCode.qr_created_at}
+                    </p>
+                    <div>
+                      <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+                        <ModalTandem
                           className="socialqr"
-                    boton="Borrar"
-                    text={<EliminarQR 
-                      qr={qrCode.qr_nombre_ref} onUserUpdated={handleUserUpdated} />}
-                          />
-                          </li>
-                          <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                            <DeleteQr className="social-link"/>
-                          </li>
-                        
-                        </div>
-                      </div>
-                  </CardDescription>
-                </CardContainer>
-              </>
+                          boton="Borrar"
+                          text={<EliminarQR qr={qrCode.qr_nombre_ref} onUserUpdated={handleUserUpdated} />}
+                        />
+                      </li>
+                    </div>
+                  </div>
+                </CardDescription>
+              </CardContainer>
             ))}
           </div>
         </div>
@@ -192,10 +191,10 @@ const CardQr = ({ url, isGridView, onUserUpdated }) => {
   }
 };
 
-CardQr.propTypes = {
-  url: PropTypes.string.isRequired,
+CardQrUser.propTypes = {
+  userId: PropTypes.number.isRequired,
   isGridView: PropTypes.bool,
   onUserUpdated: PropTypes.func.isRequired,
 };
 
-export default CardQr;
+export default CardQrUser

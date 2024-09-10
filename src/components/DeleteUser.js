@@ -11,7 +11,7 @@ const DeleteUser = ({ className, onDeleteUser }) => {
     const toggle = () => setModal(!modal);
 
     const handleDelete = async (e) => {
-        e.preventDefault(); // Previene el comportamiento predeterminado del formulario
+        e.preventDefault();
 
         if (email === '') {
             setMessage('El email no ha sido proporcionado o está vacío');

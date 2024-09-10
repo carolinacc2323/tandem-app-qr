@@ -1,4 +1,3 @@
-// AppQr.js
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import CardApp from "../components/CardApp"; 
@@ -18,19 +17,26 @@ const AppQr = () => {
 
   return (
     <>
-      <Layout>
-        {role === 'admin' || role === 'employee' ? 
-          <>
-            <CardApp />
-          </>
-          : 
-          <div style={{minHeight:'68vh'}}>
+      {role === 'admin' || role === 'employee' ? (
+        <Layout>
+          <CardApp />
+        </Layout>
+      ) : role === 'guest' ? (
+        <Layout> 
+          <div style={{minHeight:'78vh'}}>
             <Informacion />
           </div>
-        }
-      </Layout>
+        </Layout>
+      ) : (
+        <Layout>
+          <div className='titulo mt-3'>
+            <h1>Acceso Denegado</h1>
+            <p>No tienes permiso para acceder a esta página.</p>
+          </div>
+        </Layout>
+      )}
     </>
-  )
-}
+  );
+};
 
 export default AppQr

@@ -6,22 +6,22 @@ const DeleteQr = ({ className, nombreRef, onDelete }) => {
   const [modal, setModal] = useState(false);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  
+  const [nombre_ref, setNombreRef] = useState('');
   const toggle = () => setModal(!modal);
 
   const handleDeleteQr = async (e) => {
     e.preventDefault();
-
     setLoading(true);
 
     try {
-      const response = await fetch('https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/delete-qr.php', {
+      const response = await fetch(`https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/delete-qr.php?nombre_ref=${nombreRef}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nombre_ref: nombreRef }),
       });
+      
+      
 
       const data = await response.json();
       setMessage(data.message);
@@ -40,12 +40,13 @@ const DeleteQr = ({ className, nombreRef, onDelete }) => {
     }
   };
   console.log(nombreRef);
+
   return (
     <>
-      <Button onClick={toggle}><MdOutlineDeleteForever fontSize={32} /></Button>
+      <a onClick={toggle}><MdOutlineDeleteForever fontSize={40} className="social-link"/></a>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} close={<button className="close" onClick={toggle} type="button">&times;</button>} className='justify-content-end'>
-          <h3 className='m-1'>Eliminar QR</h3>
+        <ModalHeader toggle={toggle} >
+          <h3 className='m-1'>Delete QR</h3>
         </ModalHeader>
         <ModalBody>
           <Form onSubmit={handleDeleteQr}>
@@ -57,7 +58,7 @@ const DeleteQr = ({ className, nombreRef, onDelete }) => {
                     id="nombre_ref"
                     placeholder="Nombre de referencia del QR"
                     value={nombreRef}
-                    readOnly
+                    onChange={(e) => setNombreRef(e.target.value)}
                 />
             </FormGroup>
             <ModalFooter>

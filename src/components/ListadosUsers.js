@@ -186,47 +186,6 @@ function ListadosUsers({ url, isGridView }) {
                   </>
                 </CardDescription>
               </CardContainer>
-              
-              {/* <CardEstilo
-                key={user.id}
-                url={`https://erika.tandempatrimonionacional.eu/gatsbyqr/${user.image_url}`}
-                titulo={user.nombre}
-                descripcion={
-                  <>
-                    <div className='descripcion'>
-                      <span className="small text-uppercase text-muted">{user.role}</span>
-                      <p className='id'><strong>Id usuario:</strong> {user.id}</p>
-                      <p className='email'><strong>Email:</strong> {user.email}</p>
-                      <p className='dele'><strong>Delegación:</strong> {user.delegacion}</p>
-                      
-                      <div className="social">
-                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                          <UpdateUser
-                            className="social-link"
-                            initialEmail={user.email}
-                            initialNombre={user.nombre}
-                            initialDepartamento={user.departamento}
-                            onUserUpdated={handleUserUpdated}
-                          />
-                        </li>
-                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                          <ChangeRoleUser
-                            className="social-link"
-                            initialEmail={user.email}
-                            onRoleChanged={handleUserUpdated}
-                          />
-                        </li>
-                        <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                          <DeleteUser 
-                            className="social-link"
-                            onDeleteUser={handleUserUpdated}
-                          />
-                        </li>
-                      </div>
-                    </div>
-                  </>
-                }
-              /> */}
               </>
             ))}
           </div>

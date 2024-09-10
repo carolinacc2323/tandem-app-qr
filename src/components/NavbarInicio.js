@@ -116,7 +116,7 @@ function NavbarInicio(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar darkMode={darkMode}>
                 <ReactstrapNavItem>
-                  <NavLink darkMode={darkMode} href="/InfoInstitucional" className='navlink'>Información Institucional</NavLink>
+                  <NavLink darkMode={darkMode} href="https://informacioninstitucional.vercel.app/" className='navlink'>Información Institucional</NavLink>
                 </ReactstrapNavItem>
                 <ReactstrapNavItem>
                   <NavLink darkMode={darkMode} href="/Login" className='navlink'>
@@ -137,7 +137,7 @@ function NavbarInicio(args) {
         ) : (
           <Nav className="ms-auto" navbar darkMode={darkMode}>
             <ReactstrapNavItem>
-              <NavLink darkMode={darkMode} href="/InfoInstitucional" className='navlink'>Información Institucional</NavLink>
+              <NavLink darkMode={darkMode} href="https://informacioninstitucional.vercel.app/" className='navlink'>Información Institucional</NavLink>
             </ReactstrapNavItem>
             <ReactstrapNavItem>
               <NavLink darkMode={darkMode} href="/Login" className='navlink'>
