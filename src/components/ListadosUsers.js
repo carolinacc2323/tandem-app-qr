@@ -1,37 +1,32 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChangeRoleUser from './ChangeRoleUser';
 import UpdateUser from './UpdateUser';
 import DeleteUser from './DeleteUser';
-import CardEstilo from './CardEstilo'; // Importamos el componente base
 import "./ListadosUsers.css";
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
+import RegisterUser from './RegisterUser';
 
 const CardContainer = styled.div`
-  border: 1px solid #ccc;
+    border: 1px solid ${props => props.darkMode ? '#444' : '#ccc'};
   border-radius: 12px;
   padding: 12px;
   width: 300px;
+  background-color: ${props => props.darkMode ? '#333' : 'white'};
+  color: ${props => props.darkMode ? 'white' : 'black'};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.3s ease-in-out;
+
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: #0a57ca7f;
-    color:white;
+    background-color: ${props => props.darkMode ? '#444' : '#0a57ca7f'};
+    color: white;
   }
   &.destacado {
     background-color: orange;
   }
-
-  /* @media (min-width: 768px) {
-    margin: 5em;
-  }
-  @media (max-width: 500px) {
-    margin: 10em;
-  } */
 `;
 
 const CardTitle = styled.h2`
@@ -43,7 +38,7 @@ const CardTitle = styled.h2`
 const CardDescription = styled.div`
   margin: 0 0 10px 0;
   font-size: 1em;
-  color: #000;
+  color: ${props => props.darkMode ? 'white' : '#000'};
 `;
 
 const Button = styled.button`
@@ -62,11 +57,7 @@ const Button = styled.button`
   }
 `;
 
-const CardImg = styled.img`
-  max-width: 100px;
-`;
-
-function ListadosUsers({ url, isGridView }) {
+function ListadosUsers({ url, isGridView, darkMode }) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [users, setUsers] = useState([]);
@@ -74,6 +65,8 @@ function ListadosUsers({ url, isGridView }) {
   const [q, setQ] = useState("");
   const [searchParam] = useState(["nombre", "email", "delegacion"]);
   const [refresh, setRefresh] = useState(false); // Estado para rastrear actualizaciones
+
+  
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -143,14 +136,19 @@ function ListadosUsers({ url, isGridView }) {
               />
             </label>
           </div>
-
+          
+          <li className="list-inline-item" style={{ cursor: 'pointer' }}>
+            <RegisterUser className="social-link" onUserRegistered={handleUserUpdated} />
+          </li>
+          
+          
           <div className={isGridView ? "card-grido" : "card-listo"} >
             {search(users).map((user) => (
               <>
               <CardContainer key={user.id}>
                 <CardTitle>{user.nombre}</CardTitle>
                 <CardDescription>
-                  <img src={`https://erika.tandempatrimonionacional.eu/gatsbyqr/images/users/${user.image_url}`} alt={user.nombre} style={{width:'100px'}}/>
+                  <img src={`https://carol.tandempatrimonionacional.eu/gatsbyqr/images/users/${user.image_url}`} alt={user.nombre} style={{width:'100px'}}/>
                   <>
                     <div className='descripcion'>
                       <span className="small text-uppercase text-muted">{user.role}</span>

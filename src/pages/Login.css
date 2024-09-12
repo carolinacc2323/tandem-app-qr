@@ -4,14 +4,12 @@
   width: 100%;
   height: auto;
   border: #02355c solid 0.2em;
-  font-family: Century Gothic, serif;
 }
 
 .h1login{
   color: #02355c;
   text-decoration: underline;
   grid-area: h1;
-  font-family: Georgia, serif; 
 }
 .btnlogin{
 font-size: 20px;
@@ -21,7 +19,7 @@ grid-area: formu;
 }
 .registro{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 2fr;
 }
 @media (min-width:728px){
   .h1login{
@@ -37,8 +35,10 @@ grid-area: formu;
   }
 .loginform{
   background-image: url(../images/accesologin.png);
-  background-size:cover;
-  min-height: 70vh;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position:2px 100px;
+  min-height: 73vh;
   display: grid;
   grid-template-areas:
   "h1 h1 h1 h1 h1" 
@@ -59,7 +59,7 @@ grid-area: formu;
 }
 .registro{
   display: grid;
-  grid-template-columns: 300px 100px;
+  grid-template-columns: 400px 200px;
   margin-top: 5em;
 }
 }
