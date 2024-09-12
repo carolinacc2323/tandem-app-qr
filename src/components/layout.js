@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Footer"
 import NavbarTandem from "./NavbarTandem"
+
+
 const Layout = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
   const stylemain={
@@ -17,6 +19,7 @@ const Layout = ({ children }) => {
       document.body.style.color = '#000';
     }
   };
+
   return (
     <>
       <NavbarTandem darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
@@ -27,11 +30,5 @@ const Layout = ({ children }) => {
     </>
   )
 }
+
 export default Layout
-
-
-
-
-
-
-

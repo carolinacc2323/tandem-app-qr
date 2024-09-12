@@ -73,7 +73,6 @@ const EliminarQR = ({ qr, onUserUpdated }) => {
       onUserUpdated();
     } catch (error) {
       console.error('Error eliminando el código QR', error);
-      
     }
   };
 

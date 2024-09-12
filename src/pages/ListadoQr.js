@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 import CardQr from '../components/CardQr';
 import CardQrUser from '../components/CardQrUser';
-
 import { FaList } from "react-icons/fa";
 import { IoGridSharp } from "react-icons/io5";
 import { Button } from 'reactstrap';
 
-const ListadoQr = () => {
+const ListadoQr = ({ darkMode }) => {
     const [isGridView, setIsGridView] = useState(true);
     const [isHovered, setIsHovered] = useState(false);
     const [role, setRole] = useState(null);
@@ -44,7 +43,7 @@ const ListadoQr = () => {
 
     return (
         <Layout>
-            {(role === 'admin' || role === 'employee') &&(
+            {(role === 'admin' || role === 'employee') && (
                 <div className='titulo mt-3'>
                     <h1>Lista de Códigos QR</h1>
                     <Button 
@@ -66,8 +65,10 @@ const ListadoQr = () => {
                 </div>
             )}
 
-            <div style={{ minHeight: '70vh', margin: '2em' }}>
-            {role === 'admin' ? ( <CardQr url="https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/list-qr.php" isGridView={isGridView} /> ) : (role === 'employee' && userId) ? (
+            <div style={{ minHeight: '70vh', margin: '2em'}}>
+            {role === 'admin' ? (
+                <CardQr url="https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/list-qr.php" darkMode={false} isGridView={isGridView} />
+                ) : (role === 'employee' && userId) ? (
                     <div>
                         {/* Vista para empleados con códigos QR asociados a su usuario */}
                         <CardQrUser userId={parseInt(userId)} isGridView={isGridView} onUserUpdated={() => { /* Opcional: realizar alguna acción después de actualizar los QR */ }} />

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { MdOutlineDeleteForever } from "react-icons/md";
 
-const DeleteQr = ({ className, nombreRef, onDelete }) => {
+const DeleteQr = ({ className, onDelete }) => {
   const [modal, setModal] = useState(false);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [nombre_ref, setNombreRef] = useState('');
+  const [nombreRef, setNombreRef] = useState('');
   const toggle = () => setModal(!modal);
 
   const handleDeleteQr = async (e) => {
@@ -15,14 +15,14 @@ const DeleteQr = ({ className, nombreRef, onDelete }) => {
 
     try {
       const response = await fetch(`https://carol.tandempatrimonionacional.eu/gatsbyqr/v1/delete-qr.php?nombre_ref=${nombreRef}`, {
-        method: 'DELETE',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ nombre_ref: nombreRef }),
       });
       
       
-
       const data = await response.json();
       setMessage(data.message);
 

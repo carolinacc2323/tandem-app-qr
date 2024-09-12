@@ -9,10 +9,10 @@ import Mapa from "../components/Mapa";
 import { Button } from "reactstrap";
 import { LuSave } from "react-icons/lu";
 import { FaRedoAlt } from "react-icons/fa";
-import { PiFolderUserLight } from "react-icons/pi";
 import InstModal from "../components/InstModal";
 
-function CrearQr() {
+function CrearQr({ userId }) {
+  const [data, setData] = useState('');
   const [description, setDescription] = useState('');
   const [nombre_ref, setNombre_ref] = useState('');
   const [message, setMessage] = useState('');
@@ -106,7 +106,7 @@ function CrearQr() {
       setMessage(code.message);
     } catch (error) {
       console.error('Error creando código QR', error);
-      setMessage('Error creando código QR' + error);
+      setMessage('Error creando código QR');
     }
 
     setShowPopup(true);
@@ -119,7 +119,6 @@ function CrearQr() {
   const colorOptions = ['black', 'blue', 'red'];
 
   return (
-    <>
     <Layout>
       <div className="titulo mt-3">
         <h1>GENERADOR DE QR</h1>
@@ -236,9 +235,6 @@ function CrearQr() {
                   <FaRedoAlt size={30} />
                   <p>Nuevo QR</p>
                 </Button>
-                <PiFolderUserLight size={30}> 
-                  <p>Mis QR</p>
-                </PiFolderUserLight>
               </div>
             </div>
           </div>
@@ -247,11 +243,10 @@ function CrearQr() {
 
       {showPopup && (
         <div className="popup">
-          {message}
+          ¡Se ha guardado con éxito!
         </div>
       )}
     </Layout>
-    </>
   );
 }
 
