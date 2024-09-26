@@ -12,7 +12,7 @@ import { FiLink } from "react-icons/fi";
 function CompaQr() {
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleCopyLink = () => {
+  const handleCopyLink = () => { 
     navigator.clipboard.writeText("https://tandem-app-qr.vercel.app/")
       .then(() => {
         setShowPopup(true);

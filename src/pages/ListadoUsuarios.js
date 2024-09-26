@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ListadosUsers from '../components/ListadosUsers';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import Layout from '../components/layout';
-import RegisterModal from '../components/RegisterModal';
+
 import { Button } from 'reactstrap';
 import { FaList } from "react-icons/fa";
 import { IoGridSharp } from "react-icons/io5";
@@ -31,7 +31,7 @@ function ListadoUsuarios({ darkMode }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setRole(localStorage.getItem('tandem_role'));
-      setUserId(localStorage.getItem('tandem_id')); // Obtener el ID del usuario
+      setUserId(localStorage.getItem('tandem_id')); 
     }
   }, []);
 

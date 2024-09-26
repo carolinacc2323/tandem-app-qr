@@ -157,9 +157,9 @@ const CardQr = ({ url, isGridView, onUserUpdated,darkMode }) => {
                         />
                       </li>
                       <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                        <DeleteQr 
+                        {/* <DeleteQr 
                           className="social-link"
-                        />
+                        /> */}
                       </li>
                     </div>
                   </div>

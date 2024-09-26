@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import FooterModalCompartir from "./FooterModalCompartir"
+import { withPrefix } from "gatsby"
 
 const FooterInicio = () => {
   const footerStyles = {
@@ -34,7 +35,7 @@ const FooterInicio = () => {
     color: "#E9E9E9",
     textDecoration: "none",
     fontSize: "14px",
-    fontFamily: "Georgia, serif",
+    fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
     fontWeight: "normal",
     margin: "0.5em",
   }
@@ -62,10 +63,10 @@ const FooterInicio = () => {
         </div>
         </div>
         <div style={{ gridArea: "s4" }}>
-          <a href="../Politica" style={linkStyles}>Política de Privacidad</a>
-          <a href="../Cookies" style={linkStyles}>Cookies</a>
-          <a href="../Accesibilidad" style={linkStyles}>Accesibilidad</a>
-          <a href="../AvisoLegal" style={linkStyles}>Aviso legal</a>
+          <a href={withPrefix("../Politica")} style={linkStyles}>Política de Privacidad</a>
+          <a href={withPrefix("../Cookies")} style={linkStyles}>Cookies</a>
+          <a href={withPrefix("../Accesibilidad")} style={linkStyles}>Accesibilidad</a>
+          <a href={withPrefix("../AvisoLegal")} style={linkStyles}>Aviso legal</a>
         </div>
         <div style={{ gridArea: "s5" }}>
           <div style={{ display: "inline-block" }}>

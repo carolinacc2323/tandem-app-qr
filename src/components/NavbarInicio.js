@@ -13,9 +13,9 @@ import {
   Button,
 } from 'reactstrap';
 import styled from 'styled-components';
-import ModalSoporte from './ModalSoporte'; // Asegúrate de tener la importación correcta
+import ModalSoporte from './ModalSoporte';
 import './NavbarInicio.css';
-
+import { withPrefix } from 'gatsby';
 
 const Navbar = styled(ReactstrapNavbar)
 `
@@ -98,17 +98,21 @@ function NavbarInicio(args) {
   return (
     <div>
       <Navbar darkMode={darkMode} expand="md">
-        <NavbarBrand href="/"  style={{
-          backgroundColor: darkMode ?'transparent':'black',
-          borderRadius: '20px', 
-
+        <NavbarBrand href={withPrefix("/")} style={{
+          backgroundColor: darkMode ? 'transparent' : 'black',
+          borderRadius: '20px',
         }}>
-          <StaticImage src='../images/logoblanco.png' alt="Logo" width={150} style={{
-          color:'black',
-          height:'50px',
-          boxShadow: darkMode ? 'none' : '0px 4px 8px rgba(3,3,3)',
-          borderRadius: '20px'
-          }}/>
+          <StaticImage 
+            src='../images/logoblanco.svg' 
+            alt="Logo" 
+            width={150} 
+            style={{
+              color: 'black',
+              height: '50px',
+              boxShadow: darkMode ? 'none' : '0px 4px 8px rgba(3,3,3)',
+              borderRadius: '20px'
+            }}
+          />
         </NavbarBrand>
         {isMobile ? (
           <>
@@ -116,46 +120,34 @@ function NavbarInicio(args) {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="me-auto" navbar darkMode={darkMode}>
                 <ReactstrapNavItem>
-                  <NavLink darkMode={darkMode} href="https://informacioninstitucional.vercel.app/" className='navlink'>Información Institucional</NavLink>
+                  <NavLink darkMode={darkMode} href={withPrefix("/InfoInstitucional")} className='navlink'>Información Institucional</NavLink>
                 </ReactstrapNavItem>
                 <ReactstrapNavItem>
-                  <NavLink darkMode={darkMode} href="/Login" className='navlink'>
-                    APP QR
-                  </NavLink>
+                  <NavLink darkMode={darkMode} href={withPrefix("/Login")} className='navlink'>APP QR</NavLink>
                 </ReactstrapNavItem>
                 <ReactstrapNavItem>
-                  <NavLink darkMode={darkMode} href="#" onClick={toggleModal}>
-                    SOPORTE TÉCNICO
-                  </NavLink>
+                  <NavLink darkMode={darkMode} href="#" onClick={toggleModal}>SOPORTE TÉCNICO</NavLink>
                 </ReactstrapNavItem>
               </Nav>
               <Button color="secondary" onClick={toggleDarkMode}>
-              {darkMode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
+                {darkMode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
               </Button>
             </Collapse>
           </>
         ) : (
           <Nav className="ms-auto" navbar darkMode={darkMode}>
             <ReactstrapNavItem>
-              <NavLink darkMode={darkMode} href="https://informacioninstitucional.vercel.app/" className='navlink'>Información Institucional</NavLink>
+              <NavLink darkMode={darkMode} href={withPrefix("/InfoInstitucional")} className='navlink'>Información Institucional</NavLink>
             </ReactstrapNavItem>
             <ReactstrapNavItem>
-              <NavLink darkMode={darkMode} href="/Login" className='navlink'>
-                APP QR
-              </NavLink>
+              <NavLink darkMode={darkMode} href={withPrefix("/Login")} className='navlink'>APP QR</NavLink>
             </ReactstrapNavItem>
             <ReactstrapNavItem>
-              <NavLink darkMode={darkMode} href="#" onClick={toggleModal}>
-                SOPORTE TÉCNICO
-              </NavLink>
+              <NavLink darkMode={darkMode} href="#" onClick={toggleModal}>SOPORTE TÉCNICO</NavLink>
             </ReactstrapNavItem>
             <ReactstrapNavItem>
               <Button color="secondary" onClick={toggleDarkMode}>
-              {darkMode ? 
-              <CiLight size={24} /> 
-              : 
-              <MdDarkMode size={24} />
-              }
+                {darkMode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
               </Button>
             </ReactstrapNavItem>
           </Nav>
