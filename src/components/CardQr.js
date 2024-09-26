@@ -2,13 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./CardQr.css";
 import CodigoQrNuevo from '../components/CodigoQrNuevo';
-
 import ModalTandem from "./ModalTandem";
 import EliminarQR from "./EliminarQR";
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce'; // para la función debounce
 import styled from "styled-components";
-import DeleteQr from "./DeleteQr";
+
 
 const CardContainer = styled.div`
   border: 1px solid ${props => props.darkMode ? '#444' : '#ccc'};
@@ -155,11 +154,6 @@ const CardQr = ({ url, isGridView, onUserUpdated,darkMode }) => {
                           boton="Borrar"
                           text={<EliminarQR qr={qrCode.nombre_ref} onUserUpdated={handleUserUpdated} />}
                         />
-                      </li>
-                      <li className="list-inline-item" style={{ cursor: 'pointer' }}>
-                        {/* <DeleteQr 
-                          className="social-link"
-                        /> */}
                       </li>
                     </div>
                   </div>
