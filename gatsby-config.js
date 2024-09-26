@@ -8,6 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: `/carolinacango/tandem-app-qr`,
   siteMetadata: {
     title: `Tandem App Qr`,
     author: {
