@@ -1,4 +1,3 @@
-import { withPrefix } from 'gatsby';
 import React from 'react';
 import { RiShutDownLine } from "react-icons/ri";
 import { withPrefix } from 'gatsby';
